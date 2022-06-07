@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "../../Bulletin-board_Laravel/Bulletin-board-master"
+		},
+		{
+			"path": "../Homestead/bin"
+		},
+		{
+			"path": "."
+		},
+		{
+			"path": "../../Laravel_Atlas/AtlasSNS"
+		}
+	],
+	"settings": {}
+}
