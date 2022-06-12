@@ -28,7 +28,7 @@ class Post extends Model
         // PostSubCategoryとのリレーション
     public function PostSubCategory()
     {
-        return $this->hasMany('App\Models\Posts\PostSubCategory');
+        return $this->belongsTo('App\Models\Posts\PostSubCategory');
     }
 
 
