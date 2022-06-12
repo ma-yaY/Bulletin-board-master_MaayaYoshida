@@ -18,13 +18,15 @@ class PostsController extends Controller
     {
         $auth = Auth::user();
         $user = auth()->user();
-        $post_ids = $Post->topTimeLines($user->id);
+        $timelines = Post::with(['user','postSubCategory'])->get();
+        // dd($timelines);
         //$TopPost = Post::get();
         //$category_id = $PostSubCategory->categoriesIds($id);
-        $categories =  PostMainCategory::with('PostSubCategory')->get();
+        $categories = $user->id = PostMainCategory::with('PostSubCategory')->get();
 
-        return view('/top', ['post_ids' => $post_ids, 'categories' => $categories]);
+        return view('/top', ['timelines' => $timelines, 'categories' => $categories]);
     }
+
 
         //投稿編集
         public function updatePost(Request $request,$id)

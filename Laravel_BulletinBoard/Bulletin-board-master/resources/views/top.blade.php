@@ -6,19 +6,16 @@
   <div class="category-list">
     <h1>投稿一覧</h1>
     <!--foreach-->
-        @foreach($post_ids as $timeLine)
+        @foreach($timelines as $timeLine)
           <div class="main-post">
           <a class="up_main_post_name">{{$timeLine->user->username}}</a>
           <a href="/users/{{$timeLine->id}}/detail">{{$timeLine->title}}</a>
           <a class="up_main_post_name">{{$timeLine->created_at}}</a>
-          <a class="up_main_post">{{$timeLine->post}}</a>
-          @foreach ($categories as $main_category)
-            @foreach ($main_category->PostSubCategory as $sub_category)
-                  <a class="up_sub_category">{{$sub_category->sub_category}}</a>
-              <!--memoにファボボタン試作あり-->
-            @endforeach
-          @endforeach
+          <a class="up_main_post">{{$timeLine->postSubCategory->sub_category}}</a>
+
+          <!--memoにファボボタン試作あり-->
         @endforeach
+
 
       </div>
   <p class="category-btn"><a href="/category">カテゴリーを追加</a></p>

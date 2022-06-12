@@ -35,4 +35,15 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\Posts\Post');
     }
 
+    // PostMain.SubCategoryとのリレーション
+    public function PostMainCategory()
+    {
+        return $this->hasMany('App\Models\Posts\PostMainCategory');
+    }
+
+    public function PostSubCategory()
+    {
+        return $this->hasMany('App\Models\Posts\PostSubCategory');
+    }
+
   }
