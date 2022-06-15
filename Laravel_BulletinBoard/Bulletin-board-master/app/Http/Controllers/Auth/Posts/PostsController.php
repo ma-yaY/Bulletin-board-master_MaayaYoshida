@@ -69,8 +69,6 @@ class PostsController extends Controller
             'sub_category' => $Sub_category
         ]);
         return redirect('/category');
-
-
     }
 
 

@@ -21,7 +21,7 @@
 
         <div class="form-group">
           <p class="comment-form">コメント</p>
-          {!! Form::open([]) !!}
+          {!! Form::open(['url' => 'comment/create']) !!}
             <div>{!! Form::textarea('comment', null, ['class'=> 'input', 'placeholder'=> 'こちらからコメントできます。', 'rows' => 4, 'cols'=> 20]) !!}</div>
             <span class="Form-button">{{ Form::submit('コメント')}}</span>
           {!! Form::close() !!}
