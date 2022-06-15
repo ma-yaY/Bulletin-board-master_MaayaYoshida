@@ -10,9 +10,10 @@
         <a class="user-title">{{$userPost_ids->title}}</a>
         <a class="user-post">{{$userPost_ids->post}}</a>
         <a class="day-time">{{$userPost_ids->created_at}}</a>
-        @foreach ($categories as $categories)
-          <a class="Sub-category">{{$categories->sub_category}}</a>
-        @endforeach
+
+          <a class="Sub-category">{{$userPost_ids->postSubCategory->sub_category}}</a>
+
+
 
 
         <p class="category-btn"><a href="/posts/{{$userPost_ids->id}}/edit">編集</a></p>
@@ -21,8 +22,8 @@
         <div class="form-group">
           <p class="comment-form">コメント</p>
           {!! Form::open([]) !!}
-            <div>{!! Form::textarea('comment', null, ['class'=> 'input', 'placeholder'=> '投稿内容を入力してください。', 'rows' => 4, 'cols'=> 20]) !!}</div>
-            <span class="Form-button">{{ Form::submit('投稿')}}</span>
+            <div>{!! Form::textarea('comment', null, ['class'=> 'input', 'placeholder'=> 'こちらからコメントできます。', 'rows' => 4, 'cols'=> 20]) !!}</div>
+            <span class="Form-button">{{ Form::submit('コメント')}}</span>
           {!! Form::close() !!}
         </div>
     <p class="top"><a href="/top">戻る</a></p>

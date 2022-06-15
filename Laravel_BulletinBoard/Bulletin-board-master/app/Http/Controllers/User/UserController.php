@@ -37,16 +37,18 @@ class UserController extends Controller
         public function detail($id, Post $Post,PostMainCategory $PostMainCategory, PostSubCategory $PostSubCategory){
         $user = User::find($id);
         $userPost_ids = $Post->UserPosts($id);
-        $categories = PostMainCategory::with('PostSubCategory')->get();
-        return view('auth.detail', [ 'userPost_ids'=> $userPost_ids, 'categories' => $categories]);
+        $SubCategorys = Post::with(['user','postSubCategory'])->get();
+
+        return view('auth.detail', [ 'userPost_ids'=> $userPost_ids, 'SubCategorys' => $SubCategorys]);
     }
 
         public function edit(Request $request, $id, Post $Post, PostMainCategory $PostMainCategory, PostSubCategory $PostSubCategory){
         //$this -> detai($request);
         $user = User::find($id);
         $userPost_ids = $Post->UserPosts($id);
-        $categories = PostMainCategory::with('PostSubCategory')->get();
-        return view('posts.edit',[ 'userPost_ids'=> $userPost_ids, 'categories' => $categories]);
+        $SubCategorys = Post::with(['user','postSubCategory'])->get();
+        //$categories = PostMainCategory::with('PostSubCategory')->get();
+        return view('posts.edit',[ 'userPost_ids'=> $userPost_ids, 'SubCategorys' => $SubCategorys]);
          }
 //         public function updateForm(Request $request,$id)
 //    {
