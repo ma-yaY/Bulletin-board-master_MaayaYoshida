@@ -4,12 +4,16 @@
 <!--<h1>投稿編集画面</h1>-->
     <h2>投稿内容</h2>
     @foreach ($userPost_ids as $userPost_ids)
-        {!! Form::open(['url' => 'post/edit'.$userPost_ids->id]) !!}
-         <p class="SubCategory-form">サブカテゴリー</p>
+        {!! Form::open(['url' => 'post/edit']) !!}
+        <p class="SubCategory-form">サブカテゴリー</p>
 
-          <option value="{{$SubCategorys->postSubCategory->sub_category}}">{{$SubCategorys->sub_category}}</option>
+          <select class="form-select" id="SubFormSelect" name="Sub_category">
+              @foreach ($SubCategorys as $Select)
+              <option value="{{$Select->id}}">{{$Select->sub_category}}</option>
+              @endforeach
+          </select>
 
-         <p class="title-form">タイトル</p>
+        <p class="title-form">タイトル</p>
         <div>{{ Form::text('upTitle', $userPost_ids->title,['class' => 'input']) }}</div>
         <p class="title-form">コメント</p>
         <div>{!! Form::textarea('upPost', $userPost_ids->post, ['class' => 'input', 'rows' => 4, 'cols'=> 20]) !!}</div>

@@ -16,4 +16,22 @@ class PostComment extends Model
         'comment',
         'event_at',
     ];
+
+          // UserModelsとのリレーション
+        public function user()
+    {
+        return $this->belongsTo('App\Models\Users\User');
+    }
+
+        // Postとのリレーション
+    public function Post()
+    {
+        return $this->belongsTo('App\Models\Posts\Post');
+    }
+
+    // PostSubCategoryとのリレーション
+    public function PostSubCategory()
+    {
+        return $this->belongsTo('App\Models\Posts\PostSubCategory');
+    }
 }

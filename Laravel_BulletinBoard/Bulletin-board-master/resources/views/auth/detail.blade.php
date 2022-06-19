@@ -16,13 +16,15 @@
 
 
 
+
+
         <p class="category-btn"><a href="/posts/{{$userPost_ids->id}}/edit">編集</a></p>
       </div>
 
         <div class="form-group">
           <p class="comment-form">コメント</p>
           {!! Form::open(['url' => 'comment/create']) !!}
-            <div>{!! Form::textarea('comment', null, ['class'=> 'input', 'placeholder'=> 'こちらからコメントできます。', 'rows' => 4, 'cols'=> 20]) !!}</div>
+            <input type="hidden">{!! Form::textarea('comment', null, [ 'placeholder'=> 'こちらからコメントできます。', 'rows' => 4, 'cols'=> 20]) !!}</input>
             <span class="Form-button">{{ Form::submit('コメント')}}</span>
           {!! Form::close() !!}
         </div>

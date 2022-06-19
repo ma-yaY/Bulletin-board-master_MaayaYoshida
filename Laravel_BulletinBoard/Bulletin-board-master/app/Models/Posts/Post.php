@@ -4,7 +4,9 @@ namespace App\Models\Posts;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Users\User;
+use App\Models\Posts\PostComment;
 use App\Http\Controllers\User\UserController;
+use App\Http\Controllers\Auth\Posts\PostCommentsController;
 
 class Post extends Model
 {
@@ -29,6 +31,11 @@ class Post extends Model
     public function PostSubCategory()
     {
         return $this->belongsTo('App\Models\Posts\PostSubCategory');
+    }
+
+    public function PostComment()
+    {
+        return $this->hasMany('App\Models\Posts\PostComment');
     }
 
 
