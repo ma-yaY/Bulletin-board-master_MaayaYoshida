@@ -34,4 +34,12 @@ class PostComment extends Model
     {
         return $this->belongsTo('App\Models\Posts\PostSubCategory');
     }
+
+
+    public function CommentPosts(Int $id)
+    {
+    $commentPost_ids[] = $id;
+
+    return $this->where('id', $commentPost_ids)->orderBy('created_at', 'DESC')->paginate();
+    }
 }

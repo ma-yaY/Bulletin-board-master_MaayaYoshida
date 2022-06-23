@@ -43,7 +43,6 @@ class UserController extends Controller
     }
 
         public function edit(Request $request, $id, Post $Post, PostMainCategory $PostMainCategory, PostSubCategory $PostSubCategory){
-        //$this -> detai($request);
         $user = User::find($id);
         $userPost_ids = $Post->UserPosts($id);
         $SubCategorys = Post::with(['user','postSubCategory'])->get();

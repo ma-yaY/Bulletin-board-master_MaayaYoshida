@@ -15,9 +15,9 @@ use Carbon\Carbon;
 
 class PostCommentsController extends Controller
 {
-    public function comment(Request $request, Post $Post, $id, PostComment $PostComment)
+    public function comment(Request $request)
     {
-        dd($request);
+
         $auth = Auth::user();
         $post_id = Post::with(['user', 'PostComment'])->get();
         $comment = $request->input('comment');

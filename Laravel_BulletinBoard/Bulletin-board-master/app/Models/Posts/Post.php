@@ -51,7 +51,7 @@ class Post extends Model
     {
         $userPost_ids[] = $id;
 
-        return $this->where('id', $userPost_ids)->orderBy('created_at', 'DESC')->paginate();
+        return $this->where('id', $userPost_ids);
     }
 
 
