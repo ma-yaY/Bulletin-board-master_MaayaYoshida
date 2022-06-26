@@ -15,9 +15,10 @@ use Carbon\Carbon;
 
 class PostCommentsController extends Controller
 {
+    //詳細画面コメント追加
     public function comment(Request $request)
     {
-
+        dd($request);
         $auth = Auth::user();
         $post_id = Post::with(['user', 'PostComment'])->get();
         $comment = $request->input('comment');
@@ -26,11 +27,11 @@ class PostCommentsController extends Controller
         $event_at = Carbon::now();
         PostComment::create([
             'user_id' => Auth::id(),
-            'post_id' => $post_id,
+            'post_id' => $request->input('id'),
             'comment' => $comment,
             'delete_user_id' => $delete_user_id,
             'update_user_id' => $update_user_id,
-            'event_at' => $event_at
+            'event_at' => $event_at,
         ]);
 
 

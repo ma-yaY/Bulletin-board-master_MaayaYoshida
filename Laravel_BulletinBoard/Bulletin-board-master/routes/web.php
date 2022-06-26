@@ -52,7 +52,7 @@ Route::post('/login', 'Auth\Login\LoginController@login');
 
 
   Route::get('/posts/{id}/edit', 'User\UserController@edit');
-  Route::post('/post/detail{id}', 'Auth\Posts\PostsController@updatePost');
+  //Route::post('/post/detail{id}', 'Auth\Posts\PostsController@updatePost');
 
  //コメント取消処理
  // Route::get('/comments/{comment_id}', '\Admin\Post\CommentsController@destroy');

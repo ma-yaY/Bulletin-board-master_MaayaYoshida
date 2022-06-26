@@ -36,7 +36,7 @@ class UserController extends Controller
         //掲示板詳細画面
         public function detail($id, Post $Post,PostMainCategory $PostMainCategory, PostSubCategory $PostSubCategory){
         $user = User::find($id);
-        $userPost_ids = $Post->UserPosts($id);
+        $userPost_ids = $Post->UserPosts($id)->get();
         $SubCategorys = Post::with(['user','postSubCategory'])->get();
 
         return view('auth.detail', [ 'userPost_ids'=> $userPost_ids, 'SubCategorys' => $SubCategorys]);
@@ -44,7 +44,7 @@ class UserController extends Controller
 
         public function edit(Request $request, $id, Post $Post, PostMainCategory $PostMainCategory, PostSubCategory $PostSubCategory){
         $user = User::find($id);
-        $userPost_ids = $Post->UserPosts($id);
+        $userPost_ids = $Post->UserPosts($id)->get();
         $SubCategorys = Post::with(['user','postSubCategory'])->get();
         //$categories = PostMainCategory::with('PostSubCategory')->get();
         return view('posts.edit',[ 'userPost_ids'=> $userPost_ids, 'SubCategorys' => $SubCategorys]);
