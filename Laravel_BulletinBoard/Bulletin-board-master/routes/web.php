@@ -48,7 +48,10 @@ Route::post('/login', 'Auth\Login\LoginController@login');
 
      //コメント投稿処理
   Route::post('/comment/create', 'Auth\Posts\PostCommentsController@comment');
-  Route::get('/post/detail', 'Auth\Posts\PostsController@updatePost');
+
+
+
+    Route::get('/post/detail', 'Auth\Posts\PostsController@updatePost');
 
 
   Route::get('/posts/{id}/edit', 'User\UserController@edit');

@@ -15,10 +15,19 @@ use Carbon\Carbon;
 
 class PostCommentsController extends Controller
 {
+
+     //掲示板詳細画面コメント表示
+        public function detail_Comment($id, Post $Post){
+        $user = User::find($id);
+        $userPost_ids = $Post->UserPosts($id)->get();
+
+
+        return view('auth.detail', [ 'userPost_ids'=> $userPost_ids, 'SubCategorys' => $SubCategorys]);
+    }
     //詳細画面コメント追加
     public function comment(Request $request)
     {
-        dd($request);
+        //dd($request);
         $auth = Auth::user();
         $post_id = Post::with(['user', 'PostComment'])->get();
         $comment = $request->input('comment');
@@ -31,10 +40,14 @@ class PostCommentsController extends Controller
             'comment' => $comment,
             'delete_user_id' => $delete_user_id,
             'update_user_id' => $update_user_id,
-            'event_at' => $event_at,
+            'event_at' => $event_at
         ]);
 
 
-       return redirect('/detail');
+       return back();
     }
+
+
+
+
 }

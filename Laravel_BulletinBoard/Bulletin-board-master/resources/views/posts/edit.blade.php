@@ -8,8 +8,9 @@
         <p class="SubCategory-form">サブカテゴリー</p>
 
           <select class="form-select" id="SubFormSelect" name="Sub_category">
-              @foreach ($SubCategorys as $Select)
-              <option value="{{$Select->id}}">{{$Select->sub_category}}</option>
+              @foreach ($SubCategorys as $Sub_categories)
+              <option value="{{$Sub_categories->id}}">{{
+              $Sub_categories->postSubCategory->sub_category}}</option>
               @endforeach
           </select>
 

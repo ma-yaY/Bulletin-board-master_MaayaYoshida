@@ -9,8 +9,8 @@
         <a class="user-title">{{$userPost_ids->title}}</a>
         <a class="user-post">{{$userPost_ids->post}}</a>
         <a class="day-time">{{$userPost_ids->created_at}}</a>
-
-          <a class="Sub-category">{{$userPost_ids->postSubCategory->sub_category}}</a>
+          <!--コメントのリレーション確認-->
+          <a class="comment">{{$userPost_ids->postSubCategory->comment}}</a>
 
         <p class="category-btn"><a href="/posts/{{$userPost_ids->id}}/edit">編集</a></p>
       </div>
@@ -18,7 +18,8 @@
           <div class="form-group">
               <p class="comment-form">コメント</p>
               {!! Form::open(['url' => 'comment/create']) !!}
-                <div>{!! Form::textarea('comment','null',['class' => 'input', 'type' => 'hidden', 'id' => 'comment', 'placeholder'=> 'こちらからコメントできます。', 'rows' => 4, 'cols'=> 20]) !!}</div>
+              {!! Form::hidden('id', $userPost_ids->id) !!}
+                <div>{!! Form::textarea('comment', null,['class' => 'input', 'id' => 'comment', 'placeholder'=> 'こちらからコメントできます。', 'rows' => 4, 'cols'=> 20]) !!}</div>
                 <span class="Form-button">{{ Form::submit('コメント')}}</span>
               {!! Form::close() !!}
             </div>
