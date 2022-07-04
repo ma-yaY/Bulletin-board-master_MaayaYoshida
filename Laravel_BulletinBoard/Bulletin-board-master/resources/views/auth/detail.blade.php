@@ -10,7 +10,10 @@
         <a class="user-post">{{$userPost_ids->post}}</a>
         <a class="day-time">{{$userPost_ids->created_at}}</a>
           <!--コメントのリレーション確認-->
-          <a class="comment">{{$userPost_ids->postSubCategory->comment}}</a>
+
+          <a class="comment">{{$userPost_ids->post_comments}}</a>
+
+
 
         <p class="category-btn"><a href="/posts/{{$userPost_ids->id}}/edit">編集</a></p>
       </div>

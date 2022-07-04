@@ -17,17 +17,17 @@ class PostCommentsController extends Controller
 {
 
      //掲示板詳細画面コメント表示
-        public function detail_Comment($id, Post $Post){
+        public function detail_Comment($id, Post $Post, PostComment $PostComment){
+        dd($PostComment);
         $user = User::find($id);
         $userPost_ids = $Post->UserPosts($id)->get();
-
-
-        return view('auth.detail', [ 'userPost_ids'=> $userPost_ids, 'SubCategorys' => $SubCategorys]);
+        $comment = $PostComment->get();
+        return view('auth.detail', [ 'userPost_ids'=> $userPost_ids, 'SubCategorys' => $SubCategorys, 'comment' => $comment]);
     }
     //詳細画面コメント追加
     public function comment(Request $request)
     {
-        //dd($request);
+
         $auth = Auth::user();
         $post_id = Post::with(['user', 'PostComment'])->get();
         $comment = $request->input('comment');

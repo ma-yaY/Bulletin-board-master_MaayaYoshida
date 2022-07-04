@@ -28,17 +28,7 @@ class PostsController extends Controller
     }
 
 
-        //投稿編集
-        public function updatePost(Request $request,$id)
-    {
-        $up_post = $request->input('upPost');
-        \DB::table('posts')
-            ->where('id', $id)
-            ->update(
-                ['post' => $up_post]
-            );
-        return redirect('detail');
-    }
+
 
     //ALLカテゴリ表示
     public function Category(PostMainCategory $PostMainCategory, PostSubCategory $PostSubCategory)

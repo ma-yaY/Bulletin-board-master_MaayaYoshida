@@ -4,7 +4,7 @@
 <!--<h1>投稿編集画面</h1>-->
     <h2>投稿内容</h2>
     @foreach ($userPost_ids as $userPost_ids)
-        {!! Form::open(['url' => 'post/edit']) !!}
+        {!! Form::open(['url' => 'post/edit'.$userPost_ids->id]) !!}
         <p class="SubCategory-form">サブカテゴリー</p>
 
           <select class="form-select" id="SubFormSelect" name="Sub_category">
