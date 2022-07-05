@@ -9,14 +9,17 @@
         <a class="user-title">{{$userPost_ids->title}}</a>
         <a class="user-post">{{$userPost_ids->post}}</a>
         <a class="day-time">{{$userPost_ids->created_at}}</a>
-          <!--コメントのリレーション確認-->
-
-          <a class="comment">{{$userPost_ids->post_comments}}</a>
-
-
-
         <p class="category-btn"><a href="/posts/{{$userPost_ids->id}}/edit">編集</a></p>
       </div>
+
+        <div class="commentArea" >
+          @foreach ($commentPosts as $commentPosts)
+            <a class="comment">{{$commentPosts->comment}}</a>
+          @endforeach
+
+
+
+
 
           <div class="form-group">
               <p class="comment-form">コメント</p>
@@ -27,6 +30,7 @@
               {!! Form::close() !!}
             </div>
           <p class="top"><a href="/top">戻る</a></p>
+        </div>
     @endforeach
 
 @endsection

@@ -48,15 +48,18 @@ Route::post('/login', 'Auth\Login\LoginController@login');
 
      //コメント投稿処理
   Route::post('/comment/create', 'Auth\Posts\PostCommentsController@comment');
-  Route::get('/comment/create', 'Auth\Posts\PostCommentsController@comment');
+  Route::get('/users/{id}/detail', 'Auth\Posts\PostCommentsController@CommentPosts');
+  Route::get('/users/{id}/detail', 'User\UserController@detail');
+  //Route::get('/users/{id}/detail', 'User\UserController@detail');
 
 
-  Route::post('/post/edit{id}', 'User\UserController@updatePost');
 
-    Route::get('/post/{id}/delete', 'Auth\Posts\PostsController@delete');
+
+  Route::get('/post/{id}/delete', 'Auth\Posts\PostsController@delete');
 
 
   Route::get('/posts/{id}/edit', 'User\UserController@edit');
+  Route::post('/post/edit{id}', 'User\UserController@updatePost');
   //Route::post('/post/detail{id}', 'Auth\Posts\PostsController@updatePost');
 
  //コメント取消処理
