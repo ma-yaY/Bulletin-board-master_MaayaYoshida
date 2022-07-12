@@ -21,12 +21,14 @@ class UserController extends Controller
 
         //掲示板詳細画面
         public function detail($id, Post $Post,PostMainCategory $PostMainCategory, PostSubCategory $PostSubCategory,PostComment $PostComment){
+
         $user = User::find($id);
         $userPost_ids = $Post->UserPosts($id)->get();
         $SubCategorys = Post::with(['user','postSubCategory'])->get();
         //掲示板詳細画面コメント表示
-        $commentPosts = PostComment::with(['user','Post'])->get();
-        return view('auth.detail', [ 'userPost_ids'=> $userPost_ids, 'SubCategorys' => $SubCategorys, 'commentPosts' => $commentPosts]);
+        $CommentPosts = PostComment::with(['user','Post'])->get();
+
+        return view('auth.detail', [ 'userPost_ids'=> $userPost_ids, 'SubCategorys' => $SubCategorys, 'CommentPosts' => $CommentPosts]);
     }
         //投稿編集画面
         public function edit(Request $request, $id, Post $Post, PostMainCategory $PostMainCategory, PostSubCategory $PostSubCategory){

@@ -13,8 +13,10 @@
       </div>
 
         <div class="commentArea" >
-          @foreach ($commentPosts as $commentPosts)
-            <a class="comment">{{$commentPosts->comment}}</a>
+          @foreach ($CommentPosts as $CommentPosts)
+
+            <a class="comment">{{$CommentPosts->comment}}</a>
+
           @endforeach
 
 
