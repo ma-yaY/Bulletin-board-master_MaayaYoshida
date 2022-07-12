@@ -60,7 +60,10 @@ Route::post('/login', 'Auth\Login\LoginController@login');
 
   Route::get('/posts/{id}/edit', 'User\UserController@edit');
   Route::post('/post/edit{id}', 'User\UserController@updatePost');
-  //Route::post('/post/detail{id}', 'Auth\Posts\PostsController@updatePost');
+
+       //検索機能s
+   Route::post('/result','Auth\Posts\PostsController@search');
+   Route::get('/result','Auth\Posts\PostsController@search');
 
  //コメント取消処理
  // Route::get('/comments/{comment_id}', '\Admin\Post\CommentsController@destroy');

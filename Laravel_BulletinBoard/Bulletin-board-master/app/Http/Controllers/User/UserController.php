@@ -19,22 +19,6 @@ use Carbon\Carbon;
 class UserController extends Controller
 {
 
-
-    public function search(Request $request){
-        $user = \DB::table('users')->get();
-        return view('/top',['user'=> $user]);
-
-        $keyword = $request->input('keyword');
-    }
-
-        public function result(Request $request){
-        $keyword = $request->input('keyword');
-        $user= \DB::table('users')
-            ->where('username','LIKE',"%{$keyword}%")->get();
-
-
-            return view('/top',['user'=> $user]);
-    }
         //掲示板詳細画面
         public function detail($id, Post $Post,PostMainCategory $PostMainCategory, PostSubCategory $PostSubCategory,PostComment $PostComment){
         $user = User::find($id);

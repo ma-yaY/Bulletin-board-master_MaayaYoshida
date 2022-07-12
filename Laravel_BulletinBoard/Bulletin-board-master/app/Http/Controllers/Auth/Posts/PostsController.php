@@ -19,14 +19,19 @@ class PostsController extends Controller
         $auth = Auth::user();
         $user = auth()->user();
         $timelines = Post::with(['user','postSubCategory'])->get();
-        // dd($timelines);
-        //$TopPost = Post::get();
-        //$category_id = $PostSubCategory->categoriesIds($id);
-        $categories = $user->id = PostMainCategory::with('PostSubCategory')->get();
 
-        return view('/top', ['timelines' => $timelines, 'categories' => $categories]);
+        return view('/top', ['timelines' => $timelines]);
     }
 
+    //検索機能
+        public function search(Request $request){
+            dd($request);
+            $keyword = $request->input('keyword');
+            $timelines= Post::with(['user','postSubCategory'])
+            ->where('title','sub_category',"%{$keyword}%")->get();
+
+            return view('top',['timelines' => $timelines]);
+    }
 
 
 
@@ -35,8 +40,7 @@ class PostsController extends Controller
     {
         $auth = Auth::user();
         $user = auth()->user();
-        //$Main_categories = PostMainCategory::all();
-        //$Sub_categories = PostSubCategory::all();
+
         $categories = PostMainCategory::with('PostSubCategory')->get();
         return view('category',['categories' => $categories, ]);
     }
