@@ -24,9 +24,8 @@ class UserController extends Controller
         $user = User::find($id);
         $userPost_ids = $Post->UserPosts($id)->get();
         $SubCategorys = Post::with(['user','postSubCategory','PostComment'])->find($id);
-
-        $CommentPosts = PostComment::with(['user','Post'])->get();
-        return view('auth.detail', [ 'userPost_ids'=> $userPost_ids, 'SubCategorys' => $SubCategorys, 'CommentPosts' => $CommentPosts]);
+        //findで取り出すものを特定する。getは全部持ってきちゃう
+        return view('auth.detail', [ 'userPost_ids'=> $userPost_ids, 'SubCategorys' => $SubCategorys]);
     }
         //投稿編集画面
         public function edit(Request $request, $id, Post $Post, PostMainCategory $PostMainCategory, PostSubCategory $PostSubCategory){
@@ -59,6 +58,8 @@ class UserController extends Controller
             ]);
         return view('auth.detail',[ 'userPost_ids'=> $userPost_ids,]);
     }
+
+
 
 
 //    public function delete($id)

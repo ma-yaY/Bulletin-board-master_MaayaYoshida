@@ -9,13 +9,15 @@
         <a class="user-title">{{$userPost_ids->title}}</a>
         <a class="user-post">{{$userPost_ids->post}}</a>
         <a class="day-time">{{$userPost_ids->created_at}}</a>
-        <p class="category-btn"><a href="/posts/{{$userPost_ids->id}}/edit">編集</a></p>
+        <p class="edit-btn"><a href="/posts/{{$userPost_ids->id}}/edit">編集</a></p>
       </div>
 
         <div class="commentArea" >
+          <!--＄SubCategorysの中のリレーション先を指示$commentで特定-->
           @foreach ($SubCategorys->PostComment as $comment)
-          {{$comment->comment}}
+          <a class="comment">{{$comment->comment}}</a>
           {{$comment->user->username}}
+          <p class="CommentEdit-btn"><a href="/posts/{{$comment->id}}/CommentEdit">編集</a></p>
           @endforeach
 
 

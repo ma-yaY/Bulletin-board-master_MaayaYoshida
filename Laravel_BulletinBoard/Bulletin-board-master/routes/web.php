@@ -32,6 +32,12 @@ Route::post('/login', 'Auth\Login\LoginController@login');
 
    Route::get('/top', 'Auth\Posts\PostsController@index');
 
+
+         //検索機能s
+   Route::post('/result','Auth\Posts\PostsController@search');
+   Route::get('/result','Auth\Posts\PostsController@search');
+
+
    Route::get('/category', 'Auth\Posts\PostsController@Category');
    Route::post('category/create', 'Auth\Posts\PostsController@MainCreate');
    Route::post('category/createSub', 'Auth\Posts\PostsController@SubCreate');
@@ -54,16 +60,19 @@ Route::post('/login', 'Auth\Login\LoginController@login');
 
 
 
+  Route::get('/posts/{id}/edit', 'User\UserController@edit');
+  Route::post('/post/edit{id}', 'User\UserController@updatePost');
+
+
+  Route::get('/posts/{id}/CommentEdit', 'Auth\Posts\PostCommentsController@CommentEdit');
+  Route::post('/posts/{id}/CommentEdit', 'Auth\Posts\PostCommentsController@CommentEdit');
 
   Route::get('/post/{id}/delete', 'Auth\Posts\PostsController@delete');
 
 
-  Route::get('/posts/{id}/edit', 'User\UserController@edit');
-  Route::post('/post/edit{id}', 'User\UserController@updatePost');
+  //Route::post('/post/edit{id}', 'Auth\Posts\PostCommentsController@CommentEdit');
 
-       //検索機能s
-   Route::post('/result','Auth\Posts\PostsController@search');
-   Route::get('/result','Auth\Posts\PostsController@search');
+
 
  //コメント取消処理
  // Route::get('/comments/{comment_id}', '\Admin\Post\CommentsController@destroy');

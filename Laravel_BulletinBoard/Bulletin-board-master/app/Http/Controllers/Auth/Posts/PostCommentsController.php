@@ -41,5 +41,17 @@ class PostCommentsController extends Controller
 
 
 
+         //コメント編集画面
+        public function CommentEdit(Request $request){
+
+
+
+
+        return view('posts.CommentEdit');
+         }
+
+
+
+
 
 }
