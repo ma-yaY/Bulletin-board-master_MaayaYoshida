@@ -19,16 +19,14 @@ class PostsController extends Controller
         $auth = Auth::user();
         $user = auth()->user();
         $timelines = Post::with(['user','postSubCategory'])->get();
-
         return view('/top', ['timelines' => $timelines]);
     }
 
     //検索機能
         public function search(Request $request){
-            dd($request);
             $keyword = $request->input('keyword');
             $timelines= Post::with(['user','postSubCategory'])
-            ->where('title','sub_category',"%{$keyword}%")->get();
+            ->where('title','LIKE',"%{$keyword}%")->get();
 
             return view('top',['timelines' => $timelines]);
     }

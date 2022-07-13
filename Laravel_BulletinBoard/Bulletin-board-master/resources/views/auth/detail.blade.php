@@ -13,13 +13,10 @@
       </div>
 
         <div class="commentArea" >
-          @foreach ($CommentPosts as $CommentPosts)
-
-            <a class="comment">{{$CommentPosts->comment}}</a>
-
+          @foreach ($SubCategorys->PostComment as $comment)
+          {{$comment->comment}}
+          {{$comment->user->username}}
           @endforeach
-
-
 
 
 
