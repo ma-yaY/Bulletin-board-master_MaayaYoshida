@@ -46,6 +46,7 @@ class Post extends Model
 
         return $this->whereIn('user_id', $post_ids)->orderBy('created_at', 'DESC')->paginate();
     }
+
     //ユーザーの投稿とidを繋ぐ処理
     public function UserPosts(Int $id)
     {

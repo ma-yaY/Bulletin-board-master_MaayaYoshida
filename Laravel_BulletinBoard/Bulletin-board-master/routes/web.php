@@ -70,7 +70,7 @@ Route::post('/login', 'Auth\Login\LoginController@login');
   Route::get('/post/{id}/delete', 'Auth\Posts\PostsController@delete');
 
 
-  //Route::post('/post/edit{id}', 'Auth\Posts\PostCommentsController@CommentEdit');
+  Route::post('/post/edit{id}', 'Auth\Posts\PostCommentsController@CommentEdit');
 
 
 

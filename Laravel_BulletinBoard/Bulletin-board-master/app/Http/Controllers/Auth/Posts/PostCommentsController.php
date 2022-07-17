@@ -39,15 +39,25 @@ class PostCommentsController extends Controller
        return back();
     }
 
+    public function edit(Request $request, $id, Post $Post, PostMainCategory $PostMainCategory, PostSubCategory $PostSubCategory){
+        $user = User::find($id);
+        $userPost_ids = $Post->UserPosts($id)->get();
+        $SubCategorys = Post::with(['user','postSubCategory'])->get();
+
+        return view('posts.edit',[ 'userPost_ids'=> $userPost_ids, 'SubCategorys' => $SubCategorys]);
+         }
+
 
 
          //コメント編集画面
-        public function CommentEdit(Request $request){
+        public function CommentEdit(Request $request, $id)
+        {
+
+            $user = User::find($id);
+            $Comment = Post::with(['user','PostComment'])->get();
 
 
-
-
-        return view('posts.CommentEdit');
+        return view('posts.CommentEdit',['Comment' => $Comment]);
          }
 
 

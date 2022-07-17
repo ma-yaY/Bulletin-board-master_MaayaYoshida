@@ -13,7 +13,6 @@
               $Sub_categories->postSubCategory->sub_category}}</option>
               @endforeach
           </select>
-
         <p class="title-form">タイトル</p>
         <div>{{ Form::text('upTitle', $userPost_ids->title,['class' => 'input']) }}</div>
         <p class="title-form">コメント</p>
@@ -22,10 +21,12 @@
         <div class="submit-btn">
           <button type="submit" class="btn btn-button-close" href="/post/{{$userPost_ids->id}}/detail">更新</button>
         </div>
-        <div class="Danger-btn">
-          <button><a class="btn-danger" href="post/{{$userPost_ids->id}}/delete" onclick="return confirm('こちらの投稿を削除してもよろしいでしょうか？')"><div class="trash-image">削除</div></a></button>
-        </div>
+
       </div>
         {!! Form::close() !!}
+
     @endforeach
+        <div class="Danger-btn">
+          <a class="btn-danger" href="/post/{{$userPost_ids->id}}/delete" onclick="return confirm('こちらの投稿を削除してもよろしいでしょうか？')">削除</a>
+        </div>
 @endsection

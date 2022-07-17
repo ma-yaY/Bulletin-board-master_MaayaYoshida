@@ -27,6 +27,7 @@ class UserController extends Controller
         //findで取り出すものを特定する。getは全部持ってきちゃう
         return view('auth.detail', [ 'userPost_ids'=> $userPost_ids, 'SubCategorys' => $SubCategorys]);
     }
+
         //投稿編集画面
         public function edit(Request $request, $id, Post $Post, PostMainCategory $PostMainCategory, PostSubCategory $PostSubCategory){
         $user = User::find($id);
@@ -62,13 +63,6 @@ class UserController extends Controller
 
 
 
-//    public function delete($id)
-//    {
-//        \DB::table('posts')
-//            ->where('id', $id)
-//            ->delete();
 
-//        return redirect('top');
-//    }
 
 }
