@@ -56,12 +56,12 @@ Route::post('/login', 'Auth\Login\LoginController@login');
   Route::post('/comment/create', 'Auth\Posts\PostCommentsController@comment');
   Route::get('/users/{id}/detail', 'Auth\Posts\PostCommentsController@CommentPosts');
   Route::get('/users/{id}/detail', 'User\UserController@detail');
-  //Route::get('/users/{id}/detail', 'User\UserController@detail');
+
 
 
 
   Route::get('/posts/{id}/edit', 'User\UserController@edit');
-  Route::post('/post/edit{id}', 'User\UserController@updatePost');
+  Route::post('/posts/Edit{id}', 'User\UserController@updatePost');
 
 
   Route::get('/posts/{id}/CommentEdit', 'Auth\Posts\PostCommentsController@CommentEdit');

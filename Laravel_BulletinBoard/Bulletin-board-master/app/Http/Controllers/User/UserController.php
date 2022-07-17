@@ -41,11 +41,11 @@ class UserController extends Controller
         public function updatePost(Request $request,$id, Post $Post)
     {
         $userPost_ids = $Post->UserPosts($id)->get();
+        $SubCategorys = Post::with(['user','postSubCategory','PostComment'])->find($id);
         $up_post = $request->input('upPost');
         $up_title = $request->input('upTitle');
         $delete_user_id = Auth::user()->id;
         $update_user_id = $delete_user_id;
-
         $event_at = Carbon::now();
         \DB::table('posts')
             ->where('id', $id)
@@ -57,7 +57,7 @@ class UserController extends Controller
                 'event_at' => $event_at
 
             ]);
-        return view('auth.detail',[ 'userPost_ids'=> $userPost_ids,]);
+        return view('auth.detail',[ 'userPost_ids'=> $userPost_ids,  'SubCategorys' => $SubCategorys]);
     }
 
 
