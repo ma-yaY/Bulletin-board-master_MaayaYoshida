@@ -36,10 +36,10 @@ class PostComment extends Model
     }
 
 
-    public function CommentPosts(Int $post_id)
+    public function CommentPost(Int $id)
     {
-    $CommentPosts[] = $post_id;
+    $comment_id[] = $id;
 
-    return $this->where('post_id', $CommentPosts)->orderBy('created_at', 'DESC')->paginate();
+    return $this->where('post_id', $comment_id)->orderBy('created_at', 'DESC')->paginate();
     }
 }

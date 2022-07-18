@@ -34,8 +34,10 @@ class UserController extends Controller
         $userPost_ids = $Post->UserPosts($id)->get();
         $SubCategorys = Post::with(['user','postSubCategory'])->get();
 
+
         return view('posts.edit',[ 'userPost_ids'=> $userPost_ids, 'SubCategorys' => $SubCategorys]);
          }
+
 
         //投稿編集詳細画面に戻る
         public function updatePost(Request $request,$id, Post $Post)

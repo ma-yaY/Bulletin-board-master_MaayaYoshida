@@ -27,7 +27,7 @@ class Post extends Model
         return $this->belongsTo('App\Models\Users\User');
     }
 
-        // PostSubCategoryとのリレーション
+      // PostSubCategoryとのリレーション
     public function PostSubCategory()
     {
         return $this->belongsTo('App\Models\Posts\PostSubCategory');
