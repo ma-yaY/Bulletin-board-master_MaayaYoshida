@@ -53,11 +53,11 @@ class PostCommentsController extends Controller
         public function CommentEdit(Request $request, $id, Post $Post, PostComment $PostComment)
         {
             $user = User::find($id);
-            //$userPost_ids = $Post->UserPosts($id)->get();
-            //$SubCategorys = Post::with(['user','postSubCategory'])->get();
-            //$Comment = PostComment::with(['user','Post'])->find($id);
+            $Comment_ids = $PostComment->UserComments($id)->get();
+            $Comment = PostComment::with(['user','Post'])->find($id);
+            dd($Comment);
 
-        return view('posts.CommentEdit',[ ]);
+        return view('posts.CommentEdit',[ 'Comment_ids' => $Comment_ids, 'Comment' => $Comment ]);
          }
 
 

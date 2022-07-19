@@ -42,8 +42,9 @@ class UserController extends Controller
         //投稿編集詳細画面に戻る
         public function updatePost(Request $request,$id, Post $Post)
     {
+
         $userPost_ids = $Post->UserPosts($id)->get();
-        $SubCategorys = Post::with(['user','postSubCategory','PostComment'])->find($id);
+        $SubCategorys = Post::with(['user','PostSubCategory','PostComment'])->find($id);
         $up_post = $request->input('upPost');
         $up_title = $request->input('upTitle');
         $delete_user_id = Auth::user()->id;
@@ -59,6 +60,7 @@ class UserController extends Controller
                 'event_at' => $event_at
 
             ]);
+
         return view('auth.detail',[ 'userPost_ids'=> $userPost_ids,  'SubCategorys' => $SubCategorys]);
     }
 

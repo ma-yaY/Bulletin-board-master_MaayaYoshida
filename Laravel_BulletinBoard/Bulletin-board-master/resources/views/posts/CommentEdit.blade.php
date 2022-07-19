@@ -3,15 +3,17 @@
 @section('title', '掲示板詳細画面')
 @section('content')
     <h2>コメント内容</h2>
-
-      {!! Form::open(['url' => 'post/commentEdit']) !!}
-
-
+    @foreach ($Comment_ids as $Comment_ids)
+      {!! Form::open(['url' => 'post/commentEdit'.$Comment_ids->id]) !!}
+      @foreach ($Comment as $Comment)
           <div class='commentEditForm'>
-            <div>{!! Form::textarea('upComment', null, ['class' => 'input']) !!}</div>
+            <div>{!! Form::textarea('upComment', $Comment->comment, ['class' => 'input']) !!}</div>
           </div>
 
           {!! Form::close() !!}
+      @endforeach
+    @endforeach
+
           <div class="submit-btn">
               <button type="submit" class="btn btn-button-close" href="/post/detail">更新</button>
           </div>
