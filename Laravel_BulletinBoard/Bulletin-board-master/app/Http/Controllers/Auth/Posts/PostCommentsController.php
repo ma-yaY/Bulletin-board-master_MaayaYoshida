@@ -55,9 +55,9 @@ class PostCommentsController extends Controller
             $user = User::find($id);
             $Comment_ids = $PostComment->UserComments($id)->get();
             $Comment = PostComment::with(['user','Post'])->find($id);
-            dd($Comment);
+            //dd($Comment_ids);
 
-        return view('posts.CommentEdit',[ 'Comment_ids' => $Comment_ids, 'Comment' => $Comment ]);
+        return view('posts.CommentEdit',[ 'Comment_ids' => $Comment_ids,]);
          }
 
 

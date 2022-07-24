@@ -5,13 +5,12 @@
     <h2>コメント内容</h2>
     @foreach ($Comment_ids as $Comment_ids)
       {!! Form::open(['url' => 'post/commentEdit'.$Comment_ids->id]) !!}
-      @foreach ($Comment as $Comment)
+
           <div class='commentEditForm'>
-            <div>{!! Form::textarea('upComment', $Comment->comment, ['class' => 'input']) !!}</div>
+            <div>{!! Form::textarea('upComment', $Comment_ids->comment, ['class' => 'input']) !!}</div>
           </div>
 
           {!! Form::close() !!}
-      @endforeach
     @endforeach
 
           <div class="submit-btn">
