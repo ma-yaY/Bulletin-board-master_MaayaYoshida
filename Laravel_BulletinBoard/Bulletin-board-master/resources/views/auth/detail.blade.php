@@ -17,7 +17,7 @@
           @foreach ($SubCategorys->PostComment as $comment)
           <a class="comment">{{$comment->comment}}</a>
           {{$comment->user->username}}
-          <p class="CommentEdit-btn"><a href="/posts/{{$comment->id}}/CommentEdit">編集</a></p>
+          <p class="CommentEdit-btn"><a href="/posts/{{$comment->id}}/Edit">編集</a></p>
           @endforeach
 
 

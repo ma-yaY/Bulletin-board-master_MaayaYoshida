@@ -104,7 +104,7 @@ class PostsController extends Controller
         return redirect('category');
     }
 
-
+       //投稿削除
         public function delete($id)
     {
 

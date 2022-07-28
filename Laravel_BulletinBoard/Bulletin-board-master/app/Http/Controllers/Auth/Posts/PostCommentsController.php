@@ -40,15 +40,6 @@ class PostCommentsController extends Controller
     }
 
 
-    public function edit(Request $request, $id, Post $Post, PostMainCategory $PostMainCategory, PostSubCategory $PostSubCategory){
-        $user = User::find($id);
-        $userPost_ids = $Post->UserPosts($id)->get();
-        $SubCategorys = Post::with(['user','postSubCategory'])->get();
-
-
-        return view('posts.edit',[ 'userPost_ids'=> $userPost_ids, 'SubCategorys' => $SubCategorys]);
-         }
-
          //コメント編集画面
         public function CommentEdit(Request $request, $id, Post $Post, PostComment $PostComment)
         {
@@ -57,12 +48,38 @@ class PostCommentsController extends Controller
             $Comment = PostComment::with(['user','Post'])->find($id);
             //dd($Comment_ids);
 
-        return view('posts.CommentEdit',[ 'Comment_ids' => $Comment_ids,]);
+        return view('posts.CommentEdit',['Comment_ids' => $Comment_ids, 'Comment' => $Comment]);
          }
 
+         //コメント編集詳細画面に戻る
+         public function updateComment(Request $request,$id, Post $Post)
+    {
+        $Comment_ids = $Post->UserPosts($id)->get();
+        $Comment = PostComment::with(['user','Post'])->find($id);
+        $up_comment = $request->input('upComment');
+        $delete_user_id = Auth::user()->id;
+        $update_user_id = $delete_user_id;
+        $event_at = Carbon::now();
+        \DB::table('post_comments')
+            ->where('id', $id)
+            ->update([
+                'up_comment' => $comment,
+                'delete_user_id' => $delete_user_id,
+                'update_user_id' => $update_user_id,
+                'event_at' => $event_at
 
+            ]);
 
+        return view('auth.detail',['Comment_ids'=> $Comment_ids]);
+    }
 
+        public function CommentDelete($id)
+    {
+        \DB::table('post_comments')
+           ->where('id', $id)
+           ->delete();
 
+        return view('top');
+    }
 
 }

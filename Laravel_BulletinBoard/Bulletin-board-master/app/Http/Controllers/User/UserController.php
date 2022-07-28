@@ -23,9 +23,10 @@ class UserController extends Controller
         public function detail($id, Post $Post,PostMainCategory $PostMainCategory, PostSubCategory $PostSubCategory,PostComment $PostComment){
         $user = User::find($id);
         $userPost_ids = $Post->UserPosts($id)->get();
+
         $SubCategorys = Post::with(['user','postSubCategory','PostComment'])->find($id);
         //findで取り出すものを特定する。getは全部持ってきちゃう
-        return view('auth.detail', [ 'userPost_ids'=> $userPost_ids, 'SubCategorys' => $SubCategorys]);
+        return view('auth.detail', [ 'userPost_ids'=> $userPost_ids, 'SubCategorys' => $SubCategorys,]);
     }
 
         //投稿編集画面
