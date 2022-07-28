@@ -69,7 +69,7 @@ Route::post('/login', 'Auth\Login\LoginController@login');
   Route::get('post/{id}/delete', 'Auth\Posts\PostsController@delete');
 
 
-  Route::get('/post/{id}/CommentDelete', 'Auth\Posts\PostCommentsController@CommentDelete');
+
 
 
 

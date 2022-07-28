@@ -55,7 +55,9 @@ class PostCommentsController extends Controller
          public function updateComment(Request $request,$id, Post $Post)
     {
         $Comment_ids = $Post->UserPosts($id)->get();
+        $userPost_ids = $Post->UserPosts($id)->get();
         $Comment = PostComment::with(['user','Post'])->find($id);
+        $SubCategorys = Post::with(['user','PostSubCategory','PostComment'])->find($id);
         $up_comment = $request->input('upComment');
         $delete_user_id = Auth::user()->id;
         $update_user_id = $delete_user_id;
@@ -63,14 +65,14 @@ class PostCommentsController extends Controller
         \DB::table('post_comments')
             ->where('id', $id)
             ->update([
-                'up_comment' => $comment,
+                'comment' => $up_comment,
                 'delete_user_id' => $delete_user_id,
                 'update_user_id' => $update_user_id,
                 'event_at' => $event_at
 
             ]);
 
-        return view('auth.detail',['Comment_ids'=> $Comment_ids]);
+        return view('auth.detail',['Comment_ids'=> $Comment_ids, ]);
     }
 
         public function CommentDelete($id)
