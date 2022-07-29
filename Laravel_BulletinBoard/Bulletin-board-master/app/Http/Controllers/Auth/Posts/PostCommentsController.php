@@ -52,12 +52,12 @@ class PostCommentsController extends Controller
          }
 
          //コメント編集詳細画面に戻る
-         public function updateComment(Request $request,$id, Post $Post)
+         public function updateComment(Request $request,$id, Post $Post, PostMainCategory $PostMainCategory, PostSubCategory $PostSubCategory,PostComment $PostComment)
     {
+        $Comment = PostComment::with(['user','Post'])->find($id);
         $Comment_ids = $Post->UserPosts($id)->get();
         $userPost_ids = $Post->UserPosts($id)->get();
-        $Comment = PostComment::with(['user','Post'])->find($id);
-        $SubCategorys = Post::with(['user','PostSubCategory','PostComment'])->find($id);
+        $SubCategorys = Post::with(['user','postSubCategory','PostComment'])->find($id);
         $up_comment = $request->input('upComment');
         $delete_user_id = Auth::user()->id;
         $update_user_id = $delete_user_id;
@@ -72,16 +72,20 @@ class PostCommentsController extends Controller
 
             ]);
 
-        return view('auth.detail',['Comment_ids'=> $Comment_ids, ]);
+        return view('auth.detail',['Comment_ids'=> $Comment_ids, 'userPost_ids' => $userPost_ids, 'SubCategorys' => $SubCategorys]);
     }
 
-        public function CommentDelete($id)
+        public function CommentDelete(Request $request, $id, Post $Post)
     {
+
+        $userPost_ids = $Post->UserPosts($id)->get();
+        $SubCategorys = Post::with(['user','PostSubCategory','PostComment'])->find($id);
+        $timelines = Post::with(['user','postSubCategory'])->get();
         \DB::table('post_comments')
            ->where('id', $id)
            ->delete();
 
-        return view('top');
+        return view('top',['userPost_ids'=> $userPost_ids, 'SubCategorys' => $SubCategorys, 'timelines' => $timelines]);
     }
 
 }

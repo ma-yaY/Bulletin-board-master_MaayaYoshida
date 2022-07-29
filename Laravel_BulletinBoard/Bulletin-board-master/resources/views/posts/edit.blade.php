@@ -26,6 +26,6 @@
         {!! Form::close() !!}
     @endforeach
         <div class="Danger-btn">
-          <a class="btn-danger" href="post/{{$userPost_ids->id}}/delete" onclick="return confirm('こちらの投稿を削除してもよろしいでしょうか？')">削除</a>
+          <a class="btn-danger" href="/post/{{$userPost_ids->id}}/delete" onclick="return confirm('こちらの投稿を削除してもよろしいでしょうか？')">削除</a>
         </div>
 @endsection
