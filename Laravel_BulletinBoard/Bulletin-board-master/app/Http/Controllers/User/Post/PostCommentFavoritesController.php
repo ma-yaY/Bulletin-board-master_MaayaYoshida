@@ -10,9 +10,16 @@ use Illuminate\Validation\Rule;
 
 use App\Models\Users\User;
 use App\Models\Posts\Post;
+use App\Models\Posts\PostFavorite;
 
 class PostCommentFavoritesController extends Controller
 {
+  public function __construct()
+  {
+    $this->middleware(['auth', 'verified'])->only(['post_favorites', 'unlike']);
+  }
+
+
 
 
 

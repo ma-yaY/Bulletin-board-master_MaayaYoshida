@@ -55,6 +55,10 @@ class Post extends Model
         return $this->where('id', $userPost_ids);
     }
 
+    public function PostFavorite()
+    {
+        return $this->hasMany('App\Models\Posts\PostFavorite','post__id');
+    }
 
 
 
