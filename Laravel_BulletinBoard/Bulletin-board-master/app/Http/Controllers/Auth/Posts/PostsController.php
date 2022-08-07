@@ -22,6 +22,8 @@ class PostsController extends Controller
         return view('/top', ['timelines' => $timelines]);
     }
 
+
+
     //検索機能
         public function search(Request $request){
             $keyword = $request->input('keyword');
@@ -30,6 +32,8 @@ class PostsController extends Controller
 
             return view('top',['timelines' => $timelines]);
     }
+
+
 
 
 

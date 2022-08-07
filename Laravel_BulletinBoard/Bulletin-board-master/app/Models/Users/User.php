@@ -34,7 +34,7 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Models\Posts\Post');
     }
-
+// PostFavoriteとのリレーション
     public function PostFavorite()
     {
         return $this->hasMany('App\Models\Posts\PostFavorite');
