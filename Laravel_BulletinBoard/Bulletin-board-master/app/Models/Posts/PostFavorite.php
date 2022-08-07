@@ -28,6 +28,14 @@ class PostFavorite extends Model
         return $this->belongsTo('App\Models\Posts\Post');
     }
 
+    public function PostCommentFavorite()
+    {   //reviewsテーブルとのリレーションを定義するreviewメソッド
+        return $this->belongsTo('App\Models\PostsPostCommentFavorite');
+    }
+
+
+
+
 
 
 

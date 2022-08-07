@@ -14,10 +14,6 @@ use App\Models\Posts\PostFavorite;
 
 class PostCommentFavoritesController extends Controller
 {
-  public function __construct()
-  {
-    $this->middleware(['auth', 'verified'])->only(['post_favorites', 'unlike']);
-  }
 
 
 

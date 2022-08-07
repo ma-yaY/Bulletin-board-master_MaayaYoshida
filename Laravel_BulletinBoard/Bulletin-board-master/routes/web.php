@@ -73,8 +73,7 @@ Route::post('/login', 'Auth\Login\LoginController@login');
   Route::get('/post/{id}/CommentDelete', 'Auth\Posts\PostCommentsController@CommentDelete');
 
  //いいね機能
-  Route::get('/reply/like/{id}', 'RepliesController@like')->name('reply.like');
-  Route::get('/reply/unlike/{id}', 'RepliesController@unlike')->name('reply.unlike');
+
 
 
 

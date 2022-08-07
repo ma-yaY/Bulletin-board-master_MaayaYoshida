@@ -72,7 +72,7 @@ class PostCommentsController extends Controller
 
             ]);
 
-        return view('auth.detail',['Comment_ids'=> $Comment_ids, 'userPost_ids' => $userPost_ids, 'SubCategorys' => $SubCategorys]);
+        return back('detail',['Comment_ids'=> $Comment_ids, 'userPost_ids' => $userPost_ids, 'SubCategorys' => $SubCategorys]);
     }
 
         public function CommentDelete(Request $request, $id, Post $Post)

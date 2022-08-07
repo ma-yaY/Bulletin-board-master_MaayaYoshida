@@ -20,5 +20,6 @@
   @yield('title')
   <a href="/logout">ログアウト</a>
   @yield('content')
+  <script type="text/javascript" src="Favorite.js"></script>
 </body>
 </html>
