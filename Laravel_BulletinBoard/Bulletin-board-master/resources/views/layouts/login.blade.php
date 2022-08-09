@@ -28,7 +28,7 @@
     <a href="/logout">ログアウト</a>
   </header>
     @yield('content')
-
+<script type="text/javascript" src="Favorite.js"></script>
 
 
 

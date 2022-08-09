@@ -18,22 +18,23 @@
                 <!-- Post.phpに作ったisFavoritedByメソッドをここで使用 -->
                 @if (!$timeLine->isFavoritedBy(Auth::user()))
                   <span class="Favorite">
+                    <i class="Favorite-toggle fa-solid fa-heart favorite " style="color:red" data-Post-id="{{$timeLine->id}}"></i>
+                      <span class="Favorite-counter">{{$timeLine->PostFavorite->count()}}</span>
 
-                  <i class="Favorite-toggle fa-solid fa-heart Favorite " style="color:red" data-Post-id="{{$timeLine->id}}"></i>
-                    <span class="Favorite-counter">{{$timeLine->PostFavorite->count()}}</span>
-                  </sp><!-- /.likes -->
+                  </span>
                   @else
                     <span class="">
-                    <i class="Favorite-toggle fa-solid fa-heart  Favorited" style="color:red" data-Post-id="{{$timeLine->post->id}}"></i>
+                    <i class="Favorite-toggle fa-solid fa-heart  favorited" style="color:red" data-Post-id="{{$timeLine->post->id}}"></i>
                       <span class="Favorite-counter">{{$timeLine->PostFavorite->count()}}</span>
-                    </span><!-- /.likes -->
+                    </span>
+
                 @endif
               @endauth
               @guest
                 <span class="Favorite">
                   <i class="fa-solid fa-heart"></i>
                 <span class="Favorite-counter">{{$timeLine->PostFavorite->count()}}</span>
-                </span><!-- /.likes -->
+                </span>
               @endguest
         @endforeach
       <div id="side-menu">

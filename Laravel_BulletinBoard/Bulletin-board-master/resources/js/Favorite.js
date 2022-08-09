@@ -17,7 +17,7 @@ $(function () {
     })
       //通信成功した時の処理
       .done(function (data) {
-        if ($this.hasClass('favorite')) {  //もし通信するときに<i>タグにlikedが入ってたら
+        if ($this.hasClass('favorite')) {  //もし通信するときに<i>タグにfavoriteが入ってたら
           $this.removeClass('favorite');   //likedを削除
           $this.removeClass('fas');  // fasを削除
           $this.addClass('far');  // farを追加
