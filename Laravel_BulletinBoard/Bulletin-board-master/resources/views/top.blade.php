@@ -19,12 +19,12 @@
                 @if (!$timeLine->isFavoritedBy(Auth::user()))
                   <span class="Favorite">
 
-                  <i class="fa-solid fa-heart" style="color:red" Favorite-toggle" data-Post-id="{{$timeLine->id}}"></i>
+                  <i class="Favorite-toggle fa-solid fa-heart Favorite " style="color:red" data-Post-id="{{$timeLine->id}}"></i>
                     <span class="Favorite-counter">{{$timeLine->PostFavorite->count()}}</span>
-                  </span><!-- /.likes -->
+                  </sp><!-- /.likes -->
                   @else
                     <span class="">
-                    <i class="fa-solid fa-heart Favorite-toggle Favorited" data-Post-id="{{$timeLine->post->id}}"></i>
+                    <i class="Favorite-toggle fa-solid fa-heart  Favorited" style="color:red" data-Post-id="{{$timeLine->post->id}}"></i>
                       <span class="Favorite-counter">{{$timeLine->PostFavorite->count()}}</span>
                     </span><!-- /.likes -->
                 @endif

@@ -1,7 +1,7 @@
 $(function () {
-  let like = $('.Favorite-toggle'); //Favorite-toggleのついたiタグを取得し代入。
-  let likeReviewId; //変数を宣言（なんでここで？）
-  like.on('click', function () { //onはイベントハンドラー
+  let favorite = $('.Favorite-toggle'); //Favorite-toggleのついたiタグを取得し代入。
+  let FavoritePostId; //変数を宣言（なんでここで？）
+  favorite.on('click', function () { //onはイベントハンドラー
     let $this = $(this); //this=イベントの発火した要素＝iタグを代入
     FavoritePostId = $this.data('post-id'); //iタグに仕込んだdata-review-idの値を取得
     //ajax処理スタート
@@ -17,8 +17,8 @@ $(function () {
     })
       //通信成功した時の処理
       .done(function (data) {
-        if ($this.hasClass('liked')) {  //もし通信するときに<i>タグにlikedが入ってたら
-          $this.removeClass('liked');   //likedを削除
+        if ($this.hasClass('favorite')) {  //もし通信するときに<i>タグにlikedが入ってたら
+          $this.removeClass('favorite');   //likedを削除
           $this.removeClass('fas');  // fasを削除
           $this.addClass('far');  // farを追加
         } else {
