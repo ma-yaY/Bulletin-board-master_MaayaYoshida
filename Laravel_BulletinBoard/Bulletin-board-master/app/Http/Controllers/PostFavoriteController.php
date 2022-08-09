@@ -16,30 +16,31 @@ use Carbon\Carbon;
 class PostFavoriteController extends Controller
 {
 
-    //public function index(Request $request)
-//{
-    //$reviews = Review::withCount('likes')->orderBy('id', 'desc')->paginate(10);
-    //$param = [
-    //    'reviews' => $reviews,
-    //];
-    //return view('reviews.index', $param);
-//}
+    public function index(Request $request)
+{
+    $Favorites = Post::withCount('post_favorites')->orderBy('id', 'desc')->paginate(10);
+    $param = [
+        'Favorites' => $Favorites,
+    ];
+    return view('top', $param);
+}
     public function Favorite(Request $request)
 {
     $user_id = Auth::user()->id; //1.ログインユーザーのid取得
-    $post__id = $request->post__id; //2.投稿idの取得
-    $already_Favorite = PostFavorite::where('user_id', $user_id)->where('post_id', $post_id)->first(); //3.
+    $post_id = $request->post_id; //2.投稿idの取得
+    $already_Favorited = PostFavorite::where('user_id', $user_id)->where('post_id', $post_id)->first(); //3.
 
-    if (!$already_Favorite) { //もしこのユーザーがこの投稿にまだいいねしてなかったら
+    //このユーザーがこの投稿にまだいいねしてなかったら
+    if (!$already_Favorite) {
         $Favorite = new PostFavorite; //4.PostFevoriteクラスのインスタンスを作成
-        $Favorite->$post__id = $post__id; //PostFevoriteインスタンスにpost__id,user_idをセット
+        $Favorite->$post_id = $post_id; //PostFevoriteインスタンスにpost__id,user_idをセット
         $Favorite->user_id = $user_id;
         $Favorite->save();
-    } else { //もしこのユーザーがこの投稿に既にいいねしてたらdelete
+    } else { //このユーザーがこの投稿に既にいいねしてたらdelete
         PostFavorite::where('post_id', $post_id)->where('user_id', $user_id)->delete();
     }
     //5.この投稿の最新の総いいね数を取得
-    $review_likes_count = PostFavorite::withCount('Favorite')->findOrFail($post__id)->likes_count;
+    $review_likes_count = PostFavorite::withCount('Favorite')->findOrFail($post_id)->likes_count;
     $param = [
         'review_PostFavorite_count' => $review_PostFavorite_count,
     ];

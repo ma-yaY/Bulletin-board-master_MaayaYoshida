@@ -12,7 +12,27 @@
           <a href="/users/{{$timeLine->id}}/detail">{{$timeLine->title}}</a>
           <a class="up_main_post_name">{{$timeLine->created_at}}</a>
           <a class="up_main_post">{{$timeLine->postSubCategory->sub_category}}</a>
-          <!--memoにファボボタン試作あり-->
+              @auth
+                <!-- Post.phpに作ったisFavoritedByメソッドをここで使用 -->
+                @if (!$Post->isFavoritedBy(Auth::user()))
+                  <span class="Favorite">
+
+                  <i class="fa-solid fa-heart Favorite-toggle" data-Post-id="{{$timeline->post->id}}"></i>
+                    <span class="Favorite-counter">{{$timeline->post->isFavoritedBy()->count()}}</span>
+                  </span><!-- /.likes -->
+                  @else
+                    <span class="">
+                    <i class="fa-solid fa-heart Favorite-toggle Favorited" data-Post-id="{{$timeline->post->id}}"></i>
+                      <span class="like-counter">{{$timeline->post->isFavoritedBy()->count()}}</span>
+                    </span><!-- /.likes -->
+                @endif
+              @endauth
+          @guest
+            <span class="Favorite">
+              <i class="fa-solid fa-heart"></i>
+            <span class="like-counter">{{$timeline->post->isFavoritedBy()->count()}}</span>
+            </span><!-- /.likes -->
+          @endguest
         @endforeach
       </div>
         <p class="category-btn"><a href="/category">カテゴリーを追加</a></p>

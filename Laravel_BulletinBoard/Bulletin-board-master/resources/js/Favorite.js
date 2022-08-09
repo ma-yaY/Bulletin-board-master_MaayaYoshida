@@ -1,5 +1,5 @@
 $(function () {
-  let like = $('.like-toggle'); //like-toggleのついたiタグを取得し代入。
+  let like = $('.Favorite-toggle'); //like-toggleのついたiタグを取得し代入。
   let likeReviewId; //変数を宣言（なんでここで？）
   like.on('click', function () { //onはイベントハンドラー
     let $this = $(this); //this=イベントの発火した要素＝iタグを代入

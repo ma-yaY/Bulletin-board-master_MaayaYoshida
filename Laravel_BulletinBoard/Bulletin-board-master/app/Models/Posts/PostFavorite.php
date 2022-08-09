@@ -10,28 +10,23 @@ class PostFavorite extends Model
 
     protected $fillable = [
         'user_id',
-        'post__id',
+        'post_id',
     ];
 
 
-
-
-              // UserModelsとのリレーション
+    // UserModelsとのリレーション
         public function user()
     {
         return $this->belongsTo('App\Models\Users\User');
     }
 
-            // Postとのリレーション
+     // Postとのリレーション
     public function Post()
     {
         return $this->belongsTo('App\Models\Posts\Post');
     }
 
-    public function PostCommentFavorite()
-    {   //reviewsテーブルとのリレーションを定義するreviewメソッド
-        return $this->belongsTo('App\Models\PostsPostCommentFavorite');
-    }
+
 
 
 
