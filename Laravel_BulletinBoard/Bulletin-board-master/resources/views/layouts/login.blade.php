@@ -16,8 +16,8 @@
     <link rel="icon" href="画像URL" sizes="32x32" type="image/png" />
     <link rel="icon" href="画像URL" sizes="48x48" type="image/png" />
     <link rel="icon" href="画像URL" sizes="62x62" type="image/png" />
-    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
-    
+    <script src="https://kit.fontawesome.com/9446ba17aa.js" crossorigin="anonymous"></script>
+
     <script type="text/javascript" src="Favorite.js"></script>
 
 </head>

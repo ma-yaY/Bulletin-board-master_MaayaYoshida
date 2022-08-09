@@ -17,12 +17,17 @@ $(function () {
     })
       //通信成功した時の処理
       .done(function (data) {
-        $this.toggleClass('liked'); //likedクラスのON/OFF切り替え。
-        $this.next('.Favorite-counter').html(data.review_Favorite_count);
-      })
-      //通信失敗した時の処理
-      .fail(function () {
-        console.log('fail');
+        if ($this.hasClass('liked')) {  //もし通信するときに<i>タグにlikedが入ってたら
+          $this.removeClass('liked');   //likedを削除
+          $this.removeClass('fas');  // fasを削除
+          $this.addClass('far');  // farを追加
+        } else {
+          //上記と同じような感じで記述
+          //通信失敗した時の処理
+          fail(function () {
+            console.log('fail');
+          });
+        }
       });
   });
 });
