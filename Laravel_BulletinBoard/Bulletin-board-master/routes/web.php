@@ -47,8 +47,7 @@ Route::post('/login', 'Auth\Login\LoginController@login');
    Route::get('/post', 'Auth\Posts\PostsController@SubSelect');
    Route::post('post/create', 'Auth\Posts\PostsController@create');
 
-   Route::post('/result','User\UserController@result');
-   Route::get('/result','User\UserController@result');
+
 
    Route::get('/users/{id}/detail', 'User\UserController@detail');
 

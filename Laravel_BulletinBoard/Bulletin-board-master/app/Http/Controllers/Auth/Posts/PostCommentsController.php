@@ -69,7 +69,6 @@ class PostCommentsController extends Controller
                 'delete_user_id' => $delete_user_id,
                 'update_user_id' => $update_user_id,
                 'event_at' => $event_at
-
             ]);
 
         return back('detail',['Comment_ids'=> $Comment_ids, 'userPost_ids' => $userPost_ids, 'SubCategorys' => $SubCategorys]);

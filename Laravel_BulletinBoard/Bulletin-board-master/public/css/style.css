@@ -1,5 +1,59 @@
 @charset "utf-8";
 
+html {
+  height: 100vh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+
+}
+
+/* header */
+header {
+  font-size: 20px;
+  padding: 30px;
+  background: #2f4f4f;
+  position: relative;
+}
+
+
+
+.category-list {
+
+  display: flex;
+  flex-direction: column;
+
+}
+
+.main-post {
+  display: flex;
+
+  font-size: 16px;
+
+}
+
+
+.box {
+
+  font-size: 16px;
+  padding: 15px 0px 15px 10px;
+  margin: 15px 10px 0px 10px;
+  border: solid 2px #a9a9a9;
+}
+
+#side-menu {
+  flex: 40%;
+}
+
+
+
 
 .acd-check {
   display: none;
