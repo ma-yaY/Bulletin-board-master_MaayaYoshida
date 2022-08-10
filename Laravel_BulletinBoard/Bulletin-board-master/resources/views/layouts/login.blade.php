@@ -17,7 +17,7 @@
     <link rel="icon" href="画像URL" sizes="48x48" type="image/png" />
     <link rel="icon" href="画像URL" sizes="62x62" type="image/png" />
     <script src="https://kit.fontawesome.com/9446ba17aa.js" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="Favorite.js"></script>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 </head>
@@ -28,10 +28,7 @@
     <a href="/logout">ログアウト</a>
   </header>
     @yield('content')
-<script type="text/javascript" src="Favorite.js"></script>
-
-
-
+    <script src="{{ asset('/js/Favorite.js') }}"></script>
 </body>
 
 </html>

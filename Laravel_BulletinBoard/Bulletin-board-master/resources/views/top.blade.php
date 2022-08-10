@@ -1,7 +1,6 @@
 @extends('layouts.login')
 @section('title', '掲示板投稿一覧')
 @section('content')
-
   <div class="category-list">
     <h1>投稿一覧</h1>
     <!--foreach-->
@@ -53,4 +52,5 @@
           </div>
       </div>
   </div>
+
 @endsection
