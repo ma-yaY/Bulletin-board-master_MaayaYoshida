@@ -28,7 +28,7 @@
     <a href="/logout">ログアウト</a>
   </header>
     @yield('content')
-    <script src="{{ asset('/js/Favorite.js') }}"></script>
+    <script src="{{ asset('js/Favorite.js') }}"></script>
 </body>
 
 </html>
