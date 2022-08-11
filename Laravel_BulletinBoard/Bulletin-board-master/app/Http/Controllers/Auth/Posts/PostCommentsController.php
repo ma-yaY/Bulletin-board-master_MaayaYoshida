@@ -71,7 +71,7 @@ class PostCommentsController extends Controller
                 'event_at' => $event_at
             ]);
 
-        return back('detail',['Comment_ids'=> $Comment_ids, 'userPost_ids' => $userPost_ids, 'SubCategorys' => $SubCategorys]);
+        return redirect()->route('detail', ['id'=>$id]);
     }
 
         public function CommentDelete(Request $request, $id, Post $Post)
