@@ -66,7 +66,8 @@ Route::post('/login', 'Auth\Login\LoginController@login');
 
   //コメント編集ーコメント詳細画面に戻る
   Route::get('/posts/{id}/CommentEdit', 'Auth\Posts\PostCommentsController@CommentEdit');
-  Route::post('/posts/Comment_edit{id}', 'Auth\Posts\PostCommentsController@updateComment');
+  Route::get('detail/{id}', 'User\UserController@detail')->name('detail');
+
 
 
   Route::get('/post/{id}/CommentDelete', 'Auth\Posts\PostCommentsController@CommentDelete');

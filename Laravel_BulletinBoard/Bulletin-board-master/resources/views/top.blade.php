@@ -8,7 +8,7 @@
           <div class="main-post">
             <div class="box">
               <a class="up_main_post_name">{{$timeLine->user->username}}</a>
-              <a href="/detail/{{$timeLine->id}}">{{$timeLine->title}}</a>
+              <a href="detail/{{$timeLine->id}}">{{$timeLine->title}}</a>
               <a class="up_main_post_name">{{$timeLine->created_at}}</a>
               <a class="up_main_post">{{$timeLine->postSubCategory->sub_category}}</a>
             </div>
