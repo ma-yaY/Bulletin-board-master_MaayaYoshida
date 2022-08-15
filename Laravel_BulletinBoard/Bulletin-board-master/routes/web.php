@@ -37,7 +37,7 @@ Route::post('/login', 'Auth\Login\LoginController@login');
    Route::post('/result','Auth\Posts\PostsController@search');
    Route::get('/result','Auth\Posts\PostsController@search');
 
-
+         //
    Route::get('/category', 'Auth\Posts\PostsController@Category');
    Route::post('category/create', 'Auth\Posts\PostsController@MainCreate');
    Route::post('category/createSub', 'Auth\Posts\PostsController@SubCreate');
@@ -45,8 +45,7 @@ Route::post('/login', 'Auth\Login\LoginController@login');
 
 
    Route::get('/post', 'Auth\Posts\PostsController@SubSelect');
-   Route::post('post/create', 'Auth\Posts\PostsController@create');
-
+   Route::post('/post/create', 'Auth\Posts\PostsController@create');
 
 
    Route::get('detail/{id}', 'User\UserController@detail')->name('detail');
@@ -54,7 +53,6 @@ Route::post('/login', 'Auth\Login\LoginController@login');
      //コメント投稿処理
   Route::post('/comment/create', 'Auth\Posts\PostCommentsController@comment');
   Route::get('/users/{id}/detail', 'Auth\Posts\PostCommentsController@CommentPosts');
-  Route::get('detail/{id}', 'User\UserController@detail');
 
 
 
@@ -66,8 +64,7 @@ Route::post('/login', 'Auth\Login\LoginController@login');
 
   //コメント編集ーコメント詳細画面に戻る
   Route::get('/posts/{id}/CommentEdit', 'Auth\Posts\PostCommentsController@CommentEdit');
-  Route::get('detail/{id}', 'User\UserController@detail')->name('detail');
-
+  Route::post('/posts/Comment_edit{id}', 'Auth\Posts\PostCommentsController@updateComment');
 
 
   Route::get('/post/{id}/CommentDelete', 'Auth\Posts\PostCommentsController@CommentDelete');

@@ -55,8 +55,6 @@ class PostCommentsController extends Controller
          public function updateComment(Request $request,$id, Post $Post, PostMainCategory $PostMainCategory, PostSubCategory $PostSubCategory,PostComment $PostComment)
     {
         $Comment = PostComment::with(['user','Post'])->find($id);
-        $Comment_ids = $Post->UserPosts($id)->get();
-        $userPost_ids = $Post->UserPosts($id)->get();
         $SubCategorys = Post::with(['user','postSubCategory','PostComment'])->find($id);
         $up_comment = $request->input('upComment');
         $delete_user_id = Auth::user()->id;

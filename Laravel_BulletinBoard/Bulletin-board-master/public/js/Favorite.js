@@ -18,16 +18,22 @@ $(function () {
       //通信成功した時の処理
       .done(function (data) {
         if ($this.hasClass('favorite')) {  //もし通信するときに<i>タグにfavoriteが入ってたら
-          $this.removeClass('favorite');   //likedを削除
-          $this.removeClass('fas');  // fasを削除
-          $this.addClass('far');  // farを追加
+          $this.addClass('favorite');   //favoritedを削除
+          $this.removeClass('far');  // farを削除
+          $this.addClass('fas');  // fasを追加
         } else {
-          //上記と同じような感じで記述
-          //通信失敗した時の処理
-          fail(function () {
-            console.log('fail');
-          });
+          $this.removeClass('favorited');
+          $this.removeClass('fas');
+          $this.addClass('far');
+
         }
+        $this.next('.Favorite-counter').html
+          (data.review_PostFavorite_count);
       });
+    fail(function () {
+      console.log('fail');
+
+
+    });
   });
 });
