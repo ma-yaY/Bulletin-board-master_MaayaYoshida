@@ -25,15 +25,12 @@ $(function () {
           $this.removeClass('favorited');
           $this.removeClass('fas');
           $this.addClass('far');
-
         }
         $this.next('.Favorite-counter').html
           (data.review_PostFavorite_count);
       });
     fail(function () {
       console.log('fail');
-
-
     });
   });
 });

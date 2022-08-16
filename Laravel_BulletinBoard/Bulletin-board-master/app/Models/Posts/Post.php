@@ -5,6 +5,7 @@ namespace App\Models\Posts;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Users\User;
 use App\Models\Posts\PostComment;
+use App\Models\Posts\PostFavorite;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\Auth\Posts\PostCommentsController;
 

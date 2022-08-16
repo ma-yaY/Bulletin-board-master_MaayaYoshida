@@ -16,11 +16,19 @@ class PostsController extends Controller
     //topの投稿表示
     public function index( Post $Post, PostMainCategory $PostMainCategory, PostSubCategory $PostSubCategory)
     {
+
         $auth = Auth::user();
         $user = auth()->user();
         $timelines = Post::with(['user','postSubCategory'])->get();
-        return view('/top', ['timelines' => $timelines]);
+        $Post_Favorite = Post::withCount('PostFavorite')->orderBy('id', 'desc')->paginate(10);
+        $param = [
+        'Post_Favorite' => $Post_Favorite,
+    ];
+
+        return view('/top', ['timelines' => $timelines, 'Post_Favorite' => $Post_Favorite]);
     }
+
+
 
 
 

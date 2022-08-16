@@ -15,14 +15,14 @@
           </div>
               @auth
                 <!-- Post.phpに作ったisFavoritedByメソッドをここで使用 -->
+
                 @if (!$timeLine->isFavoritedBy(Auth::user()))
                   <span class="Favorite">
                     <i class="Favorite-toggle far fa-heart favorite" style="color:red"  data-Post-id="{{$timeLine->id}}"></i>
                       <span class="Favorite-counter">{{$timeLine->PostFavorite->count()}}</span>
-
                   </span>
                   @else
-                    <span class="">
+                    <span class="Favorited">
                     <i class="Favorite-toggle fas fa-heart favorited" style="color:red" data-Post-id="{{$timeLine->post->id}}"></i>
                       <span class="Favorite-counter">{{$timeLine->PostFavorite->count()}}</span>
                     </span>

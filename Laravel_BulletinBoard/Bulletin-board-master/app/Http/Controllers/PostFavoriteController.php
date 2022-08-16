@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Users\User;
 use App\Models\Posts\Post;
+use App\Models\Posts\PostFavorite;
 use App\Models\Users\PostCommentFavorite;
 use App\Models\Posts\PostMainCategory;
 use App\Models\Posts\PostSubCategory;
@@ -16,14 +17,7 @@ use Carbon\Carbon;
 class PostFavoriteController extends Controller
 {
 
-    public function index(Request $request)
-{
-    $Favorites = Post::withCount('post_favorites')->orderBy('id', 'desc')->paginate(10);
-    $param = [
-        'Favorites' => $Favorites,
-    ];
-    return view('top', $param);
-}
+
     public function Favorite(Request $request)
 {
     //return $request->post_id;
@@ -41,7 +35,7 @@ class PostFavoriteController extends Controller
         PostFavorite::where('post_id', $post_id)->where('user_id', $user_id)->delete();
     }
     //5.この投稿の最新の総いいね数を取得
-    $review_PostFavorite_count = PostFavorite::withCount('Favorite')->findOrFail($post_id)->count;
+    $review_PostFavorite_count = Post::withCount('PostFavorite')->findOrFail($post_id)->count;
     $param = [
         'review_PostFavorite_count' => $review_PostFavorite_count,
     ];
