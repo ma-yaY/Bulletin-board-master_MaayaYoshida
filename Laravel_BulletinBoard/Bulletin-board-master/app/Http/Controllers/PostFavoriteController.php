@@ -40,7 +40,8 @@ class PostFavoriteController extends Controller
         'review_PostFavorite_count' => $review_PostFavorite_count,
     ];
 
-    return response()->json($param); //6.JSONデータをjQueryに返す
+    return view($request);
+    //return response()->json($param); //6.JSONデータをjQueryに返す
 }
 
 }

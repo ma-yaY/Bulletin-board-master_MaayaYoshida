@@ -17,7 +17,7 @@ $(function () {
     })
       //通信成功した時の処理
       .done(function (data) {
-        console.log("通信に失敗しました");
+        console.log("読み込めました");
         if ($this.hasClass('favorite')) {  //もし通信するときに<i>タグにfavoriteが入ってたら
           $this.addClass('favorite');   //favoritedを削除
           $this.removeClass('far');  // farを削除
@@ -29,10 +29,9 @@ $(function () {
         }
         $this.next('.Favorite-counter').html
           (data.review_PostFavorite_count);
+      })
+      .fail(function () {
+        console.log("失敗しました");
       });
-    fail(function () {
-      console.log("失敗しました");
-
-    });
   });
 });

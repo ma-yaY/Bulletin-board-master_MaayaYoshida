@@ -70,9 +70,7 @@ Route::post('/login', 'Auth\Login\LoginController@login');
   Route::get('/post/{id}/CommentDelete', 'Auth\Posts\PostCommentsController@CommentDelete');
 
  //いいね機能
-  Route::post('/Favorite', 'PostFavoriteController@Favorite')->name('posts.PostFavorite');
-
-
+  Route::post('/Favorite', 'PostFavoriteController@Favorite')->name('Post.PostFavorite');
  });
 
 
