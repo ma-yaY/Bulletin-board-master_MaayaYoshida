@@ -24,7 +24,7 @@ class UserController extends Controller
             $auth = Auth::user();
 
 
-            return view('top',['timelines' => $timelines]);
+            return redirect();
     }
 
 
