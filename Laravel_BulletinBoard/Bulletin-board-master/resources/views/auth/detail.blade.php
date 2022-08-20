@@ -11,6 +11,25 @@
         <a class="day-time">{{$userPost_ids->created_at}}</a>
         <p class="edit-btn"><a href="/posts/{{$userPost_ids->id}}/edit">編集</a></p>
       </div>
+              @auth
+               @if (!$userPost_ids->isFavoritedBy(Auth::user()))
+                  <span class="Favorite">
+                    <i class="Favorite-toggle far fa-heart favorite" style="color:red"  data-Post-id="{{$userPost_ids->id}}"></i>
+                      <span class="Favorite-counter">{{$userPost_ids->PostFavorite->count()}}</span>
+                  </span>
+                  @else
+                    <span class="Favorited">
+                    <i class="Favorite-toggle fas fa-heart favorited" style="color:red" data-Post-id="{{$userPost_ids->post->id}}"></i>
+                      <span class="Favorite-counter">{{$userPost_ids->PostFavorite->count()}}</span>
+                    </span>
+                @endif
+              @endauth
+              @guest
+                <span class="Favorite">
+                  <i class="fa-solid fa-heart"></i>
+                <span class="Favorite-counter">{{$timeLine->PostFavorite->count()}}</span>
+                </span>
+              @endguest
 
         <div class="commentArea" >
           <!--＄SubCategorysの中のリレーション先を指示$commentで特定-->
@@ -18,6 +37,7 @@
           <a class="comment">{{$comment->comment}}</a>
           {{$comment->user->username}}
           <p class="CommentEdit-btn"><a href="/posts/{{$comment->id}}/CommentEdit">編集</a></p>
+
           @endforeach
 
 

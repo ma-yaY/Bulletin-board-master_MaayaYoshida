@@ -37,6 +37,10 @@ Route::post('/login', 'Auth\Login\LoginController@login');
    Route::post('/result','Auth\Posts\PostsController@search');
    Route::get('/result','Auth\Posts\PostsController@search');
 
+   //自分の投稿表示
+   //Route::post('/myPost','Auth\Posts\PostsController@myPost');
+   //Route::get('/myPost','Auth\Posts\PostsController@myPost');
+
          //
    Route::get('/category', 'Auth\Posts\PostsController@Category');
    Route::post('category/create', 'Auth\Posts\PostsController@MainCreate');

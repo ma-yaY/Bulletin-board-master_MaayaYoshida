@@ -19,6 +19,14 @@ use Carbon\Carbon;
 
 class UserController extends Controller
 {
+    //自分の投稿
+    public function myPost(Request $request){
+            $auth = Auth::user();
+
+
+            return view('top',['timelines' => $timelines]);
+    }
+
 
         //掲示板詳細画面
         public function detail($id, Post $Post,PostMainCategory $PostMainCategory, PostSubCategory $PostSubCategory,PostComment $PostComment){

@@ -39,7 +39,11 @@
       <div id="side-menu">
         <p class="category-btn"><a href="/category">カテゴリーを追加</a></p>
         <p class="up-post"><a href="/post">投稿</a></p>
-        <p class="detail"><a href="/detail">自分の投稿</a></p>
+
+        {!! Form::open(['url' => '/myPost']) !!}
+          <div class="SearchForm-group">
+          {!! Form::submit('自分の投稿',['class' => 'myPost-button']) !!}
+        {!! Form::close() !!}
 
           <div class="Search-form">
           {!! Form::open(['url' => '/result']) !!}
