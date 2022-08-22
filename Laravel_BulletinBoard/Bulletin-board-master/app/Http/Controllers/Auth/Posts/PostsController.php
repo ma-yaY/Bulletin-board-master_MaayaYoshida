@@ -24,7 +24,6 @@ class PostsController extends Controller
         $param = [
         'Post_Favorite' => $Post_Favorite,
     ];
-
         return view('/top', ['timelines' => $timelines, 'Post_Favorite' => $Post_Favorite]);
     }
 
@@ -40,6 +39,7 @@ class PostsController extends Controller
 
             return view('top',['timelines' => $timelines]);
     }
+
 
 
 

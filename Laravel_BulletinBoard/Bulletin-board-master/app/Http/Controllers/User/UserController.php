@@ -19,12 +19,13 @@ use Carbon\Carbon;
 
 class UserController extends Controller
 {
-    //自分の投稿
-    public function myPost(Request $request){
-            $auth = Auth::user();
+    //自分の投稿表示
+    public function myPost( Post $Post, PostMainCategory $PostMainCategory, PostSubCategory $PostSubCategory){
+        $user = auth()->user();
+        $timelines = Post::with(['user','postSubCategory'])->get() //$userによる投稿を取得
+            ->where('user_id', $user->id);
 
-
-            return redirect();
+            return view('top', ['timelines' => $timelines]);
     }
 
 

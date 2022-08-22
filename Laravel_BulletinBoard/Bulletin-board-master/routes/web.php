@@ -38,8 +38,8 @@ Route::post('/login', 'Auth\Login\LoginController@login');
    Route::get('/result','Auth\Posts\PostsController@search');
 
    //自分の投稿表示
-   //Route::post('/myPost','Auth\Posts\PostsController@myPost');
-   //Route::get('/myPost','Auth\Posts\PostsController@myPost');
+   Route::post('/myPost','User\UserController@myPost');
+   Route::get('/myPost','User\UserController@myPost');
 
          //
    Route::get('/category', 'Auth\Posts\PostsController@Category');
