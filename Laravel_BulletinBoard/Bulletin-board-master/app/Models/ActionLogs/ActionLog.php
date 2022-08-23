@@ -3,6 +3,10 @@
 namespace App\Models\ActionLogs;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Users\User;
+use App\Models\Posts\Post;
+use App\Http\Controllers\User\UserController;
+
 
 class ActionLog extends Model
 {
@@ -13,4 +17,12 @@ class ActionLog extends Model
         'post_id',
         'event_at',
     ];
+
+
+    public function user()
+    {
+        return $this->belongsTo('App\Models\Users\User');
+    }
+
+
 }

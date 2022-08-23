@@ -25,7 +25,7 @@ class UserController extends Controller
         $timelines = Post::with(['user','postSubCategory'])->get() //$userによる投稿を取得
             ->where('user_id', $user->id);
 
-            return view('top', ['timelines' => $timelines]);
+        return view('top', ['timelines' => $timelines]);
     }
 
 

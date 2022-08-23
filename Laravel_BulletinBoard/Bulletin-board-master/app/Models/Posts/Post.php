@@ -4,6 +4,7 @@ namespace App\Models\Posts;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Users\User;
+use App\Models\ActionLogs\ActionLog;
 use App\Models\Posts\PostComment;
 use App\Models\Posts\PostFavorite;
 use App\Http\Controllers\User\UserController;
@@ -37,6 +38,11 @@ class Post extends Model
     public function PostComment()
     {
         return $this->hasMany('App\Models\Posts\PostComment');
+    }
+
+    public function ActionLog()
+    {
+        return $this->belongsTo('App\Models\ActionLogs\ActionLog');
     }
 
 

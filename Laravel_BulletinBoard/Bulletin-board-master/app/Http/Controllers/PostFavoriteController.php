@@ -26,22 +26,22 @@ class PostFavoriteController extends Controller
     $already_Favorited = PostFavorite::where('user_id', $user_id)->where('post_id', $post_id)->first(); //3.
 
     //このユーザーがこの投稿にまだいいねしてなかったら
-    if (!$already_Favorite) {
+    if (!$already_Favorited) {
         $Favorite = new PostFavorite; //4.PostFevoriteクラスのインスタンスを作成
-        $Favorite->$post_id = $post_id; //PostFevoriteインスタンスにpost__id,user_idをセット
+        $Favorite->post_id = $post_id; //PostFevoriteインスタンスにpost__id,user_idをセット
         $Favorite->user_id = $user_id;
         $Favorite->save();
     } else { //このユーザーがこの投稿に既にいいねしてたらdelete
         PostFavorite::where('post_id', $post_id)->where('user_id', $user_id)->delete();
     }
     //5.この投稿の最新の総いいね数を取得
-    $review_PostFavorite_count = Post::withCount('PostFavorite')->findOrFail($post_id)->count;
+    $review_PostFavorite_count = PostFavorite::where('post_id', $post_id)->count();
     $param = [
         'review_PostFavorite_count' => $review_PostFavorite_count,
     ];
 
-    return view($request);
-    //return response()->json($param); //6.JSONデータをjQueryに返す
+
+    return response()->json($param); //6.JSONデータをjQueryに返す
 }
 
 }

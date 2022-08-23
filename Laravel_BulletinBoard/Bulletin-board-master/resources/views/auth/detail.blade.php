@@ -19,7 +19,7 @@
                   </span>
                   @else
                     <span class="Favorited">
-                    <i class="Favorite-toggle fas fa-heart favorited" style="color:red" data-Post-id="{{$userPost_ids->post->id}}"></i>
+                    <i class="Favorite-toggle fas fa-heart favorited" style="color:red" data-Post-id="{{$userPost_ids->id}}"></i>
                       <span class="Favorite-counter">{{$userPost_ids->PostFavorite->count()}}</span>
                     </span>
                 @endif
@@ -27,7 +27,7 @@
               @guest
                 <span class="Favorite">
                   <i class="fa-solid fa-heart"></i>
-                <span class="Favorite-counter">{{$timeLine->PostFavorite->count()}}</span>
+                <span class="Favorite-counter">{{$userPost_ids->PostFavorite->count()}}</span>
                 </span>
               @endguest
 

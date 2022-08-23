@@ -5,6 +5,7 @@ namespace App\Models\Users;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Post;
+use App\Models\ActionLogs\ActionLog;
 use App\Http\Controllers\User\UserController;
 //use App\Models\Follow;
 
@@ -34,6 +35,13 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Models\Posts\Post');
     }
+
+    //閲覧者数取得用
+    public function ActionLog()
+    {
+        return $this->belongsTo('App\Models\ActionLogs\ActionLog');
+    }
+
 // PostFavoriteとのリレーション
     public function PostFavorite()
     {

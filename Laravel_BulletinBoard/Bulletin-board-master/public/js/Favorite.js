@@ -19,11 +19,13 @@ $(function () {
       .done(function (data) {
         console.log("読み込めました");
         if ($this.hasClass('favorite')) {  //もし通信するときに<i>タグにfavoriteが入ってたら
-          $this.addClass('favorite');   //favoritedを削除
+          $this.addClass('favorited');   //favoritedを削除
+          $this.removeClass('favorite');
           $this.removeClass('far');  // farを削除
           $this.addClass('fas');  // fasを追加
         } else {
           $this.removeClass('favorited');
+          $this.addClass('favorite');
           $this.removeClass('fas');
           $this.addClass('far');
         }

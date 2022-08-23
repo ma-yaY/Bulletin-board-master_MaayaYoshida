@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Users\User;
 use App\Models\Posts\Post;
+use App\Models\ActionLogs\ActionLog;
 use App\Models\Posts\PostMainCategory;
 use App\Models\Posts\PostSubCategory;
 use Carbon\Carbon;
@@ -14,18 +15,18 @@ use Carbon\Carbon;
 class PostsController extends Controller
 {
     //topの投稿表示
-    public function index( Post $Post, PostMainCategory $PostMainCategory, PostSubCategory $PostSubCategory)
+    public function index( Post $Post, PostMainCategory $PostMainCategory, PostSubCategory $PostSubCategory, ActionLog $ActionLog)
     {
 
         $auth = Auth::user();
         $user = auth()->user();
-        $timelines = Post::with(['user','postSubCategory'])->get();
-        $Post_Favorite = Post::withCount('PostFavorite')->orderBy('id', 'desc')->paginate(10);
-        $param = [
-        'Post_Favorite' => $Post_Favorite,
-    ];
-        return view('/top', ['timelines' => $timelines, 'Post_Favorite' => $Post_Favorite]);
+        $timelines = Post::with(['user','postSubCategory','ActionLog'])->get();
+
+        return view('/top', ['timelines' => $timelines]);
     }
+
+
+
 
 
 
