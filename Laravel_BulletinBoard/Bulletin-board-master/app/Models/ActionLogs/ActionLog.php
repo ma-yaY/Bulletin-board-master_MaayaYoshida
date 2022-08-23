@@ -24,9 +24,10 @@ class ActionLog extends Model
         return $this->belongsTo('App\Models\Users\User');
     }
 
-    public function action_logs()
+    // PostModelsとのリレーション
+    public function post()
     {
-        $ViewPost_ids[] = $id;
+        return $this->belongsTo('App\Models\Posts\Post');
     }
 
 

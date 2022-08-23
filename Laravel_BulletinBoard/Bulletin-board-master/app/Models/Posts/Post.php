@@ -42,7 +42,7 @@ class Post extends Model
     //閲覧者数取得用
     public function ActionLog()
     {
-        return $this->belongsTo('App\Models\ActionLogs\ActionLog');
+        return $this->hasMany('App\Models\ActionLogs\ActionLog');
     }
 
     //ユーザーの投稿とidを繋ぐ処理

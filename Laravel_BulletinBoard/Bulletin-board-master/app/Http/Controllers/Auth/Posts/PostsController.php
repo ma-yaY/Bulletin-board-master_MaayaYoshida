@@ -21,13 +21,8 @@ class PostsController extends Controller
         $auth = Auth::user();
         $user = auth()->user();
 
-        $timelines = Post::with(['user','postSubCategory'])->get();
-        $view_Post_count = ActionLog::where('post_id', $post_id)->count();
-    $param = [
-        'view_Post_count' => $view_Post_count,
-    ];
-
-        return view('/top', ['timelines' => $timelines,'view_Post_count' => $view_Post_count]);
+        $timelines = Post::with(['user','postSubCategory','ActionLog','PostComment'])->get();
+        return view('/top', ['timelines' => $timelines]);
     }
 
 

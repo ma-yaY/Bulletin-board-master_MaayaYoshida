@@ -9,6 +9,8 @@
         <a class="user-title">{{$userPost_ids->title}}</a>
         <a class="user-post">{{$userPost_ids->post}}</a>
         <a class="day-time">{{$userPost_ids->created_at}}</a>
+        <a class="View">{{$userPost_ids->ActionLog->count()}}View</a>
+        <a class="ComenntCount">{{$userPost_ids->PostComment->count()}}コメント数</a>
         <p class="edit-btn"><a href="/posts/{{$userPost_ids->id}}/edit">編集</a></p>
       </div>
               @auth

@@ -11,7 +11,9 @@
               <a href="detail/{{$timeLine->id}}">{{$timeLine->title}}</a>
               <a class="up_main_post_name">{{$timeLine->created_at}}</a>
               <a class="up_main_post">{{$timeLine->postSubCategory->sub_category}}</a>
-              <a class="View">{{$timeLine->ActionLog}}</a>
+              <a class="View">{{$timeLine->ActionLog->count()}}View</a>
+
+              <a class="ComenntCount">{{$timeLine->PostComment->count()}}コメント数</a>
             </div>
           </div>
               @auth
