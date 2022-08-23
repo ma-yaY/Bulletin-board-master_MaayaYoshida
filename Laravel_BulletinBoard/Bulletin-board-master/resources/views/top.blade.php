@@ -11,7 +11,7 @@
               <a href="detail/{{$timeLine->id}}">{{$timeLine->title}}</a>
               <a class="up_main_post_name">{{$timeLine->created_at}}</a>
               <a class="up_main_post">{{$timeLine->postSubCategory->sub_category}}</a>
-              <a class="View">{{$timeLine->ActionLog->count()}}</a>
+              <a class="View">{{$timeLine->ActionLog}}</a>
             </div>
           </div>
               @auth
@@ -20,7 +20,7 @@
                 @if (!$timeLine->isFavoritedBy(Auth::user()))
                   <span class="Favorite">
                     <i class="Favorite-toggle far fa-heart favorite" style="color:red"  data-Post-id="{{$timeLine->id}}"></i>
-                      <span class="Favorite-counter">{{$timeLine->PostFavorite}}</span>
+                      <span class="Favorite-counter">{{$timeLine->PostFavorite->count()}}</span>
                   </span>
                   @else
                     <span class="Favorited">

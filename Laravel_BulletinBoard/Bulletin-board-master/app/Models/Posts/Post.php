@@ -34,24 +34,15 @@ class Post extends Model
     {
         return $this->belongsTo('App\Models\Posts\PostSubCategory');
     }
-
+     //投稿に対してのコメント
     public function PostComment()
     {
         return $this->hasMany('App\Models\Posts\PostComment');
     }
-
+    //閲覧者数取得用
     public function ActionLog()
     {
         return $this->belongsTo('App\Models\ActionLogs\ActionLog');
-    }
-
-
-   //掲示板投稿一覧の処理
-    public function topTimeLines(Int $user_id)
-    {
-        $post_ids[] = $user_id;
-
-        return $this->whereIn('user_id', $post_ids)->orderBy('created_at', 'DESC')->paginate();
     }
 
     //ユーザーの投稿とidを繋ぐ処理
