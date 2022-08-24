@@ -28,10 +28,11 @@ class PostsController extends Controller
     protected function validators(array $data){
         $auth = Auth::user();
         return Validator::make($data, [
-            'title' => 'required|string|min:1|max:200'
+            'title' => 'required|string|min:1|max:200',
+            'text' => 'required|string|min:1|max:5000'
+
         ]);
     }
-
 
     //検索機能
         public function search(Request $request){
@@ -104,8 +105,12 @@ class PostsController extends Controller
             'event_at' => $event_at
         ]);
 
+
+
+
         return redirect('top');
     }
+
 
 
       //サブカテゴリー削除

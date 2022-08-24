@@ -39,6 +39,12 @@ class PostCommentsController extends Controller
        return back();
     }
 
+    protected function validators(array $data){
+        $auth = Auth::user();
+        return Validator::make($request, [
+            'text' => 'required|string|min:1|max:2500'
+        ]);
+    }
 
          //コメント編集画面
         public function CommentEdit(Request $request, $id, Post $Post, PostComment $PostComment)
@@ -49,7 +55,20 @@ class PostCommentsController extends Controller
             //dd($Comment_ids);
 
         return view('posts.CommentEdit',['Comment_ids' => $Comment_ids, 'Comment' => $Comment]);
+
+
          }
+
+         protected function CommentEditValidators(array $data){
+        $auth = Auth::user();
+        return Validator::make($request, [
+            'text' => 'required|string|min:1|max:2500'
+        ]);
+    }
+
+
+
+
 
          //コメント編集詳細画面に戻る
          public function updateComment(Request $request,$id, Post $Post, PostMainCategory $PostMainCategory, PostSubCategory $PostSubCategory,PostComment $PostComment)
