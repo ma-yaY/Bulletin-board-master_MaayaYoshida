@@ -25,6 +25,13 @@ class PostsController extends Controller
         return view('/top', ['timelines' => $timelines]);
     }
 
+    protected function validators(array $data){
+        $auth = Auth::user();
+        return Validator::make($data, [
+            'title' => 'required|string|min:1|max:200'
+        ]);
+    }
+
 
     //検索機能
         public function search(Request $request){
