@@ -32,16 +32,14 @@ class UserController extends Controller
 
         //掲示板詳細画面
         public function detail($id, Post $Post,PostMainCategory $PostMainCategory, PostSubCategory $PostSubCategory,PostComment $PostComment){
-
         $userPost_ids = $Post->UserPosts($id)->get();
+        $SubCategorys = Post::with(['user','postSubCategory','PostComment','ActionLog'])->find($id);//findで取り出すものを特定する。getは全部持ってきちゃう
 
-        $SubCategorys = Post::with(['user','postSubCategory','PostComment','PostComment'])->find($id);
         ActionLog::create([
             'user_id' => Auth::user()->id,
             'post_id' => $id,
             'event_at' => Carbon::now()
         ]);
-        //findで取り出すものを特定する。getは全部持ってきちゃう
         return view('auth.detail', [ 'userPost_ids'=> $userPost_ids, 'SubCategorys' => $SubCategorys,]);
     }
 

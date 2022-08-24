@@ -48,7 +48,7 @@
               <p class="comment-form">コメント</p>
               {!! Form::open(['url' => 'comment/create']) !!}
               {!! Form::hidden('id', $userPost_ids->id) !!}
-                <div>{!! Form::textarea('comment', null, ['class' => 'input', 'id' => 'comment', 'placeholder'=> 'こちらからコメントできます。', 'rows' => 4, 'cols'=> 20]) !!}</div>
+                <div>{!! Form::textarea('comment', null,['class' => 'input', 'id' => 'comment', 'placeholder'=> 'こちらからコメントできます。', 'rows' => 4, 'cols'=> 20]) !!}</div>
                 <span class="Form-button">{{ Form::submit('コメント')}}</span>
               {!! Form::close() !!}
             </div>
