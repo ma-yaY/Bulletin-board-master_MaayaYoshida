@@ -45,6 +45,8 @@ Route::post('/login', 'Auth\Login\LoginController@login');
    Route::get('/category', 'Auth\Posts\PostsController@Category');
    Route::post('category/create', 'Auth\Posts\PostsController@MainCreate');
    Route::post('category/createSub', 'Auth\Posts\PostsController@SubCreate');
+
+   //サブカテゴリー削除
    Route::get('/category/{id}/SubDelete', 'Auth\Posts\PostsController@SubDelete');
 
 
@@ -63,15 +65,17 @@ Route::post('/login', 'Auth\Login\LoginController@login');
   //投稿編集ー投稿詳細画面に戻る
   Route::get('/posts/{id}/edit', 'User\UserController@edit');
   Route::post('/posts/Edit{id}', 'User\UserController@updatePost');
-
+  //投稿削除
   Route::get('/post/{id}/delete', 'Auth\Posts\PostsController@delete');
 
   //コメント編集ーコメント詳細画面に戻る
   Route::get('/posts/{id}/CommentEdit', 'Auth\Posts\PostCommentsController@CommentEdit');
   Route::post('/posts/Comment_edit{id}', 'Auth\Posts\PostCommentsController@updateComment');
 
-
+  //コメント削除
   Route::get('/post/{id}/CommentDelete', 'Auth\Posts\PostCommentsController@CommentDelete');
+  Route::post('/top', 'Auth\Posts\PostsController@index');
+
 
  //いいね機能
   Route::post('/Favorite', 'PostFavoriteController@Favorite')->name('Post.PostFavorite');

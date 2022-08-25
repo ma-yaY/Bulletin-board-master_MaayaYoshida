@@ -34,8 +34,6 @@ class PostCommentsController extends Controller
             'update_user_id' => $update_user_id,
             'event_at' => $event_at
         ]);
-
-
        return back();
     }
 
@@ -73,6 +71,7 @@ class PostCommentsController extends Controller
          //コメント編集詳細画面に戻る
          public function updateComment(Request $request,$id, Post $Post, PostMainCategory $PostMainCategory, PostSubCategory $PostSubCategory,PostComment $PostComment)
     {
+        $post_id = Post::with(['user', 'PostComment'])->get();
         $Comment = PostComment::with(['user','Post'])->find($id);
         $SubCategorys = Post::with(['user','postSubCategory','PostComment'])->find($id);
         $up_comment = $request->input('upComment');
@@ -88,10 +87,11 @@ class PostCommentsController extends Controller
                 'event_at' => $event_at
             ]);
 
+
         return redirect()->route('detail', ['id'=>$id]);
     }
 
-        public function CommentDelete(Request $request, $id, Post $Post)
+        public function CommentDelete( $id, Post $Post)
     {
 
         $userPost_ids = $Post->UserPosts($id)->get();

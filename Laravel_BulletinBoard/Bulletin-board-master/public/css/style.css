@@ -18,41 +18,68 @@ body {
 /* header */
 header {
   font-size: 20px;
-  padding: 30px;
-  background: #2f4f4f;
+  padding-left: 15%;
+  padding-top: 30px;
+  padding-bottom: 20px;
+  background: #fff;
   position: relative;
 }
 
 
 
 .category-list {
-
   display: flex;
   flex-direction: column;
-
 }
 
 .main-post {
   display: flex;
-
   font-size: 16px;
-
+  padding-left: 15%;
 }
 
 
 .box {
-
   font-size: 16px;
-  padding: 15px 0px 15px 10px;
+  padding: 15px 20px 15px 20px;
   margin: 15px 10px 0px 10px;
   border: solid 2px #a9a9a9;
 }
 
-#side-menu {
-  flex: 40%;
+.post-itle {
+  padding: 20px 0px 20px;
 }
 
 
+
+
+
+#side-menu {
+  position: absolute;
+  right: 10%;
+  padding: 0;
+  background: #fff;
+  list-style: none;
+}
+
+.form-ctl {
+  left: 0;
+  top: 0;
+  outline: 0;
+  /*クリック時の青い枠線消す*/
+  height: 40px;
+  /*検索ボックスの高さ*/
+  padding: 0 10px;
+  /*テキスト位置調整*/
+  border-radius: 2px;
+  /*検索ボックスの角を丸める*/
+  background: #eee;
+  /*検索ボックスの背景カラー*/
+}
+
+.Form input {
+  border: 2px solid #b84c00;
+}
 
 
 .acd-check {
@@ -61,7 +88,7 @@ header {
 
 .acd-label {
   width: 300px;
-  background: #333;
+  background: #fff;
   color: #fff;
   display: block;
   margin-bottom: 1px;
