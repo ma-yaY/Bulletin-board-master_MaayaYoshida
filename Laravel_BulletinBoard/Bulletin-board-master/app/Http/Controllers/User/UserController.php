@@ -57,7 +57,6 @@ class UserController extends Controller
         //投稿編集詳細画面に戻る
         public function updatePost(Request $request,$id, Post $Post)
     {
-
         $userPost_ids = $Post->UserPosts($id)->get();
         $SubCategorys = Post::with(['user','PostSubCategory','PostComment'])->find($id);
         $up_post = $request->input('upPost');
