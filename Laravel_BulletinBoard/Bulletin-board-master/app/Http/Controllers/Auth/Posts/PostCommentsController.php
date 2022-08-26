@@ -26,6 +26,9 @@ class PostCommentsController extends Controller
         $delete_user_id = Auth::user()->id;
         $update_user_id = $delete_user_id;
         $event_at = Carbon::now();
+        $validateData = $request -> validate([
+            'comment' => ['required', 'max:2500', 'string', 'min:1'],
+        ]);
         PostComment::create([
             'user_id' => Auth::id(),
             'post_id' => $request->input('id'),
@@ -37,12 +40,6 @@ class PostCommentsController extends Controller
        return back();
     }
 
-    protected function validators(array $data){
-        $auth = Auth::user();
-        return Validator::make($request, [
-            'text' => 'required|string|min:1|max:2500'
-        ]);
-    }
 
          //コメント編集画面
         public function CommentEdit(Request $request, $id, Post $Post, PostComment $PostComment)
@@ -57,16 +54,6 @@ class PostCommentsController extends Controller
 
          }
 
-         protected function CommentEditValidators(array $data){
-        $auth = Auth::user();
-        return Validator::make($request, [
-            'text' => 'required|string|min:1|max:2500'
-        ]);
-    }
-
-
-
-
 
          //コメント編集詳細画面に戻る
          public function updateComment(Request $request,$id, Post $Post, PostMainCategory $PostMainCategory, PostSubCategory $PostSubCategory,PostComment $PostComment)
@@ -78,6 +65,9 @@ class PostCommentsController extends Controller
         $delete_user_id = Auth::user()->id;
         $update_user_id = $delete_user_id;
         $event_at = Carbon::now();
+        $validateData = $request -> validate([
+            'comment' => ['required', 'max:2500', 'string', 'min:1'],
+        ]);
         \DB::table('post_comments')
             ->where('id', $id)
             ->update([

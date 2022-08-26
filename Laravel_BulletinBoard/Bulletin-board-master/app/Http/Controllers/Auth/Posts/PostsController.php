@@ -17,22 +17,12 @@ class PostsController extends Controller
     //topの投稿表示
     public function index( Post $Post, PostMainCategory $PostMainCategory, PostSubCategory $PostSubCategory, ActionLog $ActionLog)
     {
-
         $auth = Auth::user();
         $user = auth()->user();
-
         $timelines = Post::with(['user','postSubCategory','ActionLog','PostComment'])->get();
         return view('/top', ['timelines' => $timelines]);
     }
 
-    protected function validators(array $data){
-        $auth = Auth::user();
-        return Validator::make($data, [
-            'title' => 'required|string|min:1|max:200',
-            'text' => 'required|string|min:1|max:5000'
-
-        ]);
-    }
 
     //検索機能
         public function search(Request $request){
@@ -95,6 +85,10 @@ class PostsController extends Controller
         $post = $request->input('newPost');
         $title = $request->input('title');
         $event_at = Carbon::now();
+        $validateData = $request -> validate([
+            'title' => ['required', 'max:255', 'string', 'min:1'],
+            'newPost' => ['required', 'max:255', 'string', 'min:1', 'max:5000'],
+        ]);
         //$event_at = time();
         //echo date( DATE_ATOM ) ;
         \DB::table('posts')->insert([
@@ -104,13 +98,8 @@ class PostsController extends Controller
             'title' => $title,
             'event_at' => $event_at
         ]);
-
-
-
-
         return redirect('top');
     }
-
 
 
       //サブカテゴリー削除

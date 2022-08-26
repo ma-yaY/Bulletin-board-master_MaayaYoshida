@@ -6,6 +6,9 @@
       @foreach ($Comment_ids as $Comment_ids)
         {!! Form::open(['url' => 'posts/Comment_edit'.$Comment_ids->id]) !!}
           <div class='commentEditForm'>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
             <div>{!! Form::textarea('upComment', $Comment_ids->comment, ['class' => 'input', 'rows' => 4, 'cols'=> 20]) !!}</div>
           </div>
           <div class="submit-btn">

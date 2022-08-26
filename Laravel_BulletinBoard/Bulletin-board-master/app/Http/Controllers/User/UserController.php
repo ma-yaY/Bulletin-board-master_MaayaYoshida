@@ -64,6 +64,11 @@ class UserController extends Controller
         $delete_user_id = Auth::user()->id;
         $update_user_id = $delete_user_id;
         $event_at = Carbon::now();
+        $validateData = $request -> validate([
+            'PostSubCategory' => ['required', 'not_in'],
+            'upPost' => ['required', 'max:5000', 'string', 'min:1'],
+            'upTitle' => ['required', 'max:100', 'string', 'min:1'],
+        ]);
         \DB::table('posts')
             ->where('id', $id)
             ->update([

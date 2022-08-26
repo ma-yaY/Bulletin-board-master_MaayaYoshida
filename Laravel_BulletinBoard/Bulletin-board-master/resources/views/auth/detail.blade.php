@@ -42,10 +42,11 @@
 
           @endforeach
 
-
-
           <div class="form-group">
               <p class="comment-form">コメント</p>
+              @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+              @endforeach
               {!! Form::open(['url' => 'comment/create']) !!}
               {!! Form::hidden('id', $userPost_ids->id) !!}
                 <div>{!! Form::textarea('comment', null,['class' => 'input', 'id' => 'comment', 'placeholder'=> 'こちらからコメントできます。', 'rows' => 4, 'cols'=> 20]) !!}</div>

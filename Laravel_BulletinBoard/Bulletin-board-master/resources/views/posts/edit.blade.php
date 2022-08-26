@@ -9,14 +9,23 @@
 
           <select class="form-select" id="SubFormSelect" name="Sub_category">
               @foreach ($SubCategorys as $Sub_categories)
-              <option value="{{$Sub_categories->id}}">{{
-              $Sub_categories->postSubCategory->sub_category}}</option>
+                @foreach ($errors->all() as $error)
+                  <li>{{ $error }}</li>
+                @endforeach
+                <option value="{{$Sub_categories->id}}">{{
+                $Sub_categories->postSubCategory->sub_category}}</option>
               @endforeach
           </select>
 
         <p class="title-form">タイトル</p>
+        @foreach ($errors->all() as $error)
+              <li>{{ $error }}</li>
+        @endforeach
         <div>{{ Form::text('upTitle', $userPost_ids->title,['class' => 'input']) }}</div>
         <p class="title-form">コメント</p>
+        @foreach ($errors->all() as $error)
+              <li>{{ $error }}</li>
+        @endforeach
         <div>{!! Form::textarea('upPost', $userPost_ids->post, ['class' => 'input', 'rows' => 4, 'cols'=> 20]) !!}</div>
 
         <div class="submit-btn">
