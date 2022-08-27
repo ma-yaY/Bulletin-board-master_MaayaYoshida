@@ -25,7 +25,7 @@
   <header>
     <title>@yield('title')</title>
     @yield('title')
-    <a href="/logout">ログアウト</a>
+    <a class="logout" href="/logout">ログアウト</a>
   </header>
     @yield('content')
     <script src="{{ asset('/js/Favorite.js') }}"></script>

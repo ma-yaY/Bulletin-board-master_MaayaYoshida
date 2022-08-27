@@ -34,11 +34,13 @@ class PostFavoriteController extends Controller
     } else { //このユーザーがこの投稿に既にいいねしてたらdelete
         PostFavorite::where('post_id', $post_id)->where('user_id', $user_id)->delete();
     }
+
     //5.この投稿の最新の総いいね数を取得
     $review_PostFavorite_count = PostFavorite::where('post_id', $post_id)->count();
     $param = [
         'review_PostFavorite_count' => $review_PostFavorite_count,
     ];
+
 
 
     return response()->json($param); //6.JSONデータをjQueryに返す

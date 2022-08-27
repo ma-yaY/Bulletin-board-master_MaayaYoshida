@@ -30,15 +30,28 @@ class UserController extends Controller
     }
 
 
+
+    //自分がいいねした投稿表示
+    public function myFavorite( Post $Post,PostMainCategory $PostMainCategory, PostSubCategory $PostSubCategory, PostFavorite $PostFavorite){
+        $user = auth()->user();
+        $timelines = PostFavorite::with(['user','Post'])->get()
+        ->where('user_id', $user->id);
+
+        return view('top', ['timelines' => $timelines]);
+    }
+
+
+
+
         //掲示板詳細画面
         public function detail($id, Post $Post,PostMainCategory $PostMainCategory, PostSubCategory $PostSubCategory,PostComment $PostComment){
         $userPost_ids = $Post->UserPosts($id)->get();
         $SubCategorys = Post::with(['user','postSubCategory','PostComment','ActionLog'])->find($id);//findで取り出すものを特定する。getは全部持ってきちゃう
-
+        $event_at = Carbon::now();
         ActionLog::create([
             'user_id' => Auth::user()->id,
             'post_id' => $id,
-            'event_at' => Carbon::now()
+            'event_at' => $event_at
         ]);
         return view('auth.detail', [ 'userPost_ids'=> $userPost_ids, 'SubCategorys' => $SubCategorys,]);
     }
@@ -65,7 +78,7 @@ class UserController extends Controller
         $update_user_id = $delete_user_id;
         $event_at = Carbon::now();
         $validateData = $request -> validate([
-            'PostSubCategory' => ['required', 'not_in'],
+            //'' => ['required', 'not_in'],
             'upPost' => ['required', 'max:5000', 'string', 'min:1'],
             'upTitle' => ['required', 'max:100', 'string', 'min:1'],
         ]);

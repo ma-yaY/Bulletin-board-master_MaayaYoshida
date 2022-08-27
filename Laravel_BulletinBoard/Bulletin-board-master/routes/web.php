@@ -41,6 +41,11 @@ Route::post('/login', 'Auth\Login\LoginController@login');
    Route::post('/myPost','User\UserController@myPost');
    Route::get('/myPost','User\UserController@myPost');
 
+
+   //自分がいいねした投稿表示
+   Route::post('/myFavorite','User\UserController@myFavorite');
+   Route::get('/myFavorite','User\UserController@myFavorite');
+
          //
    Route::get('/category', 'Auth\Posts\PostsController@Category');
    Route::post('category/create', 'Auth\Posts\PostsController@MainCreate');

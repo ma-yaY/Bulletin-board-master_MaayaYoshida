@@ -66,7 +66,7 @@ class PostCommentsController extends Controller
         $update_user_id = $delete_user_id;
         $event_at = Carbon::now();
         $validateData = $request -> validate([
-            'comment' => ['required', 'max:2500', 'string', 'min:1'],
+            'upComment' => ['required', 'max:2500', 'string', 'min:1'],
         ]);
         \DB::table('post_comments')
             ->where('id', $id)
@@ -76,22 +76,17 @@ class PostCommentsController extends Controller
                 'update_user_id' => $update_user_id,
                 'event_at' => $event_at
             ]);
-
-
         return redirect()->route('detail', ['id'=>$id]);
     }
 
         public function CommentDelete( $id, Post $Post)
     {
-
-        $userPost_ids = $Post->UserPosts($id)->get();
-        $SubCategorys = Post::with(['user','PostSubCategory','PostComment'])->find($id);
         $timelines = Post::with(['user','postSubCategory'])->get();
         \DB::table('post_comments')
            ->where('id', $id)
            ->delete();
 
-        return view('top',['userPost_ids'=> $userPost_ids, 'SubCategorys' => $SubCategorys, 'timelines' => $timelines]);
+        return redirect('top');
     }
 
 }

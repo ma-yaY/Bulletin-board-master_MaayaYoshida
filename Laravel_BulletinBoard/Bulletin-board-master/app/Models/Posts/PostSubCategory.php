@@ -3,6 +3,10 @@
 namespace App\Models\Posts;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Posts\Post;
+use App\Models\Posts\PostFavorite;
+use App\Models\Posts\PostComment;
+use App\Models\Users\User;
 
 class PostSubCategory extends Model
 {
@@ -12,6 +16,7 @@ class PostSubCategory extends Model
         'post_main_category_id',
         'sub_category',
     ];
+
 
      // PostMainCategoryとのリレーション
      public function PostMainCategory()

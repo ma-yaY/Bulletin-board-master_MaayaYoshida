@@ -7,9 +7,9 @@
           <div class="main-post">
             <div class="box">
               <a class="up_main_post_name">{{$timeLine->user->username}}さん</a>
-              <a class="up_main_post_name">{{$timeLine->created_at}}</a>
+              <a class="day-time">{{$timeLine->created_at}}</a>
               <a class="View">{{$timeLine->ActionLog->count()}}View</a>
-              <div class="post-itle">
+              <div class="post-title">
                 <a href="detail/{{$timeLine->id}}">{{$timeLine->title}}</a>
               </div>
               <a class="up_main_post">{{$timeLine->postSubCategory->sub_category}}</a>
@@ -43,16 +43,22 @@
         <p class="category-btn"><a href="/category">カテゴリーを追加</a></p>
         <p class="up-post"><a href="/post">投稿</a></p>
 
-        {!! Form::open(['url' => '/myPost']) !!}
-          {!! Form::submit('自分の投稿',['class' => 'myPost-button']) !!}
-        {!! Form::close() !!}
-
           <div class="Search-form">
           {!! Form::open(['url' => '/result']) !!}
             {!! Form::input('text', 'keyword', null, ['class' => 'form-ctl', 'placeholder' => '']) !!}
           {{ Form::submit('検索'),['class' => 'Form-button']}}
           {!! Form::close() !!}
           </div>
+
+          {!! Form::open(['url' => '/myFavorite']) !!}
+            {!! Form::submit('いいねした投稿',['class' => 'myFavorite-button']) !!}
+          {!! Form::close() !!}
+
+
+        {!! Form::open(['url' => '/myPost']) !!}
+          {!! Form::submit('自分の投稿',['class' => 'myPost-button']) !!}
+        {!! Form::close() !!}
+
       </div>
   </div>
 
