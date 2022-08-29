@@ -28,7 +28,11 @@ class Post extends Model
     {
         return $this->belongsTo('App\Models\Users\User');
     }
-
+    // PostMainCategoryとのリレーション
+    public function PostMainCategory()
+    {
+        return $this->hasMany('App\Models\Posts\PostMainCategory');
+    }
       // PostSubCategoryとのリレーション
     public function PostSubCategory()
     {

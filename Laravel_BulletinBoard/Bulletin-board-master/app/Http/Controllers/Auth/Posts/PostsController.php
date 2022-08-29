@@ -28,14 +28,14 @@ class PostsController extends Controller
         public function search(Request $request){
             $keyword = $request->input('keyword');
             $timelines= Post::with(['user','postSubCategory'])
-            ->where('title','LIKE',"%{$keyword}%")->get();
+            ->where('title','LIKE',"%{$keyword}%")//曖昧検索
+            ->orWhereHas('postSubCategory',function($query) use($keyword){  //サブカテゴリーあったら完全一致検索
+                $query->Where('title','=',$keyword);})
+                ->orWhere('post', 'LIKE', "%{$keyword}%") //投稿のあいまい検索
+            ->get();
 
             return view('top',['timelines' => $timelines]);
     }
-
-
-
-
 
 
     //ALLカテゴリ表示
@@ -61,6 +61,9 @@ class PostsController extends Controller
     public function SubCreate(Request $request){
         $Sub_category = $request->input('sub_category');
         $post_main_category_id = $request->input('main_category');
+        //$validateData = $request -> validate([
+        //    'sub_category' => ['required', 'max:100', 'string', 'min:1', 'unique'],
+        //]);
         \DB::table('post_sub_categories')->insert([
             'post_main_category_id' => $post_main_category_id,
             'sub_category' => $Sub_category
@@ -101,6 +104,16 @@ class PostsController extends Controller
         return redirect('top');
     }
 
+
+    //メインカテゴリー削除
+       public function MainDelete($id)
+    {
+        \DB::table('post_main_categories')
+            ->where('id', $id)
+            ->delete();
+
+        return redirect('category');
+    }
 
       //サブカテゴリー削除
        public function SubDelete($id)

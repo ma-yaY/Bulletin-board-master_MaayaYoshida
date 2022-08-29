@@ -26,53 +26,50 @@ header {
 }
 
 
-
-.category-list {
+.top {
   display: flex;
-  flex-direction: column;
-}
-
-.main-list,
-.main-list a {
-  display: flex;
-  font-size: 16px;
-  padding-left: 20%;
-
-
+  width: 100%;
 }
 
 
-
-
-display: inline-block;
-padding: 15px;
-margin-bottom: 15px;
-cursor: pointer;
-user-select: none;
-text-align: center;
-background-color: #4A86E8;
 
 .box {
+  /*position: relative;*/
   font-size: 16px;
   padding: 15px 20px 15px 20px;
-  margin: 15px 10px 0px 10px;
+  margin: 15px 150px;
   border: solid 2px #a9a9a9;
 }
 
-.post-itle {
+.CategoryForm {
+  display: inline-block;
+  position: absolute;
+  font-size: 16px;
+  padding: 15px 20px 15px 20px;
+  margin: 15px 150px;
+
+}
+
+
+.CategoryForm button {
+  text-align: center;
+}
+
+
+.box a {
+  margin: auto;
+}
+
+.post-title {
   padding: 20px 0px 20px;
 }
 
 
-
-
-
 #side-menu,
-.category-list {
+#category-list {
   position: absolute;
-  right: 10%;
-  padding: 0;
-  background: #fff;
+  left: 60%;
+  margin: 15px;
   list-style: none;
 }
 
@@ -104,13 +101,16 @@ background-color: #4A86E8;
   padding: 15px;
   margin-bottom: 15px;
   cursor: pointer;
-  user-select: none;
+
   text-align: center;
   background-color: #4A86E8;
 
 }
 
-.category-btn {
+.category-btn,
+.btn-danger,
+.sub-r-btn,
+.main-r-button {
   color: #fff;
   font-size: 16px;
   position: relative;
@@ -121,6 +121,22 @@ background-color: #4A86E8;
   user-select: none;
   text-align: center;
   background-color: #CC4126;
+}
+
+.SForm-button,
+.myFavorite-button,
+.myPost-button {
+  color: #fff;
+  font-size: 16px;
+  position: relative;
+  display: inline-block;
+  padding: 10px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  user-select: none;
+  text-align: center;
+  background-color: #4A86E8;
+  border: 0px none;
 }
 
 .category-btn a,
@@ -145,6 +161,7 @@ background-color: #4A86E8;
   /*検索ボックスの角を丸める*/
   background: #eee;
   /*検索ボックスの背景カラー*/
+
 }
 
 .Form input {

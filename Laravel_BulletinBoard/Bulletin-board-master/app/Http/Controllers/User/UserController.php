@@ -34,8 +34,11 @@ class UserController extends Controller
     //自分がいいねした投稿表示
     public function myFavorite( Post $Post,PostMainCategory $PostMainCategory, PostSubCategory $PostSubCategory, PostFavorite $PostFavorite){
         $user = auth()->user();
-        $timelines = PostFavorite::with(['user','Post'])->get()
-        ->where('user_id', $user->id);
+        $timelines = Post::whereHas('PostFavorite', function ($q){
+        //ユーザー情報と記事の情報が入ったPostFavoriteテーブル
+            $q->where('event_at', '>=', '2022-07-01');
+        })->get();
+        //PostFavoriteテーブルの条件（上の例ではevent_atの日付）を使用してユーザーを検索する
 
         return view('top', ['timelines' => $timelines]);
     }

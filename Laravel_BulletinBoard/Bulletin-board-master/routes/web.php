@@ -46,11 +46,14 @@ Route::post('/login', 'Auth\Login\LoginController@login');
    Route::post('/myFavorite','User\UserController@myFavorite');
    Route::get('/myFavorite','User\UserController@myFavorite');
 
-         //
+   //カテゴリーページ
    Route::get('/category', 'Auth\Posts\PostsController@Category');
    Route::post('category/create', 'Auth\Posts\PostsController@MainCreate');
    Route::post('category/createSub', 'Auth\Posts\PostsController@SubCreate');
 
+
+   //メインカテゴリー削除
+   Route::get('/category/{id}/MainDelete', 'Auth\Posts\PostsController@MainDelete');
    //サブカテゴリー削除
    Route::get('/category/{id}/SubDelete', 'Auth\Posts\PostsController@SubDelete');
 
