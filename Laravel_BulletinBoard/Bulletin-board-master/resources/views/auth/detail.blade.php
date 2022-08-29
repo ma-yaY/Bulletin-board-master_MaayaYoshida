@@ -42,7 +42,25 @@
           <a class="comment">{{$comment->comment}}</a>
           {{$comment->user->username}}
           <p class="CommentEdit-btn"><a href="/posts/{{$comment->id}}/CommentEdit">編集</a></p>
-
+          @auth
+               @if (!$SubCategorys->isCommentFavoritedBy(Auth::user()))
+                  <span class="Coment-Favorite">
+                    <i class="CommentFavorite-toggle far fa-heart Comment-favorite" style="color:red"  data-Comment-id="{{$SubCategorys->id}}"></i>
+                      <span class="CommentFavorite-counter">{{$SubCategorys->PostCommentFavorite->count()}}</span>
+                  </span>
+                  @else
+                    <span class="Comment-Favorited">
+                    <i class="Favorite-toggle fas fa-heart Comment-Favorited" style="color:red" data-Comment-id="{{$SubCategorys->id}}"></i>
+                      <span class="CommentFavorite-counter">{{$SubCategorys->PostCommentFavorite->count()}}</span>
+                    </span>
+                @endif
+              @endauth
+              @guest
+                <span class="Coment-Favorite">
+                  <i class="fa-solid fa-heart"></i>
+                <span class="ComentFavorite-counter">{{$comment->PostFavorite->count()}}</span>
+                </span>
+              @endguest
           @endforeach
 
           <div class="form-group">
@@ -53,7 +71,7 @@
               {!! Form::open(['url' => 'comment/create']) !!}
               {!! Form::hidden('id', $userPost_ids->id) !!}
                 <div>{!! Form::textarea('comment', null,['class' => 'input', 'id' => 'comment', 'placeholder'=> 'こちらからコメントできます。', 'rows' => 4, 'cols'=> 20]) !!}</div>
-                <span class="Form-button">{{ Form::submit('コメント')}}</span>
+                {!! Form::submit('コメント',['class' => 'Form-button'])!!}
               {!! Form::close() !!}
             </div>
           <p class="top"><a href="/top">戻る</a></p>

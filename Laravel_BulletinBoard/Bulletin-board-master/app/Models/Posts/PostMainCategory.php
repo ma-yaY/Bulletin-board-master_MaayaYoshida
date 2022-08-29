@@ -12,7 +12,7 @@ class PostMainCategory extends Model
     protected $fillable = [
         'main_category',
     ];
-
+    //Postモデルとのリレーション
     public function post()
     {
         return $this->hasMany('App\Models\Posts\Post');

@@ -12,6 +12,7 @@ use App\Models\Posts\PostMainCategory;
 use App\Models\Posts\PostSubCategory;
 use App\Models\Posts\PostComment;
 use App\Models\Posts\PostFavorite;
+use App\Models\Posts\PostCommentFavorite;
 use App\Models\Users\User;
 use App\Models\Posts\Post;
 use App\Models\ActionLogs\ActionLog;
@@ -49,13 +50,15 @@ class UserController extends Controller
         //掲示板詳細画面
         public function detail($id, Post $Post,PostMainCategory $PostMainCategory, PostSubCategory $PostSubCategory,PostComment $PostComment){
         $userPost_ids = $Post->UserPosts($id)->get();
-        $SubCategorys = Post::with(['user','postSubCategory','PostComment','ActionLog'])->find($id);//findで取り出すものを特定する。getは全部持ってきちゃう
+
+        $SubCategorys = Post::with(['user','postSubCategory','PostComment','PostCommentFavorite','ActionLog'])->find($id);//findで取り出すものを特定する。getは全部持ってきちゃう
         $event_at = Carbon::now();
         ActionLog::create([
             'user_id' => Auth::user()->id,
             'post_id' => $id,
             'event_at' => $event_at
         ]);
+
         return view('auth.detail', [ 'userPost_ids'=> $userPost_ids, 'SubCategorys' => $SubCategorys,]);
     }
 

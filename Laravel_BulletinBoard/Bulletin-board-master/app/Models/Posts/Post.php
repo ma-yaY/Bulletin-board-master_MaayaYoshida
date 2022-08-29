@@ -57,14 +57,29 @@ class Post extends Model
         return $this->where('id', $userPost_ids);
     }
 
+    // PostFavoriteとのリレーション
     public function PostFavorite()
     {
         return $this->hasMany('App\Models\Posts\PostFavorite');
     }
+
+    // PostCommentFavoriteとのリレーション
+    public function PostCommentFavorite()
+    {
+        return $this->hasMany('App\Models\Posts\PostCommentFavorite');
+    }
+
+
     //Viewで使う、いいねされているかを判定するメソッド。
     public function isFavoritedBy($user): bool {
         return PostFavorite::where('user_id', $user->id)->where('post_id', $this->id)->first() !==null;
     }
+
+      //Viewで使う、いいねされているかを判定するメソッド。
+    public function isCommentFavoritedBy($user): bool {
+        return PostCommentFavorite::where('user_id', $user->id)->where('post_comment_id', $this->id)->first() !==null;
+    }
+
 
 
 

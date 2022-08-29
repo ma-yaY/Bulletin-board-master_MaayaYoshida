@@ -48,9 +48,20 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\Posts\PostFavorite');
     }
 
+    // PostCommentFavoriteとのリレーション
+    public function PostCommentFavorite()
+    {
+        return $this->hasMany('App\Models\Posts\PostCommentFavorite');
+    }
+
     public function PostFavorite_s()
     {
         return $this->belongsToMany(self::class, 'PostFavorite', 'user_id', 'post_id');
+    }
+
+    public function CommentPostFavorite_s()
+    {
+        return $this->belongsToMany(self::class, 'PostCommentFavorite', 'user_id', 'post_comment_id');
     }
 
 

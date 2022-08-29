@@ -37,6 +37,7 @@ class PostCommentsController extends Controller
             'update_user_id' => $update_user_id,
             'event_at' => $event_at
         ]);
+
        return back();
     }
 
