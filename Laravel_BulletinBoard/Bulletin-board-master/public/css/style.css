@@ -32,12 +32,25 @@ header {
   flex-direction: column;
 }
 
-.main-post {
+.main-list,
+.main-list a {
   display: flex;
   font-size: 16px;
-  padding-left: 15%;
+  padding-left: 20%;
+
+
 }
 
+
+
+
+display: inline-block;
+padding: 15px;
+margin-bottom: 15px;
+cursor: pointer;
+user-select: none;
+text-align: center;
+background-color: #4A86E8;
 
 .box {
   font-size: 16px;
@@ -54,7 +67,8 @@ header {
 
 
 
-#side-menu {
+#side-menu,
+.category-list {
   position: absolute;
   right: 10%;
   padding: 0;
@@ -62,9 +76,12 @@ header {
   list-style: none;
 }
 
+
+
+
 .logout {
   position: absolute;
-  right: 10%;
+  left: 50%;
   padding: 0px;
   background: #fff;
   list-style: none;
@@ -77,6 +94,43 @@ header {
   background: #fff;
   list-style: none;
 }
+
+.logout,
+.up-post a {
+  color: #fff;
+  font-size: 16px;
+  position: relative;
+  display: inline-block;
+  padding: 15px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  user-select: none;
+  text-align: center;
+  background-color: #4A86E8;
+
+}
+
+.category-btn {
+  color: #fff;
+  font-size: 16px;
+  position: relative;
+  display: inline-block;
+  padding: 15px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  user-select: none;
+  text-align: center;
+  background-color: #CC4126;
+}
+
+.category-btn a,
+.logout a,
+.up-post a {
+  color: #fff;
+
+}
+
+
 
 .form-ctl {
   left: 0;

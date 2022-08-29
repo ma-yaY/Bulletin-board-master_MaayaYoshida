@@ -50,7 +50,7 @@ class User extends Authenticatable
 
     public function PostFavorite_s()
     {
-        return $this->belongsToMany(self::class, 'PostFavorites', 'user_id', 'post_id');
+        return $this->belongsToMany(self::class, 'PostFavorite', 'user_id', 'post_id');
     }
 
 

@@ -1,7 +1,7 @@
 @extends('layouts.login')
 @section('title', '掲示板投稿一覧')
 @section('content')
-  <div class="category-list">
+  <div class="top">
     <!--foreach-->
         @foreach($timelines as $timeLine)
           <div class="main-post">

@@ -2,8 +2,8 @@
 @section('title', 'カテゴリー追加画面')
 @section('content')
 <!--<h1>カテゴリー追加画面</h1>-->
-<div class="form-area">
-      <div class="form-group">
+<div class=" Category-area">
+      <div class="CategoryForm">
         {!! Form::open(['url' =>'category/create']) !!}
         <div>{{ Form::label('main category') }}</div>
         <div>{{ Form::text('newMain_category',null,['class' => 'input']) }}</div>
@@ -11,22 +11,25 @@
         {!! Form::close() !!}
       </div>
       <!--カテゴリー選択-->
-      {!! Form::open(['url' =>'category/createSub']) !!}
-        {{csrf_field()}}
-        <label for="MainFormSelect" class="form-label">メインカテゴリー<label>
-        <select class="form-select" id="MainFormSelect" name="main_category">
-          @foreach ($categories as $select)
-          <option value="{{$select->id}}">{{$select->main_category}}</option>
-          @endforeach
-        </select>
-        <!--サブカテゴリー選択-->
-        <div class="subForm-group">
-          <label class="form-label">新規サブカテゴリー</label>
-          <input class="form-control" type="text" name="sub_category">
-        </div>
-        <button type="submit" class="btn redbtn">登録</button>
+      <div class="SelectCategoryForm">
+        {!! Form::open(['url' =>'category/createSub']) !!}
+          {{csrf_field()}}
+          <label for="MainFormSelect" class="form-label">メインカテゴリー<label>
+          <select class="form-select" id="MainFormSelect" name="main_category">
+            @foreach ($categories as $select)
+            <option value="{{$select->id}}">{{$select->main_category}}</option>
+            @endforeach
+          </select>
+          <!--サブカテゴリー選択-->
+          <div class="subForm-group">
+            <label class="form-label">新規サブカテゴリー</label>
+            <input class="form-control" type="text" name="sub_category">
+          </div>
+            <button type="submit" class="btn redbtn">登録</button>
+
         {!! Form::close() !!}
-        </div>
+      </div>
+
     </div>
 
     <div class="category-list">
