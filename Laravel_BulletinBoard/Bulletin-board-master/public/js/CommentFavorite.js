@@ -1,7 +1,7 @@
 $(function () {
-  let favorite = $('.CommentFavorite-toggle'); //Favorite-toggleのついたiタグを取得し代入。
+  let CommentFavorite = $('.CommentFavorite-toggle'); //CommentFavorite-toggleのついたiタグを取得し代入。
   let CommentFavoritePostId; //変数を宣言（なんでここで？）
-  Coment-favorite.on('click', function () { //onはイベントハンドラー
+  CommentFavorite.on('click', function () { //onはイベントハンドラー
     let $this = $(this); //this=イベントの発火した要素＝iタグを代入
     CommentFavoritePostId = $this.data('post_comment_id'); //iタグに仕込んだdata-Comment-idの値を取得
     //ajax処理スタート
@@ -18,19 +18,19 @@ $(function () {
       //通信成功した時の処理
       .done(function (data) {
         console.log("読み込めました");
-        if ($this.hasClass('Comment-favorite')) {  //もし通信するときに<i>タグにfavoriteが入ってたら
-          $this.addClass('Comment-favorited');   //favoritedを削除
-          $this.removeClass('Comment-favorite');
+        if ($this.hasClass('CommentFavorite')) {  //もし通信するときに<i>タグにfavoriteが入ってたら
+          $this.addClass('CommentFavorited');   //favoritedを削除
+          $this.removeClass('CommentFavorite');
           $this.removeClass('far');  // farを削除
           $this.addClass('fas');  // fasを追加
         } else {
-          $this.removeClass('Comment-favorited');
-          $this.addClass('Comment-favorite');
+          $this.removeClass('CommentFavorited');
+          $this.addClass('CommentFavorite');
           $this.removeClass('fas');
           $this.addClass('far');
         }
         $this.next('.CommentFavorite-counter').html
-          (data.review_PostFavorite_count);
+          (data.review_CommentFavorite_count);
       })
       .fail(function () {
         console.log("失敗しました");
