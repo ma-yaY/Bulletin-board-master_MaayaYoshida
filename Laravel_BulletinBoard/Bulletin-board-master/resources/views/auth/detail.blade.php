@@ -45,12 +45,12 @@
           @auth
                @if (!$SubCategorys->isCommentFavoritedBy(Auth::user()))
                   <span class="Coment-Favorite">
-                    <i class="CommentFavorite-toggle far fa-heart Comment-favorite" style="color:red"  data-Comment-id="{{$SubCategorys->id}}"></i>
+                    <i class="CommentFavorite-toggle far fa-heart CommentFavorite" style="color:red"  data-Comment-id="{{$SubCategorys->id}}"></i>
                       <span class="CommentFavorite-counter">{{$SubCategorys->PostCommentFavorite->count()}}</span>
                   </span>
                   @else
                     <span class="Comment-Favorited">
-                    <i class="Favorite-toggle fas fa-heart Comment-Favorited" style="color:red" data-Comment-id="{{$SubCategorys->id}}"></i>
+                    <i class="Favorite-toggle fas fa-heart CommentFavorited" style="color:red" data-Comment-id="{{$SubCategorys->id}}"></i>
                       <span class="CommentFavorite-counter">{{$SubCategorys->PostCommentFavorite->count()}}</span>
                     </span>
                 @endif
@@ -58,7 +58,7 @@
               @guest
                 <span class="Coment-Favorite">
                   <i class="fa-solid fa-heart"></i>
-                <span class="ComentFavorite-counter">{{$comment->PostFavorite->count()}}</span>
+                <span class="ComentFavorite-counter">{{$SubCategorys->PostFavorite->count()}}</span>
                 </span>
               @endguest
           @endforeach

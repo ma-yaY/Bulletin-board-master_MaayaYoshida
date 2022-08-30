@@ -10,6 +10,7 @@ use Illuminate\Validation\Rule;
 
 use App\Models\Users\User;
 use App\Models\Posts\Post;
+use App\Models\Posts\PostComment;
 use App\Models\Posts\PostFavorite;
 use App\Models\Posts\PostMainCategory;
 use App\Models\Posts\PostSubCategory;

@@ -51,7 +51,7 @@ class UserController extends Controller
         public function detail($id, Post $Post,PostMainCategory $PostMainCategory, PostSubCategory $PostSubCategory,PostComment $PostComment){
         $userPost_ids = $Post->UserPosts($id)->get();
 
-        $SubCategorys = Post::with(['user','postSubCategory','PostComment','PostCommentFavorite','ActionLog'])->find($id);//findで取り出すものを特定する。getは全部持ってきちゃう
+        $SubCategorys = Post::with(['user','postSubCategory','PostComment','ActionLog'])->find($id);//findで取り出すものを特定する。getは全部持ってきちゃう
         $event_at = Carbon::now();
         ActionLog::create([
             'user_id' => Auth::user()->id,
