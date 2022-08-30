@@ -32,6 +32,12 @@ class PostCommentFavorite extends Model
         return $this->belongsTo('App\Models\Posts\Post');
     }
 
+    //投稿に対してのコメント
+    public function PostComment()
+    {
+        return $this->hasMany('App\Models\Posts\PostComment');
+    }
+
     //閲覧者数取得用
     public function ActionLog()
     {

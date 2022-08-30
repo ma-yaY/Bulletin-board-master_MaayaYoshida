@@ -23,7 +23,7 @@ class PostCommentFavoritesController extends Controller
 {
 
     $user_id = Auth::user()->id; //1.ログインユーザーのid取得
-    $postCommentID = $PostComment->UserComments($id)->get();
+
     $post_comment_id = $request->post_comment_id; //2.投稿idの取得
     $already_CommentFavorited = PostCommentFavorite::where('user_id', $user_id)->where('post_comment_id', $post_comment_id)->first(); //3.
 
@@ -42,13 +42,6 @@ class PostCommentFavoritesController extends Controller
     $param = [
         'review_CommentFavorite_count' => $review_CommentFavorite_count,
     ];
-
-    PostCommentFavorite::create([
-            'user_id' => Auth::user()->id,
-            'post_comment_id' => $postCommentID
-        ]);
-
-
 
     return response()->json($param); //6.JSONデータをjQueryに返す
 }

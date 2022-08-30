@@ -1,6 +1,6 @@
 @extends('layouts.login')
 
-@section('title', '掲示板詳細画面')
+@section('title', 'コメント編集画面')
 @section('content')
     <h2>コメント内容</h2>
       @foreach ($Comment_ids as $Comment_ids)
@@ -10,6 +10,8 @@
                 <li>{{ $error }}</li>
             @endforeach
             <div>{!! Form::textarea('upComment', $Comment_ids->comment, ['class' => 'input', 'rows' => 4, 'cols'=> 20]) !!}</div>
+            <!--post_idも送ることでどの投稿のコメントかが判別-->
+            <div>{!! Form::hidden('post_id', $Comment_ids->post_id) !!}</div>
           </div>
           <div class="submit-btn">
               <button type="submit" class="btn btn-button-close" href="/posts/{{$Comment_ids->id}}/Comment_edit">更新</button>

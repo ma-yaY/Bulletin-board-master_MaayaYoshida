@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Users\User;
 use App\Models\Posts\Post;
 use App\Models\Posts\PostFavorite;
+use App\Models\ActionLogs\ActionLog;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\Auth\Posts\PostCommentsController;
 use App\Http\Controllers\Auth\Posts\PostCommentFavoritesController;
@@ -49,8 +50,14 @@ class PostComment extends Model
     return $this->where('id', $Comment_ids);
     }
 
-    //Viewで使う、コメントにいいねされているかを判定するメソッド。
-    public function isCommentFavoritedBy($user): bool {
-        return PostCommentFavorite::where('user_id', $user->id)->where('post_comment_id', $this->id)->first() !==null;
+    // PostCommentFavoriteとのリレーション
+    public function PostCommentFavorite()
+    {
+        return $this->hasMany('App\Models\Posts\PostCommentFavorite');
     }
+
+    //Viewで使う、コメントにいいねされているかを判定するメソッド。
+    //public function isCommentFavoritedBy($user): bool {
+        //return PostCommentFavorite::where('user_id', $user->id)->where('post_comment_id', $this->id)->first() !==null;
+    //}
 }

@@ -21,6 +21,7 @@ class PostCommentsController extends Controller
     public function comment(Request $request)
     {
         $auth = Auth::user();
+
         $post_id = Post::with(['user', 'PostComment'])->get();
         $comment = $request->input('comment');
         $delete_user_id = Auth::user()->id;
@@ -37,7 +38,6 @@ class PostCommentsController extends Controller
             'update_user_id' => $update_user_id,
             'event_at' => $event_at
         ]);
-
        return back();
     }
 
@@ -63,6 +63,7 @@ class PostCommentsController extends Controller
         $Comment = PostComment::with(['user','Post'])->find($id);
         $SubCategorys = Post::with(['user','postSubCategory','PostComment'])->find($id);
         $up_comment = $request->input('upComment');
+        $post_id = $request->input('post_id');
         $delete_user_id = Auth::user()->id;
         $update_user_id = $delete_user_id;
         $event_at = Carbon::now();
@@ -77,7 +78,7 @@ class PostCommentsController extends Controller
                 'update_user_id' => $update_user_id,
                 'event_at' => $event_at
             ]);
-        return redirect()->route('detail', ['id'=>$id]);
+        return redirect()->route('detail', ['id'=>$post_id]);
     }
 
         public function CommentDelete( $id, Post $Post)

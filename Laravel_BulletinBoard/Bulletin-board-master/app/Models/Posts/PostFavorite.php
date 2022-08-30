@@ -31,6 +31,8 @@ class PostFavorite extends Model
         return $this->belongsTo('App\Models\Posts\Post');
     }
 
+
+
     //閲覧者数取得用
     public function ActionLog()
     {
