@@ -8,20 +8,20 @@
               <li>{{ $error }}</li>
         @endforeach
         {!! Form::open(['url' =>'category/create']) !!}
-        <div>{{ Form::label('main category') }}</div>
-        <div>{{ Form::text('newMain_category',null,['class' => 'input']) }}</div>
+        <div class="main-category">{{ Form::label('main category') }}</div>
+        <div>{{ Form::text('newMain_category',null,['class' => 'input newMain_categoryForm']) }}</div>
         {!! Form::submit('登録',['class' => 'main-r-button']) !!}
         {!! Form::close() !!}
         <!--カテゴリー選択-->
           {!! Form::open(['url' =>'category/createSub']) !!}
             {{csrf_field()}}
             <div><label for="MainFormSelect" class="form-label">メインカテゴリー<label></div>
-            <select class="form-select" id="MainFormSelect" name="main_category">
+            <select class="form-select" id="MainFormSelect" name="main_category" >
               @foreach ($categories as $select)
               <option value="{{$select->id}}">{{$select->main_category}}</option>
               @endforeach
             </select>
-            <!--サブカテゴリー選択-->
+            <!--サブカテゴリー-->
               <div><label class="form-label">新規サブカテゴリー</label></div>
               <div><input class="form-control" type="text" name="sub_category"></div>
               <button type="submit" class="sub-r-btn">登録</button>
@@ -45,8 +45,9 @@
               <a class="btn-danger" href="/category/{{$sub_category->id}}/SubDelete" onclick="return confirm('こちらのサブカテゴリーを削除してもよろしいでしょうか？')">削除</a></a>
               @endif
           @endforeach
-        <p class="top"><a href="/top">戻る</a></p>
+
         @endforeach
+        <p class="top"><a href="/top">戻る</a></p>
       </div>
 </div>
 

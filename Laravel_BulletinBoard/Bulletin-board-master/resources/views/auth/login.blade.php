@@ -6,16 +6,16 @@
 
     {!! Form::open() !!}
 
-    <h2>ログイン画面</h2>
+    <h2>ログイン</h2>
 
-    <div>{{ Form::label('e-mail') }}</div>
-    <div>{{ Form::text('email',null,['class' => 'input']) }}</div>
-    <div>{{ Form::label('password') }}</div>
-    <div>{{ Form::password('password',['class' => 'input']) }}</div>
+    <div class="label-e-mail" >{{ Form::label('e-mail') }}</div>
+    <div>{{ Form::text('email',null,['class' => 'mail']) }}</div>
+    <div class="label-password">{{ Form::label('password') }}</div>
+    <div>{{ Form::password('password',['class' => 'password']) }}</div>
 
-    <span class="Form-button">{{ Form::submit('ログイン') }}</span>
+    {{ Form::submit('ログイン',['class' => "Form-button"]) }}
 
-    <p><a href="/register">新規ユーザーの方はこちら</a></p>
+    <p>新規ユーザーの方は<a href="/register">こちら</a></p>
 
     {!! Form::close() !!}
   <div>

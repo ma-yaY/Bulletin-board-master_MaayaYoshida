@@ -10,21 +10,20 @@
     @endforeach
     <h2>新規ユーザー登録</h2>
 
-    <div>{{ Form::label('user name') }}</div>
-    <div>{{ Form::text('username',null,['class' => 'input']) }}</div>
+    <div class="label-user-name">{{ Form::label('user name') }}</div>
+    <div>{{ Form::text('username',null,['class' => 'username']) }}</div>
 
-    <div>{{ Form::label(' email address') }}</div>
-    <div>{{ Form::text('email',null,['class' => 'input']) }}</div>
+    <div class="label-e-mail">{{ Form::label(' email address') }}</div>
+    <div>{{ Form::text('email',null,['class' => 'mail']) }}</div>
 
-    <div>{{ Form::label('password') }}</div>
-    <div>{{ Form::text('password',null,['class' => 'input']) }}</div>
+    <div class="label-password">{{ Form::label('password') }}</div>
+    <div>{{ Form::password('password',null,['class' => 'password']) }}</div>
 
-    <div>{{ Form::label('password confirm') }}</div>
-    <div>{{ Form::text('password_confirmation',null,['class' => 'input']) }}</div>
+    <div class="label-password">{{ Form::label('password confirm') }}</div>
+    <div>{{ Form::password('password_confirmation',null,['class' => 'password']) }}</div>
 
-    <span class="Form-button">{{ Form::submit('確認')}}</span>
-
-    <p><a href="/login">ログイン画面へ戻る</a></p>
+    {{ Form::submit('確認',['class' => "Form-button"])}}
+    <!--<p>ログイン画面へ<a href="/login">戻る</a></p>-->
 
     {!! Form::close() !!}
   </div>
