@@ -19,12 +19,12 @@
               @auth
                @if (!$userPost_ids->isFavoritedBy(Auth::user()))
                   <span class="Favorite">
-                    <i class="Favorite-toggle far fa-heart favorite" style="color:red"  data-Post-id="{{$userPost_ids->id}}"></i>
+                    <i class="Favorite-toggle far fa-heart favorite" style="color:red"  data-post-id="{{$userPost_ids->id}}"></i>
                       <span class="Favorite-counter">{{$userPost_ids->PostFavorite->count()}}</span>
                   </span>
                   @else
                     <span class="Favorited">
-                    <i class="Favorite-toggle fas fa-heart favorited" style="color:red" data-Post-id="{{$userPost_ids->id}}"></i>
+                    <i class="Favorite-toggle fas fa-heart favorited" style="color:red" data-post-id="{{$userPost_ids->id}}"></i>
                       <span class="Favorite-counter">{{$userPost_ids->PostFavorite->count()}}</span>
                     </span>
                 @endif
@@ -45,12 +45,12 @@
           @auth
                @if (!$comment->isCommentFavoritedBy(Auth::user()))
                   <span class="Coment-Favorite">
-                    <i class="CommentFavorite-toggle far fa-heart CommentFavorite" style="color:red"  data-Comment-id="{{$comment->id}}"></i>
+                    <i class="CommentFavorite-toggle far fa-heart CommentFavorite" style="color:red"  data-comment-id="{{$comment->id}}"></i>
                       <span class="CommentFavorite-counter">{{$comment->PostCommentFavorite->count()}}</span>
                   </span>
                   @else
                     <span class="Comment-Favorited">
-                    <i class="Favorite-toggle fas fa-heart CommentFavorited" style="color:red" data-Comment-id="{{$comment->id}}"></i>
+                    <i class="CommentFavorite-toggle fas fa-heart CommentFavorited" style="color:red" data-comment-id="{{$comment->id}}"></i>
                       <span class="CommentFavorite-counter">{{$comment->PostCommentFavorite->count()}}</span>
                     </span>
                 @endif

@@ -12,6 +12,7 @@ use App\Models\Users\User;
 use App\Models\Posts\Post;
 use App\Models\Posts\PostComment;
 use App\Models\Posts\PostFavorite;
+use App\Models\Posts\PostCommentFavorite;
 use App\Models\Posts\PostMainCategory;
 use App\Models\Posts\PostSubCategory;
 
@@ -24,21 +25,21 @@ class PostCommentFavoritesController extends Controller
 
     $user_id = Auth::user()->id; //1.ログインユーザーのid取得
 
-    $post_comment_id = $request->post_comment_id; //2.投稿idの取得
-    $already_CommentFavorited = PostCommentFavorite::where('user_id', $user_id)->where('post_comment_id', $post_comment_id)->first(); //3.
+    $comment_id = $request->comment_id; //2.投稿idの取得
+    $already_CommentFavorited = PostCommentFavorite::where('user_id', $user_id)->where('comment_id', $comment_id)->first(); //3.
 
     //このユーザーがこの投稿にまだいいねしてなかったら
     if (!$already_CommentFavorited) {
         $CommentFavorite = new PostCommentFavorite; //4.CommentPostFevoriteクラスのインスタンスを作成
-        $CommentFavorite->post_comment_id = $post_comment_id; //CommentFevoriteインスタンスにpost_comment_id,user_idをセット
+        $CommentFavorite->comment_id = $comment_id; //CommentFevoriteインスタンスにpost_comment_id,user_idをセット
         $CommentFavorite->user_id = $user_id;
         $CommentFavorite->save();
     } else { //このユーザーがこの投稿に既にいいねしてたらdelete
-        PostCommentFavorite::where('post_comment_id', $post_comment_id)->where('user_id', $user_id)->delete();
+        PostCommentFavorite::where('comment_id', $comment_id)->where('user_id', $user_id)->delete();
     }
 
     //5.この投稿の最新の総いいね数を取得
-    $review_CommentFavorite_count = PostCommentFavorite::where('post_comment_id', $post_comment_id)->count();
+    $review_CommentFavorite_count = PostCommentFavorite::where('comment_id', $comment_id)->count();
     $param = [
         'review_CommentFavorite_count' => $review_CommentFavorite_count,
     ];

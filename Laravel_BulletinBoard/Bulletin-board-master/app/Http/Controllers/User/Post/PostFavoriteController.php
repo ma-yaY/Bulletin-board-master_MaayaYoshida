@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\User\Post;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Users\User;
 use App\Models\Posts\Post;
 use App\Models\Posts\PostFavorite;
-use App\Models\Users\PostCommentFavorite;
+use App\Models\Posts\PostCommentFavorite;
 use App\Models\Posts\PostMainCategory;
 use App\Models\Posts\PostSubCategory;
 use Carbon\Carbon;

@@ -61,11 +61,6 @@ class UserController extends Controller
             'event_at' => $event_at
         ]);
 
-        //PostCommentFavorite::create([
-            //'user_id' => Auth::user()->id,
-            //'post_comment_id' => $Comment_ids
-        //]);
-
         return view('auth.detail', [ 'userPost_ids'=> $userPost_ids, 'SubCategorys' => $SubCategorys,]);
     }
 

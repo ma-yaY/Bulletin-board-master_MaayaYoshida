@@ -86,10 +86,10 @@ Route::post('/login', 'Auth\Login\LoginController@login');
 
 
  //いいね機能
-  Route::post('/Favorite', 'PostFavoriteController@Favorite')->name('Post.PostFavorite');
+  Route::post('/Favorite', 'User\Post\PostFavoriteController@Favorite')->name('Post.PostFavorite');
 
   //コメントいいね機能
- Route::post('/CommentFavorite', 'PostCommentFavoriteController@CommentFavorite')->name('PostComment.CommentPostFavorite');
+ Route::post('/CommentFavorite', 'User\Post\PostFavoriteController@CommentFavorite')->name('PostComment.CommentPostFavorite');
  });
 
 

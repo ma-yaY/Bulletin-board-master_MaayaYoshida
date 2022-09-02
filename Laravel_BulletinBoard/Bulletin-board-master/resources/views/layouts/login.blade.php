@@ -29,5 +29,6 @@
     </header>
     @yield('content')
     <script src="{{ asset('/js/Favorite.js') }}"></script>
-    </body>
+    <script src="{{ asset('/js/CommentFavorite.js') }}"></script>
+  </body>
   </html>

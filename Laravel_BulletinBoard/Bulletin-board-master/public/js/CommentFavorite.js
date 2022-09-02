@@ -3,7 +3,7 @@ $(function () {
   let CommentFavoritePostId; //変数を宣言（なんでここで？）
   CommentFavorite.on('click', function () { //onはイベントハンドラー
     let $this = $(this); //this=イベントの発火した要素＝iタグを代入
-    CommentFavoritePostId = $this.data('post_comment_id'); //iタグに仕込んだdata-Comment-idの値を取得
+    CommentFavoritePostId = $this.data('comment-id'); //iタグに仕込んだComment-idの値を取得
     //ajax処理スタート
     $.ajax({
       headers: { //HTTPヘッダ情報をヘッダ名と値のマップで記述

@@ -8,8 +8,8 @@ use App\Models\Posts\PostComment;
 use App\Models\ActionLogs\ActionLog;
 use App\Models\Posts\Post;
 use App\Http\Controllers\User\UserController;
-use App\Http\Controllers\Auth\Posts\PostCommentsController;
-use App\Http\Controllers\Auth\Posts\PostCommentFavoritesController;
+use App\Http\Controllers\User\Post\PostCommentsController;
+use App\Http\Controllers\User\Post\PostCommentFavoritesController;
 
 class PostCommentFavorite extends Model
 {
