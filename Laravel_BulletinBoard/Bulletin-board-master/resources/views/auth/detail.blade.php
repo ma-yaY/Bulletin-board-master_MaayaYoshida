@@ -4,18 +4,18 @@
 @section('content')
     <!--<h1>掲示板詳細画面</h1>-->
     @foreach ($userPost_ids as $userPost_ids)
-      <div class="post-area">
-        <a class="user-name">{{$userPost_ids->user->username}}</a>
-        <a class="day-time">{{$userPost_ids->created_at}}</a>
-        <a class="View">{{$userPost_ids->ActionLog->count()}}View</a>
-        <div class="post-title">
+      <div class="d-post-area">
+        <a class="d-user-name">{{$userPost_ids->user->username}}さん</a>
+        <a class="d-day-time">{{$userPost_ids->created_at}}</a>
+        <a class="d-View">{{$userPost_ids->ActionLog->count()}}View</a>
+        <div class="d-post-title">
           <a class="user-title">{{$userPost_ids->title}}</a>
         </div>
-        <a class="user-post">{{$userPost_ids->post}}</a>
-        <p class="edit-btn"><a href="/posts/{{$userPost_ids->id}}/edit">編集</a></p>
+        <a class="d-user-post">{{$userPost_ids->post}}</a>
+        <p class="d-edit-btn"><a href="/posts/{{$userPost_ids->id}}/edit">編集</a></p>
         <a class="ComenntCount">{{$userPost_ids->PostComment->count()}}コメント数</a>
-        <a class="Sub-category">{{$userPost_ids->postSubCategory->sub_category}}</a>
-      </div>
+        <a class="d-Sub-category">{{$userPost_ids->postSubCategory->sub_category}}</a>
+
               @auth
                @if (!$userPost_ids->isFavoritedBy(Auth::user()))
                   <span class="Favorite">
@@ -35,13 +35,14 @@
                 <span class="Favorite-counter">{{$userPost_ids->PostFavorite->count()}}</span>
                 </span>
               @endguest
-
+        </div>
         <div class="commentArea" >
           <!--＄SubCategorysの中のリレーション先を指示$commentで特定-->
           @foreach ($SubCategorys->PostComment as $comment)
-          <a class="comment">{{$comment->comment}}</a>
-          {{$comment->user->username}}
+          <a class="comment-username">{{$comment->user->username}}さん</a>
+          <a class="comment-day-time">{{$comment->created_at}}</a>
           <p class="CommentEdit-btn"><a href="/posts/{{$comment->id}}/CommentEdit">編集</a></p>
+          <a class="comment">{{$comment->comment}}</a>
           @auth
                @if (!$comment->isCommentFavoritedBy(Auth::user()))
                   <span class="Coment-Favorite">
@@ -62,8 +63,9 @@
                 </span>
               @endguest
           @endforeach
+        </div>
 
-          <div class="form-group">
+          <div class="CommentForm-group">
               <p class="comment-form">コメント</p>
               @foreach ($errors->all() as $error)
                 <li>{{ $error }}</li>
@@ -71,11 +73,10 @@
               {!! Form::open(['url' => 'comment/create']) !!}
               {!! Form::hidden('id', $userPost_ids->id) !!}
                 <div>{!! Form::textarea('comment', null,['class' => 'input', 'id' => 'comment', 'placeholder'=> 'こちらからコメントできます。', 'rows' => 4, 'cols'=> 20]) !!}</div>
-                {!! Form::submit('コメント',['class' => 'Form-button'])!!}
+                {!! Form::submit('コメント',['class' => 'comment-Form-button'])!!}
               {!! Form::close() !!}
             </div>
           <p class="top"><a href="/top">戻る</a></p>
-        </div>
     @endforeach
 
 @endsection

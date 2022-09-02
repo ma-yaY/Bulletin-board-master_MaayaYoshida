@@ -10,16 +10,16 @@
     @endforeach
     <h2>新規ユーザー登録</h2>
 
-    <div class="label-user-name">{{ Form::label('user name') }}</div>
+    <div class="label-user-name">{{ Form::label('user name','ユーザー名') }}</div>
     <div>{{ Form::text('username',null,['class' => 'username']) }}</div>
 
-    <div class="label-e-mail">{{ Form::label(' email address') }}</div>
+    <div class="label-e-mail">{{ Form::label(' email address','メールアドレス') }}</div>
     <div>{{ Form::text('email',null,['class' => 'mail']) }}</div>
 
-    <div class="label-password">{{ Form::label('password') }}</div>
+    <div class="label-password">{{ Form::label('password','パスワード') }}</div>
     <div>{{ Form::password('password',['class' => 'password']) }}</div>
 
-    <div class="label-password">{{ Form::label('password confirm') }}</div>
+    <div class="label-password">{{ Form::label('password confirm','パスワード確認') }}</div>
     <div>{{ Form::password('password_confirmation',['class' => 'password-confirmation']) }}</div>
 
     {{ Form::submit('確認',['class' => "Form-button"])}}

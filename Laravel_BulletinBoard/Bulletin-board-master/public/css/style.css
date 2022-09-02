@@ -40,6 +40,105 @@ header {
   padding-bottom: 50px;
 }
 
+
+
+.d-post-area {
+  padding-left: 10%;
+  position: relative;
+}
+
+.d-View {
+  position: absolute;
+  left: 68%;
+}
+
+.d-edit-btn {
+  position: absolute;
+  padding-top: 30px;
+  left: 68%;
+  top: 18%;
+}
+
+.d-user-name {}
+
+.d-day-time {
+  padding-left: 40px;
+}
+
+.d-post-title {
+  position: absolute;
+  font-size: 20px;
+  padding-top: 15px;
+}
+
+.d-user-post {
+  position: absolute;
+  top: 70px;
+  left: 10%;
+}
+
+
+.d-edit-btn a,
+.CommentEdit-btn a {
+  color: #fff;
+  font-size: 16px;
+  position: relative;
+  display: inline-block;
+  padding: 15px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  user-select: none;
+  text-align: center;
+  background-color: #CC4126;
+}
+
+.CommentEdit-btn {
+  position: absolute;
+  padding-top: 30px;
+  left: 68%;
+  top: 18%;
+}
+
+.commentArea {
+  display: grid;
+  position: relative;
+  margin-top: 20%;
+  left: 10%;
+  border-bottom: solid 1px #555555;
+  width: 700px;
+}
+
+.CommentForm-group {
+  padding-left: 10%;
+}
+
+#comment {
+  resize: none;
+  outline: none;
+  width: 60%;
+  height: 75%;
+  margin-top: 20px;
+  border-radius: 2px;
+  background: #fff;
+}
+
+.comment-Form-button {
+  color: #fff;
+  font-size: 16px;
+  left: 17%;
+  display: inline-block;
+  padding: 10px 20px;
+  margin-left: 42%;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  user-select: none;
+  text-align: center;
+  background-color: #4A86E8;
+  border: 0px none;
+}
+
+
 .label-e-mail,
 .label-password,
 .label-user-name {
@@ -104,6 +203,9 @@ header {
   margin: 15px 150px;
   border: solid 2px #a9a9a9;
 }
+
+
+
 
 .CategoryForm {
   width: 80%;
@@ -208,6 +310,7 @@ header {
   background-color: #4A86E8;
   border: 0px none;
 }
+
 
 .SForm-button {
   color: #fff;
@@ -435,6 +538,8 @@ header {
   padding: 10px;
 }
 
+
+
 /* クリック時に表示されるテキスト */
 .acd-content {
   width: 300px;
@@ -452,7 +557,6 @@ header {
   margin-bottom: 5px;
 
 }
-
 
 
 
