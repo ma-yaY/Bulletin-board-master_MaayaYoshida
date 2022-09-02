@@ -60,7 +60,23 @@
         {!! Form::open(['url' => '/myPost']) !!}
           {!! Form::submit('自分の投稿',['class' => 'myPost-button']) !!}
         {!! Form::close() !!}
-
+      </div>
+      <div id="top-category-list">
+        <h1>カテゴリー</h1>
+        @foreach ($categories as $main_category)
+          <h2 class="up_category">メインカテゴリー</h2>
+              <div><a class="up_main_category">{{$main_category->main_category}}</div>
+              @if($main_category->PostSubCategory->isEmpty())
+                <a class="btn-danger" href="/category/{{$main_category->id}}/MainDelete" onclick="return confirm('こちらのメインカテゴリーを削除してもよろしいでしょうか？')">削除</a>
+              @endif
+            <h2 class="up_category">サブカテゴリー</h2>
+            @foreach ($main_category->PostSubCategory as $sub_category)
+              <div><a class="up_sub_category">{{$sub_category->sub_category}}</div>
+                @if($sub_category->post->isEmpty())
+                  <a class="btn-danger" href="/category/{{$sub_category->id}}/SubDelete" onclick="return confirm('こちらのサブカテゴリーを削除してもよろしいでしょうか？')">削除</a></a>
+                @endif
+            @endforeach
+        @endforeach
       </div>
     </div>
 @endsection

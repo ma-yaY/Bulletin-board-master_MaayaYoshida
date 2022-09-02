@@ -20,7 +20,9 @@ class PostsController extends Controller
         $auth = Auth::user();
         $user = auth()->user();
         $timelines = Post::with(['user','postSubCategory','ActionLog','PostComment'])->get();
-        return view('/top', ['timelines' => $timelines]);
+        $categories = PostMainCategory::with('PostSubCategory')->get();
+
+        return view('/top',['timelines' => $timelines, 'categories' => $categories]);
     }
 
 
@@ -33,8 +35,9 @@ class PostsController extends Controller
                 $query->Where('title','=',$keyword);})
                 ->orWhere('post', 'LIKE', "%{$keyword}%") //投稿のあいまい検索
             ->get();
+            $categories = PostMainCategory::with('PostSubCategory')->get();
 
-            return view('top',['timelines' => $timelines]);
+            return view('top',['timelines' => $timelines,'categories' => $categories]);
     }
 
 
@@ -45,12 +48,16 @@ class PostsController extends Controller
         $user = auth()->user();
 
         $categories = PostMainCategory::with('PostSubCategory')->get();
+
         return view('category',['categories' => $categories, ]);
     }
 
      //カテゴリー登録
     public function MainCreate(Request $request){
         $main_category = $request->input('newMain_category');
+        $validateData = $request -> validate([
+            'newMain_category' => ['required', 'max:100', 'string', 'min:1', 'unique'],
+        ]);
         \DB::table('post_main_categories')->insert([
             'main_category' => $main_category
         ]);
@@ -61,9 +68,9 @@ class PostsController extends Controller
     public function SubCreate(Request $request){
         $Sub_category = $request->input('sub_category');
         $post_main_category_id = $request->input('main_category');
-        //$validateData = $request -> validate([
-        //    'sub_category' => ['required', 'max:100', 'string', 'min:1', 'unique'],
-        //]);
+        $validateData = $request -> validate([
+            'sub_category' => ['required', 'max:100', 'string', 'min:1', 'unique'],
+        ]);
         \DB::table('post_sub_categories')->insert([
             'post_main_category_id' => $post_main_category_id,
             'sub_category' => $Sub_category

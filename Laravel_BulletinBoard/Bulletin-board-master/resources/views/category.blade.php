@@ -8,7 +8,7 @@
               <li>{{ $error }}</li>
         @endforeach
         {!! Form::open(['url' =>'category/create']) !!}
-        <div class="main-category">{{ Form::label('main category') }}</div>
+        {{ Form::label('main_category', 'メインカテゴリー', ['class'=>'main-category']) }}
         <div>{{ Form::text('newMain_category',null,['class' => 'input newMain_categoryForm']) }}</div>
         {!! Form::submit('登録',['class' => 'main-r-button']) !!}
         {!! Form::close() !!}

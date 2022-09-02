@@ -9,7 +9,7 @@ use App\Models\Posts\PostFavorite;
 use App\Models\ActionLogs\ActionLog;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\Auth\Posts\PostCommentsController;
-use App\Http\Controllers\Auth\Posts\PostCommentFavoritesController;
+use App\Http\Controllers\User\Posts\PostCommentFavoritesController;
 
 class PostComment extends Model
 {

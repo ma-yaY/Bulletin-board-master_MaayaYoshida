@@ -12,7 +12,7 @@ $(function () {
       url: '/CommentFavorite', //通信先アドレスで、このURLをあとでルートで設定します
       method: 'POST', //HTTPメソッドの種別を指定します。1.9.0以前の場合はtype:を使用。
       data: { //サーバーに送信するデータ
-        'post_comment_id': CommentFavoritePostId //いいねされた投稿のidを送る
+        'comment_id': CommentFavoritePostId //いいねされた投稿のidを送る$CommentFavoriteにセットしたcomment_id
       },
     })
       //通信成功した時の処理

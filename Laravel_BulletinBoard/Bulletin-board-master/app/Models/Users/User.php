@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Post;
 use App\Models\ActionLogs\ActionLog;
 use App\Http\Controllers\User\UserController;
+use App\Http\Controllers\User\Posts\PostCommentFavoritesController;
 //use App\Models\Follow;
 
 

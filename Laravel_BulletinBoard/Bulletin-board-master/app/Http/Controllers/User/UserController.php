@@ -26,8 +26,9 @@ class UserController extends Controller
         $user = auth()->user();
         $timelines = Post::with(['user','postSubCategory'])->get() //$userによる投稿を取得
             ->where('user_id', $user->id);
+            $categories = PostMainCategory::with('PostSubCategory')->get();
 
-        return view('top', ['timelines' => $timelines]);
+        return view('top', ['timelines' => $timelines, 'categories' => $categories]);
     }
 
 
@@ -40,8 +41,9 @@ class UserController extends Controller
             $q->where('event_at', '>=', '2022-07-01');
         })->get();
         //PostFavoriteテーブルの条件（上の例ではevent_atの日付）を使用してユーザーを検索する
+        $categories = PostMainCategory::with('PostSubCategory')->get();
 
-        return view('top', ['timelines' => $timelines]);
+        return view('top', ['timelines' => $timelines, 'categories' => $categories]);
     }
 
 

@@ -17,10 +17,10 @@
     <div>{{ Form::text('email',null,['class' => 'mail']) }}</div>
 
     <div class="label-password">{{ Form::label('password') }}</div>
-    <div>{{ Form::password('password',null,['class' => 'password']) }}</div>
+    <div>{{ Form::password('password',['class' => 'password']) }}</div>
 
     <div class="label-password">{{ Form::label('password confirm') }}</div>
-    <div>{{ Form::password('password_confirmation',null,['class' => 'password']) }}</div>
+    <div>{{ Form::password('password_confirmation',['class' => 'password-confirmation']) }}</div>
 
     {{ Form::submit('確認',['class' => "Form-button"])}}
     <!--<p>ログイン画面へ<a href="/login">戻る</a></p>-->
