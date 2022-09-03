@@ -52,21 +52,15 @@ header {
   left: 68%;
 }
 
-.d-edit-btn {
-  position: absolute;
-  padding-top: 30px;
-  left: 68%;
-  top: 18%;
-}
 
 .d-user-name {}
 
-.d-day-time {
+.d-day-time,
+.comment-day-time {
   padding-left: 40px;
 }
 
 .d-post-title {
-  position: absolute;
   font-size: 20px;
   padding-top: 15px;
 }
@@ -78,11 +72,49 @@ header {
 }
 
 
-.d-edit-btn a,
-.CommentEdit-btn a {
+.d-Sub-category {
+  position: absolute;
+  top: 50px;
   color: #fff;
   font-size: 16px;
   position: relative;
+  display: inline-block;
+  padding: 10px 15px;
+
+  text-align: center;
+  background-color: #4A86E8;
+}
+
+.Favorite-heart {
+  position: absolute;
+  top: 110px;
+  left: 68%;
+}
+
+
+
+.Coment-Favorite-heart {
+
+
+  /*border-bottom: solid 1px #555555;*/
+}
+
+.up-commentArea {
+  margin-top: 30px;
+  width: 900px;
+  border-bottom: solid 1px #555555;
+}
+
+.ComenntCount {
+  position: absolute;
+  top: 110px;
+  padding-left: 40%;
+}
+
+.d-edit-btn a {
+  color: #fff;
+  font-size: 16px;
+  /*position: relative;*/
   display: inline-block;
   padding: 15px;
   margin-bottom: 15px;
@@ -92,30 +124,59 @@ header {
   background-color: #CC4126;
 }
 
-.CommentEdit-btn {
+.CommentEdit-btn a {
+  color: #fff;
+  font-size: 16px;
+  padding: 15px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  user-select: none;
+  text-align: center;
+  background-color: #CC4126;
+}
+
+.d-edit-btn {
   position: absolute;
   padding-top: 30px;
   left: 68%;
   top: 18%;
 }
 
+.CommentEdit-btn {
+  position: absolute;
+
+  left: 68%;
+
+}
+
 .commentArea {
-  display: grid;
-  position: relative;
-  margin-top: 20%;
-  left: 10%;
-  border-bottom: solid 1px #555555;
+  padding-left: 10%;
+  padding-bottom: 30px;
+  margin-top: 10%;
+
   width: 700px;
 }
 
-.CommentForm-group {
-  padding-left: 10%;
+.up-commentArea {
+  padding: 30px 0px 30px 0px;
 }
 
-#comment {
+.comment {
+  padding-top: 30px;
+}
+
+.Comment-Favorite-heart {
+  position: absolute;
+  left: 70%;
+}
+
+#comment,
+.comment-form {
+  margin-left: 10%;
+  width: 65%;
   resize: none;
   outline: none;
-  width: 60%;
+  width: 65%;
   height: 75%;
   margin-top: 20px;
   border-radius: 2px;
@@ -125,10 +186,9 @@ header {
 .comment-Form-button {
   color: #fff;
   font-size: 16px;
-  left: 17%;
   display: inline-block;
   padding: 10px 20px;
-  margin-left: 42%;
+  margin-left: 68%;
   margin-top: 30px;
   margin-bottom: 15px;
   cursor: pointer;
@@ -226,13 +286,14 @@ header {
 }
 
 .post-title {
+  font-size: 20px;
   padding: 20px 0px 20px;
 }
 
 
 #top-category-list {
   position: absolute;
-  top: 75%;
+  top: 450px;
   left: 60%;
   margin: 15px;
   list-style: none;
@@ -274,11 +335,10 @@ header {
   padding: 15px;
   margin-bottom: 15px;
   cursor: pointer;
-
   text-align: center;
   background-color: #4A86E8;
-
 }
+
 
 .category-btn,
 .btn-danger,
@@ -523,6 +583,38 @@ header {
 .Form input {
   border: 2px solid #b84c00;
 }
+
+
+
+.btn-button-close,
+.Post-btn-danger {
+  color: #fff;
+  font-size: 16px;
+  position: relative;
+  width: 42.5%;
+  padding: 0 10px;
+  margin: 20px 0px;
+  cursor: pointer;
+  user-select: none;
+  text-align: center;
+  background-color: #CC4126;
+
+}
+
+.Comment-btn-danger {
+  color: #fff;
+  font-size: 16px;
+  position: relative;
+  width: 42.5%;
+  padding: 0 10px;
+  margin: 20px 0px;
+  cursor: pointer;
+  user-select: none;
+  text-align: center;
+  background-color: #CC4126;
+}
+
+
 
 
 .acd-check {

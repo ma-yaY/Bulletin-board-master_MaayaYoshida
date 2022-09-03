@@ -21,12 +21,12 @@
         @foreach ($errors->all() as $error)
               <li>{{ $error }}</li>
         @endforeach
-        <div>{{ Form::text('upTitle', $userPost_ids->title,['class' => 'input']) }}</div>
+        <div>{{ Form::text('upTitle', $userPost_ids->title,['class' => 'input title']) }}</div>
         <p class="title-form">コメント</p>
         @foreach ($errors->all() as $error)
               <li>{{ $error }}</li>
         @endforeach
-        <div>{!! Form::textarea('upPost', $userPost_ids->post, ['class' => 'input', 'rows' => 4, 'cols'=> 20]) !!}</div>
+        <div>{!! Form::textarea('upPost', $userPost_ids->post, ['class' => 'PostForm-control', 'rows' => 4, 'cols'=> 20]) !!}</div>
 
         <div class="submit-btn">
           <button type="submit" class="btn btn-button-close" href="/posts/{{$userPost_ids->id}}/detail">更新</button>
@@ -35,6 +35,6 @@
         {!! Form::close() !!}
     @endforeach
         <div class="Danger-btn">
-          <a class="btn-danger" href="/post/{{$userPost_ids->id}}/delete" onclick="return confirm('こちらの投稿を削除してもよろしいでしょうか？')">削除</a>
+          <a class="Post-btn-danger" href="/post/{{$userPost_ids->id}}/delete" onclick="return confirm('こちらの投稿を削除してもよろしいでしょうか？')">削除</a>
         </div>
 @endsection

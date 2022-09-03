@@ -14,9 +14,9 @@
         @foreach ($errors->all() as $error)
           <li>{{ $error }}</li>
         @endforeach
-          <div class ="label-title">{!! Form::label('title') !!}</div>
+          <div class ="label-title">{!! Form::label('title', 'タイトル') !!}</div>
           <div>{{ Form::text('title',null,['class' => 'input title']) }}</div>
-          <div class = "label-PostForm">{!! Form::label('textarea') !!}</div>
+          <div class = "label-PostForm">{!! Form::label('textarea', '投稿内容') !!}</div>
           <div>{!! Form::textarea('newPost', null, ['class' => 'PostForm-control', 'placeholder' => '投稿内容を入力してください。', 'rows' => 4, 'cols'=> 20]) !!}</div>
           <span>{{ Form::submit('投稿',[ 'class' => 'Form-button'])}}</span>
             {!! Form::close() !!}

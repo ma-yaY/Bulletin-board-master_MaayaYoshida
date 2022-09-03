@@ -13,7 +13,7 @@
                   <a href="detail/{{$timeLine->id}}">{{$timeLine->title}}</a>
                 </div>
                 <a class="up_main_post">{{$timeLine->postSubCategory->sub_category}}</a>
-                <a class="ComenntCount">{{$timeLine->PostComment->count()}}コメント数</a>
+                <a class="up_ComenntCount">コメント数{{$timeLine->PostComment->count()}}</a>
                 @auth
                   <!-- Post.phpに作ったisFavoritedByメソッドをここで使用 -->
 
