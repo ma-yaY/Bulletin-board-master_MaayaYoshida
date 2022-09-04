@@ -133,14 +133,16 @@ class PostsController extends Controller
     }
 
        //投稿削除
-        public function delete($id)
+        public function delete($id, PostSubCategory $PostSubCategory)
     {
+        $categories = PostMainCategory::with('PostSubCategory')->get();
        $timelines = Post::with(['user','postSubCategory','ActionLog','PostComment'])->get();
         \DB::table('posts')
            ->where('id', $id)
            ->delete();
 
-        return view('top',['timelines' => $timelines]);
+        return view('top',['timelines' => $timelines,'categories' => $categories,]);
+
     }
 
 

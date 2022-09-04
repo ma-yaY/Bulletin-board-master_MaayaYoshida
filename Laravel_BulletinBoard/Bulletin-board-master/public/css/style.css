@@ -18,7 +18,7 @@ body {
 /* header */
 header {
   font-size: 20px;
-  padding-left: 15%;
+  padding-left: 10%;
   padding-top: 30px;
   padding-bottom: 20px;
   background: #fff;
@@ -30,7 +30,7 @@ header {
 .login-form,
 .New-login-form {
   text-align: left;
-  padding-top: 50px;
+  padding-top: 200px;
   text-align: center;
   font-size: 20px;
   font-weight: bold;
@@ -71,6 +71,14 @@ header {
   left: 10%;
 }
 
+.up_Sub-category {
+  color: #fff;
+  font-size: 16px;
+  display: inline-block;
+  padding: 10px 15px;
+  text-align: center;
+  background-color: #4A86E8;
+}
 
 .d-Sub-category {
   position: absolute;
@@ -88,7 +96,8 @@ header {
 .Favorite-heart {
   position: absolute;
   top: 110px;
-  left: 68%;
+  left: 72%;
+  font-size: 18px;
 }
 
 
@@ -108,7 +117,7 @@ header {
 .ComenntCount {
   position: absolute;
   top: 110px;
-  padding-left: 40%;
+  left: 55%;
 }
 
 .d-edit-btn a {
@@ -116,7 +125,7 @@ header {
   font-size: 16px;
   /*position: relative;*/
   display: inline-block;
-  padding: 15px;
+  padding: 10px 25px;
   margin-bottom: 15px;
   cursor: pointer;
   user-select: none;
@@ -127,7 +136,7 @@ header {
 .CommentEdit-btn a {
   color: #fff;
   font-size: 16px;
-  padding: 15px;
+  padding: 10px 25px;
   margin-bottom: 15px;
   cursor: pointer;
   user-select: none;
@@ -167,7 +176,8 @@ header {
 
 .Comment-Favorite-heart {
   position: absolute;
-  left: 70%;
+  left: 72%;
+  font-size: 18px;
 }
 
 #comment,
@@ -181,6 +191,10 @@ header {
   margin-top: 20px;
   border-radius: 2px;
   background: #fff;
+}
+
+.comment-formArea li {
+  padding-left: 10%;
 }
 
 .comment-Form-button {
@@ -259,7 +273,7 @@ header {
 .box {
   /*position: relative;*/
   font-size: 16px;
-  padding: 15px 20px 15px 20px;
+  padding: 20px;
   margin: 15px 150px;
   border: solid 2px #a9a9a9;
 }
@@ -272,7 +286,7 @@ header {
   display: inline-block;
   position: absolute;
   font-size: 16px;
-  padding: 15px 20px 15px 60px;
+  padding: 15px 20px 15px 150px;
 }
 
 
@@ -283,6 +297,7 @@ header {
 
 .box a {
   margin: auto;
+
 }
 
 .post-title {
@@ -290,6 +305,14 @@ header {
   padding: 20px 0px 20px;
 }
 
+.up_ComenntCount {
+  padding-left: 30px;
+}
+
+.Favorite,
+.Favorited {
+  padding-left: 30px;
+}
 
 #top-category-list {
   position: absolute;
@@ -298,6 +321,12 @@ header {
   margin: 15px;
   list-style: none;
 }
+
+.up_main_category {
+  font-size: 17px;
+  padding-top: 30px;
+}
+
 
 #side-menu,
 #category-list {
@@ -354,6 +383,28 @@ header {
   user-select: none;
   text-align: center;
   background-color: #CC4126;
+  border: 0;
+}
+
+.main {
+  padding: 20px 0px 10px 0px;
+}
+
+.Sub {
+  padding: 10px;
+}
+
+.btn-danger {
+  color: #fff;
+  font-size: 16px;
+  display: inline-block;
+  padding: 10px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  user-select: none;
+  text-align: center;
+  background-color: #CC4126;
+  border: 0;
 }
 
 .Form-button {
@@ -441,19 +492,49 @@ header {
   /*テキスト位置調整*/
   padding: 0 10px;
   margin: 20px 0px;
-  border-radius: 2px;
-  /*検索ボックスの角を丸める*/
+  border-width: 2px;
+
   background: #eee;
   /*検索ボックスの背景カラー*/
 }
 
-.PostForm-control {
+
+.PostForm-control,
+.CommentForm-control {
   resize: none;
   outline: none;
   width: 52%;
   height: 250px;
   margin-top: 20px;
-  border-radius: 2px;
+  border-width: 2px;
+  background: #eee;
+}
+
+
+.edit-Post {
+  padding-left: 10%;
+  width: 42.5%;
+}
+
+
+
+.editForm-control {
+  resize: none;
+  outline: none;
+  width: 100%;
+  height: 250px;
+  margin-top: 20px;
+  border-width: 2px;
+  background: #eee;
+}
+
+.CommentForm-control {
+  resize: none;
+  outline: none;
+  width: 100%;
+  height: 250px;
+  margin-top: 20px;
+  border-width: 2px;
   background: #eee;
 }
 
@@ -468,10 +549,26 @@ header {
   /*テキスト位置調整*/
   padding: 0 10px;
   margin-top: 20px;
-  border-radius: 2px;
-  /*検索ボックスの角を丸める*/
+  border-style: solid;
   background: #eee;
   /*検索ボックスの背景カラー*/
+}
+
+
+
+
+
+.edit-title {
+  left: 0;
+  top: 0;
+  outline: none;
+  height: 40px;
+  width: 97%;
+  padding: 0 10px;
+  margin: 20px 0px;
+  border-width: 2px;
+  background: #eee;
+  border-style: solid;
 }
 
 .newMain_categoryForm,
@@ -479,49 +576,48 @@ header {
   left: 0;
   top: 0;
   outline: none;
-  /*検索ボックスの高さ*/
   height: 40px;
-  /*検索ボックスの長さ*/
   width: 40%;
-  /*テキスト位置調整*/
   padding: 0 10px;
   margin-top: 20px;
   border-radius: 2px;
-  /*検索ボックスの角を丸める*/
   background: #eee;
-  /*検索ボックスの背景カラー*/
+}
 
+
+.editForm-select {
+  left: 0;
+  top: 0;
+  outline: none;
+  height: 40px;
+  width: 100%;
+  padding: 0 10px;
+  margin: 20px 0px;
+  border-width: 2px;
+  background: #eee;
 }
 
 .form-select {
   left: 0;
   top: 0;
   outline: none;
-  /*検索ボックスの高さ*/
   height: 40px;
-  /*検索ボックスの長さ*/
   width: 42.5%;
-  /*テキスト位置調整*/
   padding: 0 10px;
   margin: 20px 0px;
-  border-radius: 2px;
-  /*検索ボックスの角を丸める*/
+  border-width: 2px;
   background: #eee;
-  /*検索ボックスの背景カラー*/
 }
 
 .main-r-button,
 .sub-r-btn {
   font-size: 16px;
   height: 40px;
-  /*検索ボックスの長さ*/
   width: 42.5%;
-  /*テキスト位置調整*/
   padding: 0 10px;
   margin: 20px 0px;
   border-radius: 2px;
 }
-
 
 
 #top-category-list h1,
@@ -585,29 +681,55 @@ header {
 }
 
 
-
-.btn-button-close,
-.Post-btn-danger {
+.btn-button-close {
   color: #fff;
   font-size: 16px;
   position: relative;
-  width: 42.5%;
+  height: 40px;
+  width: 100%;
   padding: 0 10px;
   margin: 20px 0px;
   cursor: pointer;
   user-select: none;
   text-align: center;
   background-color: #CC4126;
-
+  border: 0;
 }
+
+
+.Post-BtnDanger {
+  padding-left: 10%;
+  width: 42.8%;
+  padding-bottom: 50px;
+}
+
+.Comment-danger-btn {
+  padding-left: 10%;
+  width: 42.8%;
+  padding-bottom: 50px;
+}
+
+.Post-btn-danger {
+  color: #fff;
+  font-size: 16px;
+  position: relative;
+  width: 100%;
+  padding: 12px 46.7%;
+  margin: 10px 0px;
+  cursor: pointer;
+  user-select: none;
+  text-align: center;
+  background-color: #CC4126;
+  border: 0;
+}
+
 
 .Comment-btn-danger {
   color: #fff;
   font-size: 16px;
-  position: relative;
   width: 42.5%;
   padding: 0 10px;
-  margin: 20px 0px;
+  padding: 12px 46.7%;
   cursor: pointer;
   user-select: none;
   text-align: center;
