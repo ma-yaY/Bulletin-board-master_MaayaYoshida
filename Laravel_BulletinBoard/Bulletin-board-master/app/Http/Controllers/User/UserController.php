@@ -55,6 +55,7 @@ class UserController extends Controller
         public function detail($id, Post $Post,PostMainCategory $PostMainCategory, PostSubCategory $PostSubCategory,PostComment $PostComment, ActionLog $ActionLog){
         $user_id = Auth::user()->id;
         //$user = ActionLog::find($id);
+        Post::where('user_id', '=', $request->$user_id)->exists()
         //Post::with('action_logs','ActionLog')->where('user_id', Auth::user()->id)->exists();
         $userPost_ids = $Post->UserPosts($id)->get();
         //$Comment_ids = $PostComment->UserComments($id)->get();
