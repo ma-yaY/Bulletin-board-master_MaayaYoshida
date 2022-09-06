@@ -52,11 +52,12 @@ class UserController extends Controller
 
 
         //掲示板詳細画面
-        public function detail($id, Post $Post,PostMainCategory $PostMainCategory, PostSubCategory $PostSubCategory,PostComment $PostComment){
-        $user = User::find($id);
+        public function detail($id, Post $Post,PostMainCategory $PostMainCategory, PostSubCategory $PostSubCategory,PostComment $PostComment, ActionLog $ActionLog){
+        $user_id = Auth::user()->id;
+        //$user = ActionLog::find($id);
+        //Post::with('action_logs','ActionLog')->where('user_id', Auth::user()->id)->exists();
         $userPost_ids = $Post->UserPosts($id)->get();
         //$Comment_ids = $PostComment->UserComments($id)->get();
-        //$users = Post::with(['user','ActionLog'])->find($id);
 
         $SubCategorys = Post::with(['user','postSubCategory','PostComment','ActionLog'])->find($id);
         $event_at = Carbon::now();
@@ -65,7 +66,7 @@ class UserController extends Controller
             'post_id' => $id,
             'event_at' => $event_at
         ]);
-        ddd($user);
+        //dd($review_users );
         return view('auth.detail', [ 'userPost_ids'=> $userPost_ids, 'SubCategorys' => $SubCategorys, ]);
     }
 

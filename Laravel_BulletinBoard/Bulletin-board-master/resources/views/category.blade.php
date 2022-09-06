@@ -6,10 +6,10 @@
       <div class="CategoryForm">
         {!! Form::open(['url' =>'category/create']) !!}
         {{ Form::label('main_category', 'メインカテゴリー', ['class'=>'main-category']) }}
-        @foreach ($errors->get('newMain_category') as $error)
+        @foreach ($errors->get('main_category') as $error)
               <li class="Category-validate">{{ $error }}</li>
         @endforeach
-        <div>{{ Form::text('newMain_category',null,['class' => 'input newMain_categoryForm']) }}</div>
+        <div>{{ Form::text('main_category',null,['class' => 'input newMain_categoryForm']) }}</div>
         {!! Form::submit('登録',['class' => 'main-r-button']) !!}
         {!! Form::close() !!}
         <!--カテゴリー選択-->

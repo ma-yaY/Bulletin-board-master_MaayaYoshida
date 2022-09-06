@@ -61,8 +61,8 @@ Route::post('/login', 'Auth\Login\LoginController@login');
    Route::get('/post', 'Auth\Posts\PostsController@SubSelect');
    Route::post('/post/create', 'Auth\Posts\PostsController@create');
 
-
-   Route::get('detail/{id}', 'User\UserController@detail')->name('detail');
+   //投稿詳細
+   Route::get('detail/{id}', 'User\UserController@detail')->name('user_id');
 
      //コメント投稿処理
   Route::post('/comment/create', 'Auth\Posts\PostCommentsController@comment');
@@ -70,7 +70,7 @@ Route::post('/login', 'Auth\Login\LoginController@login');
 
 
 
-  //投稿編集ー投稿詳細画面に戻る
+  //投稿編集ー>投稿詳細画面に戻る
   Route::get('/posts/{id}/edit', 'User\UserController@edit');
   Route::post('/posts/Edit{id}', 'User\UserController@updatePost');
   //投稿削除

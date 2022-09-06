@@ -8,10 +8,12 @@
               <div class="box">
                 <a class="up_main_post_name">{{$timeLine->user->username}}さん</a>
                 <a class="day-time">{{$timeLine->created_at}}</a>
+
                 <a class="View">{{$timeLine->ActionLog->count()}}View</a>
                 <div class="post-title">
                   <a href="detail/{{$timeLine->id}}">{{$timeLine->title}}</a>
                 </div>
+
                 <a class="up_Sub-category">{{$timeLine->postSubCategory->sub_category}}</a>
                 <a class="up_ComenntCount">コメント数{{$timeLine->PostComment->count()}}</a>
                 @auth
