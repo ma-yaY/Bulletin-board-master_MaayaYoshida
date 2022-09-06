@@ -7,12 +7,16 @@
       <div class="d-post-area">
         <a class="d-user-name">{{$userPost_ids->user->username}}さん</a>
         <a class="d-day-time">{{$userPost_ids->created_at}}</a>
+
         <a class="d-View">{{$userPost_ids->ActionLog->count()}}View</a>
+
         <div class="d-post-title">
           <a class="user-title">{{$userPost_ids->title}}</a>
         </div>
         <a class="d-user-post">{{$userPost_ids->post}}</a>
+        @if(Auth::user()->id == $userPost_ids->user_id)
         <p class="d-edit-btn"><a href="/posts/{{$userPost_ids->id}}/edit">編集</a></p>
+        @endif
         <a class="d-Sub-category">{{$userPost_ids->postSubCategory->sub_category}}</a>
         <a class="ComenntCount">コメント数{{$userPost_ids->PostComment->count()}}</a>
           <div class="Favorite-heart">
@@ -43,7 +47,9 @@
                 <div class="up-commentArea">
                   <a class="comment-username">{{$comment->user->username}}さん</a>
                   <a class="comment-day-time">{{$comment->created_at}}</a>
+                  @if(Auth::user()->id == $comment->user_id)
                   <p class="CommentEdit-btn"><a href="/posts/{{$comment->id}}/CommentEdit">編集</a></p>
+                  @endif
                   <div class="comment">{{$comment->comment}}</div>
                   <div class="Comment-Favorite-heart">
                     @auth

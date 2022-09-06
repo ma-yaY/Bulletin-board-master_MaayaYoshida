@@ -4,11 +4,12 @@
 <div class="New-login">
   <div class="New-login-form">
 
+
+    <h2>新規ユーザー登録</h2>
     {!! Form::open() !!}
     @foreach ($errors->all() as $error)
-    <li>{{$error}}</li>
+    <li class="validate">{{$error}}</li>
     @endforeach
-    <h2>新規ユーザー登録</h2>
 
     <div class="label-user-name">{{ Form::label('user name','ユーザー名') }}</div>
     <div>{{ Form::text('username',null,['class' => 'username']) }}</div>

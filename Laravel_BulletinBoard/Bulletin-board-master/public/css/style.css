@@ -25,6 +25,17 @@ header {
   position: relative;
 }
 
+.validate {
+  font-size: 14px;
+  font-weight: 100;
+  padding-left: 55px;
+}
+
+.Category-validate {
+  font-size: 14px;
+  font-weight: 100;
+  padding-top: 13px;
+}
 
 #clear,
 .login-form,
@@ -391,7 +402,7 @@ header {
 }
 
 .Sub {
-  padding: 10px;
+  padding: 0px 10px;
 }
 
 .btn-danger {
@@ -399,7 +410,7 @@ header {
   font-size: 16px;
   display: inline-block;
   padding: 10px;
-  margin-bottom: 15px;
+  margin-bottom: 5px;
   cursor: pointer;
   user-select: none;
   text-align: center;
@@ -696,26 +707,18 @@ header {
   border: 0;
 }
 
-
 .Post-BtnDanger {
-  padding-left: 10%;
-  width: 42.8%;
-  padding-bottom: 50px;
+  margin-bottom: 50px;
 }
 
-.Comment-danger-btn {
-  padding-left: 10%;
-  width: 42.8%;
-  padding-bottom: 50px;
-}
-
-.Post-btn-danger {
+.Post-BtnDanger,
+.Post-btn-danger,
+.Comment-danger-btn,
+.Comment-btn-danger {
   color: #fff;
   font-size: 16px;
   position: relative;
-  width: 100%;
-  padding: 12px 46.7%;
-  margin: 10px 0px;
+  padding: 11.5px 0px;
   cursor: pointer;
   user-select: none;
   text-align: center;
@@ -724,17 +727,7 @@ header {
 }
 
 
-.Comment-btn-danger {
-  color: #fff;
-  font-size: 16px;
-  width: 42.5%;
-  padding: 0 10px;
-  padding: 12px 46.7%;
-  cursor: pointer;
-  user-select: none;
-  text-align: center;
-  background-color: #CC4126;
-}
+
 
 
 

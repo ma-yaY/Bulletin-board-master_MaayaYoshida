@@ -90,6 +90,7 @@ class RegisterController extends Controller
 
         if($request->isMethod('post')){
             $data = $request->input();
+
             $validator = $this->validator($data);
 
             if ($validator->fails()) {

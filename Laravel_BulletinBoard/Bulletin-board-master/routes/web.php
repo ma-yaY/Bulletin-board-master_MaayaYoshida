@@ -57,7 +57,7 @@ Route::post('/login', 'Auth\Login\LoginController@login');
    //サブカテゴリー削除
    Route::get('/category/{id}/SubDelete', 'Auth\Posts\PostsController@SubDelete');
 
-
+   //投稿
    Route::get('/post', 'Auth\Posts\PostsController@SubSelect');
    Route::post('/post/create', 'Auth\Posts\PostsController@create');
 

@@ -7,8 +7,10 @@
     {!! Form::open() !!}
 
     <h2>ログイン</h2>
-
-    <div class="label-e-mail" >{{ Form::label('e-mail','メールアドレス') }}</div>
+      @foreach ($errors->all() as $error)
+      <li class="validate">{{ $error }}</li>
+      @endforeach
+    <div class="label-e-mail" >{{ Form::label('mail','メールアドレス') }}</div>
     <div>{{ Form::text('email',null,['class' => 'mail']) }}</div>
     <div class="label-password">{{ Form::label('password','パスワード') }}</div>
     <div>{{ Form::password('password',['class' => 'password']) }}</div>

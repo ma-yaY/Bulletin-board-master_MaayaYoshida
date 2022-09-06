@@ -4,11 +4,11 @@
 <!--<h1>カテゴリー追加画面</h1>-->
 <div class=" Category-area">
       <div class="CategoryForm">
-        @foreach ($errors->all() as $error)
-              <li>{{ $error }}</li>
-        @endforeach
         {!! Form::open(['url' =>'category/create']) !!}
         {{ Form::label('main_category', 'メインカテゴリー', ['class'=>'main-category']) }}
+        @foreach ($errors->get('newMain_category') as $error)
+              <li class="Category-validate">{{ $error }}</li>
+        @endforeach
         <div>{{ Form::text('newMain_category',null,['class' => 'input newMain_categoryForm']) }}</div>
         {!! Form::submit('登録',['class' => 'main-r-button']) !!}
         {!! Form::close() !!}
@@ -23,6 +23,9 @@
             </select>
             <!--サブカテゴリー-->
               <div><label class="form-label">新規サブカテゴリー</label></div>
+              @foreach ($errors->get('sub_category') as $error)
+              <li class="Category-validate">{{ $error }}</li>
+        @endforeach
               <div><input class="form-control" type="text" name="sub_category"></div>
               <button type="submit" class="sub-r-btn">登録</button>
           {!! Form::close() !!}

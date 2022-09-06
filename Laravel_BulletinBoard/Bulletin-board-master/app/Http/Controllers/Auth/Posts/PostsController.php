@@ -17,8 +17,8 @@ class PostsController extends Controller
     //topの投稿表示
     public function index( Post $Post, PostMainCategory $PostMainCategory, PostSubCategory $PostSubCategory, ActionLog $ActionLog)
     {
+
         $auth = Auth::user();
-        $user = auth()->user();
         $timelines = Post::with(['user','postSubCategory','ActionLog','PostComment'])->get();
         $categories = PostMainCategory::with('PostSubCategory')->get();
 
@@ -56,11 +56,12 @@ class PostsController extends Controller
     public function MainCreate(Request $request){
         $main_category = $request->input('newMain_category');
         $validateData = $request -> validate([
-            'newMain_category' => ['required', 'max:100', 'string', 'min:1', 'unique'],
+            'newMain_category' => ['required', 'max:100', 'string', 'min:1', 'unique:post_main_categories'],
         ]);
         \DB::table('post_main_categories')->insert([
             'main_category' => $main_category
         ]);
+
         return redirect('/category');
     }
 
@@ -69,7 +70,7 @@ class PostsController extends Controller
         $Sub_category = $request->input('sub_category');
         $post_main_category_id = $request->input('main_category');
         $validateData = $request -> validate([
-            'sub_category' => ['required', 'max:100', 'string', 'min:1', 'unique'],
+            'sub_category' => ['required', 'max:100', 'string', 'min:1', 'unique:post_sub_categories'],
         ]);
         \DB::table('post_sub_categories')->insert([
             'post_main_category_id' => $post_main_category_id,
@@ -96,6 +97,7 @@ class PostsController extends Controller
         $title = $request->input('title');
         $event_at = Carbon::now();
         $validateData = $request -> validate([
+            'Sub_category' => ['required', 'present'],
             'title' => ['required', 'max:255', 'string', 'min:1'],
             'newPost' => ['required', 'max:255', 'string', 'min:1', 'max:5000'],
         ]);

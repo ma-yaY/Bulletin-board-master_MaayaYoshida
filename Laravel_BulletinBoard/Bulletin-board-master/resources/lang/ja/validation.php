@@ -153,10 +153,19 @@ return [
     */
 
     'attributes' => [
-        'username' => '名前',
-        'mail' => 'メールアドレス',
+        'username' => 'ユーザー名',
+        'email' => 'メールアドレス',
         'password' => 'パスワード',
         'password_confirmation' => 'パスワード確認',
+        'newMain_category' => 'メインカテゴリー',
+        'Sub_category' => 'サブカテゴリー',
+        'sub_category' => 'サブカテゴリー',
+        'title' => 'タイトル',
+        'newPost' => '投稿内容',
+        'upTitle' =>'タイトル',
+        'upPost' => '投稿内容',
+        'upComment' => 'コメント',
+
     ],
 
 ];
