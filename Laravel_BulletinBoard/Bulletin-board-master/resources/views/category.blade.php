@@ -9,7 +9,7 @@
         @foreach ($errors->get('newMain_category') as $error)
               <li class="Category-validate">{{ $error }}</li>
         @endforeach
-        <div>{{ Form::text('newMain_category',null,['class' => 'input newMain_categoryForm']) }}</div>
+        <div>{{ Form::text('newMain_category',null,['class' => 'newMain_categoryForm']) }}</div>
         {!! Form::submit('登録',['class' => 'main-r-button']) !!}
         {!! Form::close() !!}
         <!--カテゴリー選択-->

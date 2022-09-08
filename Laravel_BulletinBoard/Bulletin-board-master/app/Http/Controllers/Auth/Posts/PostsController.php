@@ -56,7 +56,7 @@ class PostsController extends Controller
     public function MainCreate(Request $request){
         $main_category = $request->input('newMain_category');
         $validateData = $request -> validate([
-            'newMain_category' => ['required', 'max:100', 'string', 'min:1', 'unique:request'],
+            'newMain_category' => ['required', 'max:100', 'string', 'min:1', 'unique:post_main_categories'],
         ]);
         \DB::table('post_main_categories')->insert([
             'main_category' => $main_category
