@@ -9,9 +9,17 @@ class PostMainCategory extends Model
 {
     protected $table = 'post_main_categories';
 
+
     protected $fillable = [
         'main_category',
     ];
+
+    //newMain_categoryモデルとのリレーション
+    public function newMain_category()
+    {
+        return $this->hasMany('App\Models\Posts\newMain_category');
+    }
+
     //Postモデルとのリレーション
     public function post()
     {
