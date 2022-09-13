@@ -53,23 +53,20 @@ class UserController extends Controller
 
         //掲示板詳細画面
         public function detail($id, Post $Post,PostMainCategory $PostMainCategory, PostSubCategory $PostSubCategory,PostComment $PostComment, ActionLog $ActionLog){
-        $user_id = Auth::user()->id;
-        //$user = ActionLog::find($id);
-        //Post::where('user_id', '=', $request->$user_id)->exists();
-        //Post::with('action_logs','ActionLog')->where('user_id', Auth::user()->id)->exists();
         $userPost_ids = $Post->UserPosts($id)->get();
-        //$Comment_ids = $PostComment->UserComments($id)->get();
 
         $SubCategorys = Post::with(['user','postSubCategory','PostComment','ActionLog'])->find($id);
         $event_at = Carbon::now();
-        if(!(Auth::id() == $ActionLog->user_id)){
+        $ActionLogId = ActionLog::where('user_id',Auth::user()->id)->where('post_id',$id)->first('id');
+
+        if(!isset ($ActionLogId)){
         ActionLog::create([
             'user_id' => Auth::user()->id,
             'post_id' => $id,
             'event_at' => $event_at
         ]);
         }
-        //dd($review_users );
+
         return view('auth.detail', [ 'userPost_ids'=> $userPost_ids, 'SubCategorys' => $SubCategorys, ]);
     }
 
@@ -110,12 +107,10 @@ class UserController extends Controller
 
             ]);
 
-        return view('auth.detail',[ 'userPost_ids'=> $userPost_ids,  'SubCategorys' => $SubCategorys]);
+        return redirect()->route('user_id',['id' => $id]);
+
+        //return view('auth.detail',[ 'userPost_ids'=> $userPost_ids,  'SubCategorys' => $SubCategorys]);
     }
-
-
-
-
 
 
 }
