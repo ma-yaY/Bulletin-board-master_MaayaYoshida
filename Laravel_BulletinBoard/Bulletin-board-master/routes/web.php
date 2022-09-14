@@ -73,12 +73,16 @@ Route::post('/login', 'Auth\Login\LoginController@login');
   //投稿編集ー>投稿詳細画面に戻る
   Route::get('/posts/{id}/edit', 'User\UserController@edit');
   Route::post('/posts/Edit{id}', 'User\UserController@updatePost');
+
   //投稿削除
   Route::get('/post/{id}/delete', 'Auth\Posts\PostsController@delete');
 
   //コメント編集ーコメント詳細画面に戻る
   Route::get('/posts/{id}/CommentEdit', 'Auth\Posts\PostCommentsController@CommentEdit');
   Route::post('/posts/Comment_edit{id}', 'Auth\Posts\PostCommentsController@updateComment');
+
+
+
 
   //コメント削除
   Route::get('/post/{id}/CommentDelete', 'Auth\Posts\PostCommentsController@CommentDelete');
