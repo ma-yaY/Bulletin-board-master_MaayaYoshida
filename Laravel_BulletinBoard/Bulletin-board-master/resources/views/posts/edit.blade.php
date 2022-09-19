@@ -7,13 +7,15 @@
       {!! Form::open(['url' => 'posts/Edit'.$userPost_ids->id]) !!}
       <p class="SubCategory-form">サブカテゴリー</p>
 
-      <select class="editForm-select" id="SubFormSelect" name="Sub_category">
-      @foreach ($SubCategorys as $Sub_categories)
-      @foreach ($errors->all() as $error)
-        <li class="validate">{{ $error }}</li>
-      @endforeach
-      <option value="{{$Sub_categories->id}}">{{
-      $Sub_categories->postSubCategory->sub_category}}</option>
+      <select class="editForm-select" id="SubFormSelect" name="upSub_category">
+      @foreach ($SubCategories as $main_categories)
+        @foreach ($main_categories->PostSubCategory as $sub_category)
+          @foreach ($errors->all() as $error)
+            <li class="validate">{{ $error }}</li>
+          @endforeach
+          <option value="{{$sub_category->id}}">{{
+          $sub_category->sub_category}}</option>
+        @endforeach
       @endforeach
       </select>
 

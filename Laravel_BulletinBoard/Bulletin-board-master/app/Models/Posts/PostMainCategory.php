@@ -4,6 +4,8 @@ namespace App\Models\Posts;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Users\User;
+use App\Models\Posts\Post;
+use App\Models\Posts\PostFavorite;
 
 class PostMainCategory extends Model
 {
@@ -13,6 +15,12 @@ class PostMainCategory extends Model
     protected $fillable = [
         'main_category',
     ];
+
+    // UserModelsとのリレーション
+        public function user()
+    {
+        return $this->belongsTo('App\Models\Users\User');
+    }
 
     //newMain_categoryモデルとのリレーション
     public function newMain_category()

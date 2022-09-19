@@ -68,8 +68,6 @@ Route::post('/login', 'Auth\Login\LoginController@login');
   Route::post('/comment/create', 'Auth\Posts\PostCommentsController@comment');
   Route::get('/users/{id}/detail', 'Auth\Posts\PostCommentsController@CommentPosts');
 
-
-
   //投稿編集ー>投稿詳細画面に戻る
   Route::get('/posts/{id}/edit', 'User\UserController@edit');
   Route::post('/posts/Edit{id}', 'User\UserController@updatePost');
@@ -80,8 +78,6 @@ Route::post('/login', 'Auth\Login\LoginController@login');
   //コメント編集ーコメント詳細画面に戻る
   Route::get('/posts/{id}/CommentEdit', 'Auth\Posts\PostCommentsController@CommentEdit');
   Route::post('/posts/Comment_edit{id}', 'Auth\Posts\PostCommentsController@updateComment');
-
-
 
 
   //コメント削除

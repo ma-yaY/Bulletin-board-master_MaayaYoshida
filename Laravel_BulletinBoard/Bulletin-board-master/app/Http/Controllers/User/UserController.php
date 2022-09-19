@@ -74,10 +74,12 @@ class UserController extends Controller
         public function edit(Request $request, $id, Post $Post, PostMainCategory $PostMainCategory, PostSubCategory $PostSubCategory){
         $user = User::find($id);
         $userPost_ids = $Post->UserPosts($id)->get();
-        $SubCategorys = Post::with(['user','postSubCategory'])->get();
+        //$SubCategorys = Post::with(['user','postSubCategory'])->find();
+        $SubCategories = PostMainCategory::with('user','PostSubCategory')->get();
 
 
-        return view('posts.edit',[ 'userPost_ids'=> $userPost_ids, 'SubCategorys' => $SubCategorys]);
+
+        return view('posts.edit',[ 'userPost_ids'=> $userPost_ids, 'SubCategories' => $SubCategories]);
          }
 
 
@@ -86,19 +88,22 @@ class UserController extends Controller
     {
         $userPost_ids = $Post->UserPosts($id)->get();
         $SubCategorys = Post::with(['user','PostSubCategory','PostComment'])->find($id);
+        $post_sub_category_id = $request->input('upSub_category');
         $up_title = $request->input('upTitle');
         $up_post = $request->input('upPost');
         $delete_user_id = Auth::user()->id;
         $update_user_id = $delete_user_id;
         $event_at = Carbon::now();
         $validateData = $request -> validate([
-            //'' => ['required', 'not_in'],
+            'upSub_category' => ['required', 'max:100', 'string', 'min:1', ''],
             'upTitle' => ['required', 'max:100', 'string', 'min:1'],
             'upPost' => ['required', 'max:5000', 'string', 'min:1'],
         ]);
         \DB::table('posts')
             ->where('id', $id)
             ->update([
+                'user_id' => Auth::user()->id,
+                'post_sub_category_id' =>$post_sub_category_id,
                 'post' => $up_post,
                 'title' => $up_title,
                 'delete_user_id' => $delete_user_id,
@@ -106,10 +111,7 @@ class UserController extends Controller
                 'event_at' => $event_at
 
             ]);
-
         return redirect()->route('user_id',['id' => $id]);
-
-        //return view('auth.detail',[ 'userPost_ids'=> $userPost_ids,  'SubCategorys' => $SubCategorys]);
     }
 
 

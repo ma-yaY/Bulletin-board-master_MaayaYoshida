@@ -8,6 +8,7 @@ use App\Models\Posts\PostFavorite;
 use App\Models\Posts\PostComment;
 use App\Models\Users\User;
 
+
 class PostSubCategory extends Model
 {
     protected $table = 'post_sub_categories';
@@ -16,6 +17,13 @@ class PostSubCategory extends Model
         'post_main_category_id',
         'sub_category',
     ];
+
+
+    // UserModelsとのリレーション
+        public function user()
+    {
+        return $this->belongsTo('App\Models\Users\User');
+    }
 
     public function post()
     {
