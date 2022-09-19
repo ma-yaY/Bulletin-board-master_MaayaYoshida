@@ -17,7 +17,6 @@ class PostsController extends Controller
     //topの投稿表示
     public function index( Post $Post, PostMainCategory $PostMainCategory, PostSubCategory $PostSubCategory, ActionLog $ActionLog)
     {
-
         $auth = Auth::user();
         $timelines = Post::with(['user','postSubCategory','ActionLog','PostComment'])->get();
         $categories = PostMainCategory::with('PostSubCategory')->get();
@@ -40,13 +39,11 @@ class PostsController extends Controller
             return view('top',['timelines' => $timelines,'categories' => $categories]);
     }
 
-
     //ALLカテゴリ表示
     public function Category(PostMainCategory $PostMainCategory, PostSubCategory $PostSubCategory)
     {
         $auth = Auth::user();
         $user = auth()->user();
-
         $categories = PostMainCategory::with('PostSubCategory')->get();
 
         return view('category',['categories' => $categories, ]);
@@ -62,8 +59,6 @@ class PostsController extends Controller
         \DB::table('post_main_categories')->insert([
             'main_category' => $main_category
         ]);
-
-
         return redirect('/category');
     }
 
@@ -80,7 +75,6 @@ class PostsController extends Controller
         ]);
         return redirect('/category');
     }
-
 
        //サブカテゴリーを選択
         public function SubSelect(PostSubCategory $PostSubCategory) {
@@ -132,7 +126,6 @@ class PostsController extends Controller
         \DB::table('post_sub_categories')
             ->where('id', $id)
             ->delete();
-
         return redirect('category');
     }
 
@@ -144,9 +137,7 @@ class PostsController extends Controller
         \DB::table('posts')
            ->where('id', $id)
            ->delete();
-
         return redirect('top');
-
     }
 
 
