@@ -96,7 +96,7 @@ class UserController extends Controller
         $event_at = Carbon::now();
         $validateData = $request -> validate([
             'upSub_category' => ['required', 'max:100', 'string', 'min:1', ''],
-            'upTitle' => ['required', 'max:100', 'string', 'min:1'],
+            'upTitle' => ['required', 'max:100', 'string', 'min:1','unique:post_sub_categories,sub_category'],
             'upPost' => ['required', 'max:5000', 'string', 'min:1'],
         ]);
         \DB::table('posts')
