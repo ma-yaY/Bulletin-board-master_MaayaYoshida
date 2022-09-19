@@ -13,14 +13,15 @@
         {!! Form::submit('登録',['class' => 'main-r-button']) !!}
         {!! Form::close() !!}
         <!--カテゴリー選択-->
+        <div>
           {!! Form::open(['url' =>'category/createSub']) !!}
             {{csrf_field()}}
-            <div><label for="MainFormSelect" class="form-label">メインカテゴリー<label></div>
-            <select class="form-select" id="MainFormSelect" name="main_category" >
-              @foreach ($categories as $select)
-              <option value="{{$select->id}}">{{$select->main_category}}</option>
-              @endforeach
-            </select>
+              <label for="MainFormSelect" class="form-label">メインカテゴリー<label></div>
+              <div class="select-container"><select class="form-select" id="MainFormSelect" name="main_category" >
+                @foreach ($categories as $select)
+                <option value="{{$select->id}}">{{$select->main_category}}</option>
+                @endforeach
+              </select></div>
             <!--サブカテゴリー-->
               <div><label class="form-label">新規サブカテゴリー</label></div>
               @foreach ($errors->get('sub_category') as $error)

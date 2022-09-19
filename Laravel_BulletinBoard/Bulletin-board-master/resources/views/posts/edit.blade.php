@@ -10,7 +10,7 @@
         @foreach ($errors->all() as $error)
             <li class="validate">{{ $error }}</li>
           @endforeach
-        <select class="editForm-select" id="SubFormSelect" name="upSub_category" >
+        <div class="select-container"><select class="editForm-select" id="SubFormSelect" name="upSub_category" >
         <option value="" selected>{{$userPost_ids->postSubCategory->sub_category}}</option>
         @foreach ($SubCategories as $main_categories)
             @foreach ($main_categories->PostSubCategory as $sub_category)
@@ -18,7 +18,7 @@
               $sub_category->sub_category}}</option>
             @endforeach
         @endforeach
-      </select>
+      </select></div>
 
       <p class="title-form">タイトル</p>
       @foreach ($errors->get('upTitle') as $error)

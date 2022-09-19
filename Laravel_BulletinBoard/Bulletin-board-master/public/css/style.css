@@ -504,9 +504,9 @@ header {
   padding: 0 10px;
   margin: 20px 0px;
   border-width: 2px;
-
   background: #eee;
   /*検索ボックスの背景カラー*/
+  -webkit-appearance: none;
 }
 
 
@@ -606,6 +606,7 @@ header {
   margin: 20px 0px;
   border-width: 2px;
   background: #eee;
+  -webkit-appearance: none;
 }
 
 .form-select {
@@ -618,6 +619,28 @@ header {
   margin: 20px 0px;
   border-width: 2px;
   background: #eee;
+  -webkit-appearance: none;
+
+}
+
+
+
+/*.select-container::before {
+  border-bottom: 4.5px solid red;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  content: "";
+
+  right: 9px;
+  top: 10px;
+  width: 0;
+}*/
+
+.select-container::after {
+  content: "▼";
+  margin-left: -30px;
+  right: 9px;
+
 }
 
 .main-r-button,
@@ -645,18 +668,7 @@ header {
   font-weight: normal;
 }
 
-/*.form-select::after {
-  height: 30px;
-  line-height: 30px;
-  font-size: 16px;
-  position: absolute;
-  top: 0;
-  right: 10px;
-  content: "\f0d7";
 
-  font-family: "fa-solid fa-caret-down";
-
-}*/
 
 
 .triangle {

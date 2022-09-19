@@ -9,11 +9,11 @@
       @foreach ($errors->get('Sub_category') as $error)
           <li class="validate">{{ $error }}</li>
           @endforeach
-        <select class="SubForm-select" id="SubFormSelect" name="Sub_category">
+        <div class="select-container"><select class="SubForm-select" id="SubFormSelect" name="Sub_category">
             @foreach ($Sub_categories as $select)
                 <option value="{{$select->id}}">{{$select->sub_category}}</option>
             @endforeach
-        </select>
+        </select></div>
 
           <div class ="label-title">{!! Form::label('title', 'タイトル') !!}</div>
           @foreach ($errors->get('title') as $error)

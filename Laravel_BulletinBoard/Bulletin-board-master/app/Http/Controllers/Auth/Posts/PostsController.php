@@ -145,7 +145,7 @@ class PostsController extends Controller
            ->where('id', $id)
            ->delete();
 
-        return view('top',['timelines' => $timelines,'categories' => $categories,]);
+        return redirect('top');
 
     }
 
