@@ -15,6 +15,7 @@
     /*return view('welcome');
 });*/
 
+//認証機能
 Auth::routes([
    'register' => false
 ]);
