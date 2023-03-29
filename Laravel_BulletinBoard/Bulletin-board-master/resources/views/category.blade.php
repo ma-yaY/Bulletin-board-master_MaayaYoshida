@@ -22,7 +22,7 @@
                 <option value="{{$select->id}}">{{$select->main_category}}</option>
                 @endforeach
               </select></div>
-            <!--サブカテゴリー-->
+            <!--サブカテゴリー追加-->
               <div><label class="form-label">新規サブカテゴリー</label></div>
               @foreach ($errors->get('sub_category') as $error)
               <li class="Category-validate">{{ $error }}</li>
